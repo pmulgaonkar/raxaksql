@@ -1,14 +1,14 @@
-select add_profile_data ('[rpm-based Linux] PCI-DSS Compliance' ,'Profile Customized by CloudRaxak' ,'Linux-based OS','' ,'2015-05-26' ,'Profile by Cloud Raxak') from dual;
+select add_profile_data ('[rpm-based Linux] PCI-DSS Compliance (Subset)' ,'Profile Customized by CloudRaxak' ,'Linux-based OS','' ,'2015-05-26' ,'Profile by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38438','SV-50238r2_rule','default','low','Auditing must be enabled at boot by setting a kernel parameter.','Each process on the system carries an "auditable" flag which indicates whether its activities can be audited. Although "auditd" takes care of enabling this for all processes which launch after it does, adding the kernel argument ensures it is set for every process during boot.','F-43382r2_fix','To ensure all processes can be audited, even those which start prior to the audit daemon, add the argument "audit=1" to the kernel line in "/etc/grub.conf", in the manner below:
 
 kernel /vmlinuz-version ro vga=ext root=/dev/VolGroup00/LogVol00 rhgb quiet audit=1
 
-UEFI systems may prepend "/boot" to the "/vmlinuz-version" argument. ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000525','C-45992r2_chk','Inspect the kernel boot arguments (which follow the word "kernel") in "/etc/grub.conf". If they include "audit=1", then auditing is enabled at boot time. 
+UEFI systems may prepend "/boot" to the "/vmlinuz-version" argument. ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000525','C-45992r2_chk','Inspect the kernel boot arguments (which follow the word "kernel") in "/etc/grub.conf". If they include "audit=1", then auditing is enabled at boot time. 
 
 If auditing is not enabled at boot time, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38443','SV-50243r1_rule','default','medium','The /etc/gshadow file must be owned by root.','The "/etc/gshadow" file contains group password hashes. Protection of this file is critical for system security.','F-43388r1_fix','Run the below command to change the ownership of "/etc/gshadow" to root:: 
 
- chown root /etc/gshadow' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000036','C-45998r1_chk','To check the ownership of "/etc/gshadow", run the command: 
+ chown root /etc/gshadow' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000036','C-45998r1_chk','To check the ownership of "/etc/gshadow", run the command: 
 
 $ ls -l /etc/gshadow
 
@@ -19,7 +19,7 @@ If its properly configured, the output should be displayed as shown below:
 If it does not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38449','SV-50249r1_rule','default','medium','The /etc/gshadow file must have mode 0000.','The /etc/gshadow file contains group password hashes. Protection of this file is critical for system security.','F-43394r1_fix','To properly set the permissions of "/etc/gshadow", run the command: 
 
- chmod 0000 /etc/gshadow' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000038','C-46004r1_chk','To check the permissions of "/etc/gshadow", run the command: 
+ chmod 0000 /etc/gshadow' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000038','C-46004r1_chk','To check the permissions of "/etc/gshadow", run the command: 
 
 $ ls -l /etc/gshadow
 
@@ -27,7 +27,7 @@ If properly configured, the output should indicate the following permissions: "-
 If it does not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38450','SV-50250r1_rule','default','medium','The /etc/passwd file must be owned by root.','The "/etc/passwd" file contains information about the users that are configured on the system. Protection of this file is critical for system security.','F-43395r1_fix','Run the below command to change the ownership of "/etc/passwd" to root:: 
 
- chown root /etc/passwd' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000039','C-46005r1_chk','To check the ownership of "/etc/passwd", run the command: 
+ chown root /etc/passwd' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000039','C-46005r1_chk','To check the ownership of "/etc/passwd", run the command: 
 
 $ ls -l /etc/passwd
 
@@ -38,7 +38,7 @@ If its properly configured, the output should be displayed as shown below:
 If it does not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38457','SV-50257r1_rule','default','medium','The /etc/passwd file must have mode 0644 or less permissive.','If the "/etc/passwd" file is writable by a group-owner or the world the risk of its compromise is increased. The file contains the list of accounts on the system and associated information, and protection of this file is critical for system security.','F-43397r1_fix','To properly set the permissions of "/etc/passwd", run the command: 
 
- chmod 0644 /etc/passwd' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000041','C-46007r1_chk','To check the permissions of "/etc/passwd", run the command: 
+ chmod 0644 /etc/passwd' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000041','C-46007r1_chk','To check the permissions of "/etc/passwd", run the command: 
 
 $ ls -l /etc/passwd
 
@@ -46,7 +46,7 @@ If properly configured, the output should indicate the following permissions: "-
 If it does not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38459','SV-50259r1_rule','default','medium','The /etc/group file must be group-owned by root.','The "/etc/group" file contains information regarding groups that are configured on the system. Protection of this file is important for system security.','F-43404r1_fix','To change the group ownership of "/etc/group" to root, run the command: 
 
- chgrp root /etc/group' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000043','C-46014r1_chk','To check the group ownership of "/etc/group", run the command: 
+ chgrp root /etc/group' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000043','C-46014r1_chk','To check the group ownership of "/etc/group", run the command: 
 
 $ ls -l /etc/group
 
@@ -54,7 +54,7 @@ If properly configured, the output should be: File "/etc/group" is group-owned b
 If it does not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38461','SV-50261r1_rule','default','medium','The /etc/group file must have mode 0644 or less permissive.','The "/etc/group" file contains information regarding groups that are configured on the system. Protection of this file is important for system security.','F-43406r1_fix','To properly set the permissions of "/etc/group", run the command: 
 
- chmod 644 /etc/group' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000044','C-46015r1_chk','To check the permissions of "/etc/group", run the command: 
+ chmod 644 /etc/group' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000044','C-46015r1_chk','To check the permissions of "/etc/group", run the command: 
 
 $ ls -l /etc/group
 
@@ -65,7 +65,7 @@ select add_rule_data ('default','V-38475','SV-50275r1_rule','default','medium','
 While it does not negate the password length requirement, it is preferable to migrate from a password-based authentication scheme to a stronger one based on PKI (public key infrastructure).','F-43419r1_fix','To specify password length requirements for new accounts, edit in the file "/etc/pam.d/system-auth" and update the minimum password length (minlen) parameter in the below line e.g:
 password requisite pam_cracklib.so minlen=14 ucredit=0 lcredit=0 ocredit=0 dcredit=0
 
-INFO: minlen should be >= 14 and the credits limit should be less or equal to 0 for the validation criteria in the rule.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000050','C-46029r1_chk','To check the minimum password length and to check the other settings required for the password authentication, run the command:
+INFO: minlen should be >= 14 and the credits limit should be less or equal to 0 for the validation criteria in the rule.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000050','C-46029r1_chk','To check the minimum password length and to check the other settings required for the password authentication, run the command:
 
 $ grep -v "^" /etc/pam.d/system-auth | grep -w pam_cracklib.so | grep -w password
 For Redhat/Centos Version >=7 the pam_pwquality.so module is used.
@@ -73,7 +73,7 @@ For Redhat/Centos Version >=7 the pam_pwquality.so module is used.
 If minlen is not set, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38476','SV-50276r3_rule','default','high','Vendor-provided cryptographic certificates must be installed to verify the integrity of system software.','The Red Hat GPG keys are necessary to cryptographically verify packages are from Red Hat. ','F-43421r3_fix','To ensure the system can cryptographically verify base software packages come from Red Hat (and to connect to the Red Hat Network to receive them), the Red Hat GPG keys must be installed properly. To install the Red Hat GPG keys, run:
 
- rpm --import /etc/pki/rpm-gpg/*' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000008','C-46031r3_chk','To ensure that the GPG keys are installed, run:
+ rpm --import /etc/pki/rpm-gpg/*' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000008','C-46031r3_chk','To ensure that the GPG keys are installed, run:
 
 $ rpm -q gpg-pubkey
 
@@ -91,7 +91,7 @@ A value of 1 day is considered sufficient for many environments. The DoD require
 
 Run the following command to bring recent changes made in /etc/login.defs into effect for all existing users also.
 
-$ pwunconv; pwconv' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000051','C-46032r1_chk','To check the minimum password age, run the command: 
+$ pwunconv; pwconv' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000051','C-46032r1_chk','To check the minimum password age, run the command: 
 
 $ grep PASS_MIN_DAYS /etc/login.defs
 
@@ -100,7 +100,7 @@ If it is not set to the required value, this is a finding.','Customized rule by 
 select add_rule_data ('default','V-38478','SV-50278r2_rule','default','low','The Red Hat Network Service (rhnsd) service must not be running, unless using RHN or an RHN Satellite.','Although systems management and patching is extremely important to system security, management by a system outside the enterprise enclave is not desirable for some environments. However, if the system is being managed by RHN or RHN Satellite Server the "rhnsd" daemon can remain on.','F-43423r2_fix','The Red Hat Network service automatically queries Red Hat Network servers to determine whether there are any actions that should be executed, such as package updates. This only occurs if the system was registered to an RHN server or satellite and managed as such. The "rhnsd" service can be disabled with the following commands: 
 
  chkconfig --level 0123456 rhnsd off
- service rhnsd stop' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000009','C-46033r2_chk','Run the following command to verify "rhnsd" is disabled through current runtime configuration: 
+ service rhnsd stop' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000009','C-46033r2_chk','Run the following command to verify "rhnsd" is disabled through current runtime configuration: 
  service rhnsd status
 
 If the service is disabled the command will return the following output: 
@@ -127,7 +127,7 @@ The DoD requirement is 60.
 
 Run the following command to bring recent changes made in /etc/login.defs into effect for all existing users also.
 
-$ pwunconv; pwconv' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000053','C-46034r1_chk','To check the maximum password age, run the command: 
+$ pwunconv; pwconv' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000053','C-46034r1_chk','To check the maximum password age, run the command: 
 
 $ grep PASS_MAX_DAYS /etc/login.defs
 
@@ -141,14 +141,14 @@ The DoD requirement is 7.
 
 Run the following command to bring recent changes made in /etc/login.defs into effect for all existing users also.
 
-$ pwunconv; pwconv' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000054','C-46035r1_chk','To check the password warning age, run the command: 
+$ pwunconv; pwconv' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000054','C-46035r1_chk','To check the password warning age, run the command: 
 
 $ grep PASS_WARN_AGE /etc/login.defs
 
 The DoD requirement is 7. 
 If it is not set to the required value, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38482','SV-50282r1_rule','default','low','The system must require passwords to contain at least one numeric character.','Requiring digits makes password guessing attacks more difficult by ensuring a larger search space.','F-43427r1_fix','The pam_cracklib module"s "dcredit" parameter controls requirements for usage of digits in a password. When set to a negative number, any password will be required to contain that many digits. When set to a positive number, pam_cracklib will grant +1 additional length credit for each digit. 
-Add "dcredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of a digit in password.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000056','C-46037r1_chk','To check how many digits are required in a password, run the following command: 
+Add "dcredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of a digit in password.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000056','C-46037r1_chk','To check how many digits are required in a password, run the following command: 
 
 $ grep -w pam_cracklib /etc/pam.d/system-auth | grep -w requisite | grep -v "^"
 
@@ -156,7 +156,7 @@ The "dcredit" parameter (as a negative number) will indicate how many digits are
 If dcredit is not found or not set to the required value, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38489','SV-50290r1_rule','default','medium','A file integrity tool aide must be installed.','The AIDE package must be installed if it is to be available for integrity checking.','F-43436r1_fix','Install the AIDE package with the command: 
 
- yum install aide' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000016','C-46046r1_chk','Run the following command to determine if the "aide" package is installed: 
+ yum install aide' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000016','C-46046r1_chk','Run the following command to determine if the "aide" package is installed: 
 
  rpm -q aide
 
@@ -169,7 +169,7 @@ vc/2
 vc/3
 vc/4
 
-Note:  Virtual console entries are not limited to those listed above.  Any lines starting with "vc/" followed by numerals should be removed.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000027','C-46049r1_chk','To check for virtual console entries which permit root login, run the following command: 
+Note:  Virtual console entries are not limited to those listed above.  Any lines starting with "vc/" followed by numerals should be removed.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000027','C-46049r1_chk','To check for virtual console entries which permit root login, run the following command: 
 
  grep "^vc/[]" /etc/securetty
 
@@ -179,14 +179,14 @@ select add_rule_data ('default','V-38496','SV-50297r3_rule','default','medium','
 
 Disable logon access to these accounts with the command: 
 
- passwd -l []' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000029','C-46052r2_chk','To obtain the system accounts which is unlocked run the following command: 
+ passwd -l []' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000029','C-46052r2_chk','To obtain the system accounts which is unlocked run the following command: 
 
 $ passwd -S < username > | grep -v LK
 
 Identify the operating system accounts from this listing. These will primarily be the accounts with UID numbers less than 500, other than root. 
 
 If get any output this is finding.','Customized rule by Cloud Raxak') from dual;
-select add_rule_data ('default','V-38500','SV-50301r2_rule','default','medium','The root account must be the only account having a UID of 0.','An account has root authority if it has a UID of 0. Multiple accounts with a UID of 0 afford more opportunity for potential intruders to guess a password for a privileged account. Proper configuration of sudo is recommended to afford multiple system administrators access to root privileges in an accountable manner.','F-43447r1_fix','If any account other than root has a UID of 0, this misconfiguration should be investigated and the accounts other than root should be removed or have their UID changed.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000032','C-46057r2_chk','To list all password file entries for accounts with UID 0, run the following command: 
+select add_rule_data ('default','V-38500','SV-50301r2_rule','default','medium','The root account must be the only account having a UID of 0.','An account has root authority if it has a UID of 0. Multiple accounts with a UID of 0 afford more opportunity for potential intruders to guess a password for a privileged account. Proper configuration of sudo is recommended to afford multiple system administrators access to root privileges in an accountable manner.','F-43447r1_fix','If any account other than root has a UID of 0, this misconfiguration should be investigated and the accounts other than root should be removed or have their UID changed.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000032','C-46057r2_chk','To list all password file entries for accounts with UID 0, run the following command: 
 
  awk -F: "($3 == "0") {print}" /etc/passwd | grep -v "^"
 
@@ -194,7 +194,7 @@ This should print only one line, for the user root.
 If any account other than root has a UID of 0, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38502','SV-50303r1_rule','default','medium','The /etc/shadow file must be owned by root.','The "/etc/shadow" file contains the list of local system accounts and stores password hashes. Protection of this file is critical for system security. Failure to give ownership of this file to root provides the designated owner with access to sensitive information which could weaken the system security posture.','F-43449r1_fix','Run the below command to change the ownership of "/etc/shawdow" to root:: 
 
- chown root /etc/shadow' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000033','C-46059r1_chk','To check the ownership of "/etc/shadow", run the command: 
+ chown root /etc/shadow' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000033','C-46059r1_chk','To check the ownership of "/etc/shadow", run the command: 
 
 $ ls -l /etc/shadow
 
@@ -205,7 +205,7 @@ If its properly configured, the output should be displayed as shown below:
 If it does not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38504','SV-50305r1_rule','default','medium','The /etc/shadow file must have mode 0000.','The "/etc/shadow" file contains the list of local system accounts and stores password hashes. Protection of this file is critical for system security. Failure to give ownership of this file to root provides the designated owner with access to sensitive information which could weaken the system security posture.','F-43451r1_fix','To properly set the permissions of "/etc/shadow", run the command: 
 
- chmod 0000 /etc/shadow' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000035','C-46061r2_chk','To check the permissions of "/etc/shadow", run the command: 
+ chmod 0000 /etc/shadow' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000035','C-46061r2_chk','To check the permissions of "/etc/shadow", run the command: 
 
 $ ls -l /etc/shadow
 
@@ -224,7 +224,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000082','C-46068r3_chk','Check if IP forwarding for IPv4 is enabled on the system, by querying the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000082','C-46068r3_chk','Check if IP forwarding for IPv4 is enabled on the system, by querying the following command:
 
  sysctl net.ipv4.conf.all.forwarding 
 
@@ -257,7 +257,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000088','C-46086r3_chk','Check if the system is configured to log Martian packets, by querying the following command:
+or restart sysctl' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000088','C-46086r3_chk','Check if the system is configured to log Martian packets, by querying the following command:
 
  sysctl net.ipv4.conf 2>/dev/null | grep "log_martians = 0"
 
@@ -290,7 +290,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000089','C-46088r2_chk','Check if system is configured to reject IPv4 source-routed packets by default, by running the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000089','C-46088r2_chk','Check if system is configured to reject IPv4 source-routed packets by default, by running the following command:
 
  sysctl net.ipv4.conf.default.accept_source_route
 
@@ -311,7 +311,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000090','C-46089r2_chk','Check if the system is configured to reject ICMPv4 secure redirect packets by default, by querying the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000090','C-46089r2_chk','Check if the system is configured to reject ICMPv4 secure redirect packets by default, by querying the following command:
 
  sysctl net.ipv4.conf.default.secure_redirects
 
@@ -332,7 +332,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000091','C-46091r2_chk','Check if the system is configured to ignore ICMPv4 redirect messages by default, by querying the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000091','C-46091r2_chk','Check if the system is configured to ignore ICMPv4 redirect messages by default, by querying the following command:
 
  sysctl net.ipv4.conf.default.accept_redirects 
 
@@ -353,7 +353,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000092','C-46093r2_chk','The status of the "net.ipv4.icmp_echo_ignore_broadcasts" kernel parameter can be queried by running the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000092','C-46093r2_chk','The status of the "net.ipv4.icmp_echo_ignore_broadcasts" kernel parameter can be queried by running the following command:
 
  sysctl net.ipv4.icmp_echo_ignore_broadcasts
 
@@ -374,7 +374,7 @@ To make this configuration persistent, run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000093','C-46095r2_chk','Check if the system is configured to ignore ICMPv4 bogus error responses, by querying the following command: 
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000093','C-46095r2_chk','Check if the system is configured to ignore ICMPv4 bogus error responses, by querying the following command: 
 
  sysctl -a 2>/dev/null | grep "net.ipv4.icmp_ignore_bogus_error_responses = 1"
 
@@ -395,7 +395,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000095','C-46097r2_chk','Check if the system is configured to use TCP syncookies when experiencing a TCP SYN flood, by querying the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000095','C-46097r2_chk','Check if the system is configured to use TCP syncookies when experiencing a TCP SYN flood, by querying the following command:
 
  sysctl net.ipv4.tcp_syncookies
 
@@ -416,7 +416,7 @@ To make this configuration persistent, run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000096','C-46100r2_chk','Check if system is configured to use the reverse-path filter for IPv4 network traffic on all interfaces enabled
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000096','C-46100r2_chk','Check if system is configured to use the reverse-path filter for IPv4 network traffic on all interfaces enabled
 
 on the system, by querying the following command:
 
@@ -428,21 +428,21 @@ Verify the value of net.ipv4.conf.all.rp_filter in "/etc/sysctl.conf".
 
 If it"s not set to "1" in "/etc/sysctl.conf", this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38569','SV-50370r1_rule','default','low','The system must require passwords to contain at least one uppercase alphabetic character.','Requiring a minimum number of uppercase characters makes password guessing attacks more difficult by ensuring a larger search space.','F-43517r1_fix','The pam_cracklib module"s "ucredit=" parameter controls requirements for usage of uppercase letters in a password. When set to a negative number, any password will be required to contain that many uppercase characters. When set to a positive number, pam_cracklib will grant +1 additional length credit for each uppercase character. 
-Add "ucredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of an uppercase character in a password.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000057','C-46127r1_chk','To check how many uppercase characters are required in a password, run the following command: 
+Add "ucredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of an uppercase character in a password.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000057','C-46127r1_chk','To check how many uppercase characters are required in a password, run the following command: 
 
 $ grep -w pam_cracklib /etc/pam.d/system-auth | grep -w requisite | grep -v "^"
 
 The "ucredit" parameter (as a negative number) will indicate how many uppercase characters are required. The requirement is at least one uppercase character in a password. This would appear as "ucredit=-1". 
 If ucredit is not found or not set to the required value, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38570','SV-50371r1_rule','default','low','The system must require passwords to contain at least one special character.','Requiring a minimum number of special characters makes password guessing attacks more difficult by ensuring a larger search space.','F-43518r1_fix','The pam_cracklib module"s "ocredit=" parameter controls requirements for usage of special (or "other") characters in a password. When set to a negative number, any password will be required to contain that many special characters. When set to a positive number, pam_cracklib will grant +1 additional length credit for each special character. 
-Add "ocredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of a special character in passwords.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000058','C-46128r1_chk','To check how many special characters are required in a password, run the following command: 
+Add "ocredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of a special character in passwords.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000058','C-46128r1_chk','To check how many special characters are required in a password, run the following command: 
 
 $ grep -w pam_cracklib /etc/pam.d/system-auth | grep -w requisite | grep -v "^"
 
 The "ocredit" parameter (as a negative number) will indicate how many special characters are required. The requirement is at least one special character in a password. This would appear as "ocredit=-1"
 If ocredit is not found or not set to the required value, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38571','SV-50372r1_rule','default','low','The system must require passwords to contain at least one lowercase alphabetic character.','Requiring a minimum number of lowercase characters makes password guessing attacks more difficult by ensuring a larger search space.','F-43519r1_fix','The pam_cracklib module"s "lcredit=" parameter controls requirements for usage of lowercase letters in a password. When set to a negative number, any password will be required to contain that many lowercase characters. When set to a positive number, pam_cracklib will grant +1 additional length credit for each lowercase character. 
-Add "lcredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of a lowercase character in a password.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000059','C-46129r1_chk','To check how many lowercase characters are required in a password, run the following command: 
+Add "lcredit=-1" after pam_cracklib.so in /etc/pam.d/system-auth file to require use of a lowercase character in a password.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000059','C-46129r1_chk','To check how many lowercase characters are required in a password, run the following command: 
 
 $ grep -w pam_cracklib /etc/pam.d/system-auth | grep -w requisite | grep -v "^"
 
@@ -450,7 +450,7 @@ The "lcredit" parameter (as a negative number) will indicate how many special ch
 If lcredit is not found or not set to the required value, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38579','SV-50380r1_rule','default','medium','The system boot loader configuration file(s) must be owned by root.','Only root should be able to modify important boot parameters.','F-43527r1_fix','The file "/etc/grub.conf" should be owned by the "root" user to prevent destruction or modification of the file. To change the owner of "/etc/grub.conf" to root, run the command: 
 
- chown root /etc/grub.conf' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000065','C-46137r1_chk','To check the ownership of "/etc/grub.conf", run the command: 
+ chown root /etc/grub.conf' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000065','C-46137r1_chk','To check the ownership of "/etc/grub.conf", run the command: 
 
 $ ls -lL /etc/grub.conf
 
@@ -463,7 +463,7 @@ select add_rule_data ('default','V-38583','SV-50384r2_rule','default','medium','
 
  chmod 600 /boot/grub/grub.conf
 
-Boot partitions based on VFAT, NTFS, or other non-standard configurations may require alternative measures.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000067','C-46141r2_chk','To check the permissions of /etc/grub.conf, run the command:
+Boot partitions based on VFAT, NTFS, or other non-standard configurations may require alternative measures.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000067','C-46141r2_chk','To check the permissions of /etc/grub.conf, run the command:
 
 $ sudo ls -lL /etc/grub.conf
 
@@ -471,7 +471,7 @@ If properly configured, the output should indicate the following permissions: "-
 If it does not, this is a finding. ','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38584','SV-50385r1_rule','default','low','The xinetd service must be uninstalled if no network services utilizing it are enabled.','Removing the "xinetd" package decreases the risk of the xinetd service"s accidental (or intentional) activation.','F-43532r1_fix','The "xinetd" package can be uninstalled with the following command: 
 
- rpm -e xinetd --nodeps' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000204','C-46142r1_chk','If network services are using the xinetd service, this is not applicable.
+ rpm -e xinetd --nodeps' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000204','C-46142r1_chk','If network services are using the xinetd service, this is not applicable.
 
 Run the following command to determine if the "xinetd" package is installed: 
 
@@ -486,7 +486,7 @@ select add_rule_data ('default','V-38587','SV-50388r1_rule','default','high','Th
 
 Mitigation:  If the telnet-server package is configured to only allow encrypted sessions, such as with Kerberos or the use of encrypted network tunnels, the risk of exposing sensitive information is mitigated.','F-43535r1_fix','The "telnet-server" package can be uninstalled with the following command: 
 
- rpm -e telnet-server --nodeps' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000206','C-46144r1_chk','Run the following command to determine if the "telnet-server" package is installed: 
+ rpm -e telnet-server --nodeps' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000206','C-46144r1_chk','Run the following command to determine if the "telnet-server" package is installed: 
 
  rpm -q telnet-server
 
@@ -494,7 +494,7 @@ Mitigation:  If the telnet-server package is configured to only allow encrypted 
 If the package is installed, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38591','SV-50392r1_rule','default','high','The rsh-server package must not be installed.','The "rsh-server" package provides several obsolete and insecure network services. Removing it decreases the risk of those services" accidental (or intentional) activation.','F-43539r1_fix','The "rsh-server" package can be uninstalled with the following command: 
 
- rpm -e rsh-server --nodeps' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000213','C-46149r1_chk','Run the following command to determine if the "rsh-server" package is installed: 
+ rpm -e rsh-server --nodeps' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000213','C-46149r1_chk','Run the following command to determine if the "rsh-server" package is installed: 
 
  rpm -q rsh-server
 
@@ -514,7 +514,7 @@ Add the following line immediately before the "pam_unix.so" statement in the "AC
 
 account required pam_faillock.so
 
-Note that any updates made to "/etc/pam.d/system-auth" and "/etc/pam.d/password-auth" may be overwritten by the "authconfig" program.  The "authconfig" program should not be used.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000356','C-46151r5_chk','To ensure the failed password attempt policy is configured correctly, run the following command: 
+Note that any updates made to "/etc/pam.d/system-auth" and "/etc/pam.d/password-auth" may be overwritten by the "authconfig" program.  The "authconfig" program should not be used.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000356','C-46151r5_chk','To ensure the failed password attempt policy is configured correctly, run the following command: 
 
  grep -w pam_faillock /etc/pam.d/system-auth /etc/pam.d/password-auth | grep -v "^"
 
@@ -539,7 +539,7 @@ Add the line "Banner /etc/issue" in /etc/ssh/sshd_config.
 
 Restart ssh service to get changes in effect:
 
-$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000073','C-46150r1_chk','To check if the system login banner is compliant, run the following command: 
+$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000073','C-46150r1_chk','To check if the system login banner is compliant, run the following command: 
 
 $ cat /etc/issue
 
@@ -562,7 +562,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000078','C-46153r2_chk','Check if the system is configured to implement virtual address space randomization, by querying the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000078','C-46153r2_chk','Check if the system is configured to implement virtual address space randomization, by querying the following command:
 
  sysctl kernel.randomize_va_space
 
@@ -583,7 +583,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000079','C-46155r3_chk','Check if the system is configured to limit the ability of processes to have simultaneous write and execute 
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000079','C-46155r3_chk','Check if the system is configured to limit the ability of processes to have simultaneous write and execute 
 
 access to memory, by querying the following command: 
 
@@ -606,7 +606,7 @@ ftpd_banner="custom banner text"
 
 Restart the vsftpd daemon.
 
- service vsftpd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000348','C-46174r1_chk','If vstfpd service is not installed on the system, this rule is not applicable.
+ service vsftpd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000348','C-46174r1_chk','If vstfpd service is not installed on the system, this rule is not applicable.
 To verify this configuration, run the following command: 
 
  grep -w banner_file /etc/vsftpd/vsftpd.conf | grep -v "^"
@@ -638,7 +638,7 @@ and run following command
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000081','C-46159r2_chk','Check if system sends ICMPv4 redirects from any interface, by querying the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000081','C-46159r2_chk','Check if system sends ICMPv4 redirects from any interface, by querying the following command:
 
  sysctl net.ipv4.conf.all.send_redirects
 
@@ -649,7 +649,7 @@ Verify the value of net.ipv4.conf.all.send_redirects in "/etc/sysctl.conf".
 If is not set to "0" in "/etc/sysctl.conf", this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38603','SV-50404r1_rule','default','medium','The ypserv package must not be installed.','Removing the "ypserv" package decreases the risk of the accidental (or intentional) activation of NIS or NIS+ services.','F-43551r1_fix','The "ypserv" package can be uninstalled with the following command: 
 
- rpm -e ypserv --nodeps' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000220','C-46161r1_chk','Run the following command to determine if the "ypserv" package is installed: 
+ rpm -e ypserv --nodeps' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000220','C-46161r1_chk','Run the following command to determine if the "ypserv" package is installed: 
 
  rpm -q ypserv
 
@@ -658,7 +658,7 @@ If the package is installed, this is a finding.','Customized rule by Cloud Raxak
 select add_rule_data ('default','V-38604','SV-50405r2_rule','default','medium','The ypbind service must not be running.','Disabling the "ypbind" service ensures the system is not acting as a client in a NIS or NIS+ domain.','F-43552r2_fix','The "ypbind" service, which allows the system to act as a client in a NIS or NIS+ domain, should be disabled. The "ypbind" service can be disabled with the following commands: 
 
  chkconfig ypbind off
- service ypbind stop' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000221','C-46162r2_chk','Run the following command to verify "ypbind" is disabled through current runtime configuration: 
+ service ypbind stop' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000221','C-46162r2_chk','Run the following command to verify "ypbind" is disabled through current runtime configuration: 
 
  service ypbind status
 
@@ -680,7 +680,7 @@ If the service is running, this is a finding.','Customized rule by Cloud Raxak')
 select add_rule_data ('default','V-38605','SV-50406r2_rule','default','medium','The cron service must be running.','Due to its usage for maintenance and security-supporting tasks, enabling the cron daemon is essential.','F-43553r2_fix','The "crond" service is used to execute commands at preconfigured times. It is required by almost all systems to perform necessary maintenance tasks, such as notifying root of system activity. The "crond" service can be enabled with the following commands: 
 
  chkconfig crond on
- service crond start' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000224','C-46163r1_chk','Run the following command to determine the current status of the "crond" service: 
+ service crond start' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000224','C-46163r1_chk','Run the following command to determine the current status of the "crond" service: 
 
  service crond status
 
@@ -692,7 +692,7 @@ crond is running...
 If the service is not running, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38606','SV-50407r2_rule','default','medium','The tftp-server package must not be installed unless required.','Removing the "tftp-server" package decreases the risk of the accidental (or intentional) activation of tftp services.','F-43554r1_fix','The "tftp-server" package can be removed with the following command: 
 
- rpm -e tftp-server --nodeps' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000222','C-46164r1_chk','Run the following command to determine if the "tftp-server" package is installed: 
+ rpm -e tftp-server --nodeps' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000222','C-46164r1_chk','Run the following command to determine if the "tftp-server" package is installed: 
 
  rpm -q tftp-server
 
@@ -704,7 +704,7 @@ Protocol 2
 
 Restart ssh service to get changes in effect:
 
-$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000227','C-46165r1_chk','To check which SSH protocol version is allowed, run the following command: 
+$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000227','C-46165r1_chk','To check which SSH protocol version is allowed, run the following command: 
 
  grep -iw Protocol /etc/ssh/sshd_config  | grep -v "^"
 
@@ -718,7 +718,7 @@ select add_rule_data ('default','V-38610','SV-50411r1_rule','default','low','The
 ClientAliveCountMax 0
 Restart ssh service to get changes in effect:
 
-$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000231','C-46168r1_chk','To ensure the SSH idle timeout will occur when the "ClientAliveCountMax" is set, run the following command: 
+$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000231','C-46168r1_chk','To ensure the SSH idle timeout will occur when the "ClientAliveCountMax" is set, run the following command: 
 
  grep -iw ClientAliveCountMax /etc/ssh/sshd_config  | grep -v "^"
 
@@ -740,7 +740,7 @@ If a shorter timeout has already been set for the login shell, that value will p
 
 Restart ssh service to get changes in effect:
 
-$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000230','C-46167r1_chk','Run the following command to see what the timeout interval is: 
+$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000230','C-46167r1_chk','Run the following command to see what the timeout interval is: 
 
  grep -iw ClientAliveInterval /etc/ssh/sshd_config  | grep -v "^"
 
@@ -752,7 +752,7 @@ ClientAliveInterval 900
 If it is not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38609','SV-50410r2_rule','default','medium','The TFTP service must not be running.','Disabling the "tftp" service ensures the system is not acting as a tftp server, which does not provide encryption or authentication.','F-43557r4_fix','The "tftp" service should be disabled. The "tftp" service can be disabled with the following command: 
 
- chkconfig tftp off' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000223','C-46166r2_chk','To check that the "tftp" service is disabled in system boot configuration, run the following command:
+ chkconfig tftp off' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000223','C-46166r2_chk','To check that the "tftp" service is disabled in system boot configuration, run the following command:
 
  chkconfig "tftp" --list
 
@@ -769,7 +769,7 @@ select add_rule_data ('default','V-38611','SV-50412r1_rule','default','medium','
 
 To ensure this behavior is disabled, add or correct the following line in "/etc/ssh/sshd_config": 
 
-IgnoreRhosts yes' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000234','C-46169r1_chk','To determine how the SSH daemon"s "IgnoreRhosts" option is set, run the following command: 
+IgnoreRhosts yes' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000234','C-46169r1_chk','To determine how the SSH daemon"s "IgnoreRhosts" option is set, run the following command: 
 
  grep -i IgnoreRhosts /etc/ssh/sshd_config
 
@@ -784,7 +784,7 @@ HostbasedAuthentication no
 Restart ssh service to get changes in effect:
 
 $ service sshd restart
-' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000236','C-46170r1_chk','To determine how the SSH daemon"s "HostbasedAuthentication" option is set, run the following command: 
+' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000236','C-46170r1_chk','To determine how the SSH daemon"s "HostbasedAuthentication" option is set, run the following command: 
 
  grep -iw HostbasedAuthentication /etc/ssh/sshd_config | grep -v "^
 
@@ -798,7 +798,7 @@ Any accounts with empty passwords should be disabled immediately, and PAM config
 
 Restart ssh service to get changes in effect:
 
-$ service ssh restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000239','C-46172r1_chk','To determine how the SSH daemon"s "PermitEmptyPasswords" option is set, run the following command: 
+$ service ssh restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000239','C-46172r1_chk','To determine how the SSH daemon"s "PermitEmptyPasswords" option is set, run the following command: 
 
  grep -iw PermitEmptyPasswords /etc/ssh/sshd_config  | grep -v "^"
 
@@ -812,7 +812,7 @@ Another section contains information on how to create an appropriate system-wide
 Restart ssh service to get changes in effect:
 
 $ service sshd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000240','C-46173r1_chk','To determine how the SSH daemon"s "Banner" option is set, run the following command: 
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000240','C-46173r1_chk','To determine how the SSH daemon"s "Banner" option is set, run the following command: 
 
  grep -iw Banner /etc/ssh/sshd_config | grep -v "^"
 
@@ -823,7 +823,7 @@ select add_rule_data ('default','V-38616','SV-50417r1_rule','default','low','The
 PermitUserEnvironment no
 Restart ssh service to get changes in effect:
 
-$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000241','C-46175r1_chk','To ensure users are not able to present environment daemons, run the following command: 
+$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000241','C-46175r1_chk','To ensure users are not able to present environment daemons, run the following command: 
 
  grep -iw PermitUserEnvironment /etc/ssh/sshd_config | grep -v "^"
 
@@ -841,7 +841,7 @@ The man page "sshd_config(5)" contains a list of supported ciphers.
 
 Restart ssh service to get changes in effect:
  
-$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000243','C-46176r1_chk','Only FIPS-approved ciphers should be used. To verify that only FIPS-approved ciphers are in use, run the following command: 
+$ service sshd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000243','C-46176r1_chk','Only FIPS-approved ciphers should be used. To verify that only FIPS-approved ciphers are in use, run the following command: 
 
  grep -iw Ciphers /etc/ssh/sshd_config | grep -v "^"
 
@@ -850,7 +850,7 @@ If that is not the case, this is a finding.','Customized rule by Cloud Raxak') f
 select add_rule_data ('default','V-38618','SV-50419r2_rule','default','low','The avahi service must be disabled.','Because the Avahi daemon service keeps an open network port, it is subject to network attacks. Its functionality is convenient but is only appropriate if the local network can be trusted.','F-43567r2_fix','The "avahi-daemon" service can be disabled with the following commands: 
 
  chkconfig avahi-daemon off
- service avahi-daemon stop' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000246','C-46177r1_chk','Run the following command to verify "avahi-daemon" is disabled through current runtime configuration:
+ service avahi-daemon stop' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000246','C-46177r1_chk','Run the following command to verify "avahi-daemon" is disabled through current runtime configuration:
 
  service avahi-daemon status
 
@@ -876,7 +876,7 @@ server []
 This instructs the NTP software to contact that remote server to obtain time data.
 
 Restart NTP service to get changes in effect by using the command:
-$ service ntpd restart' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000248','C-46180r1_chk','Run the following command to determine the current status of the "ntpd" service: 
+$ service ntpd restart' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000248','C-46180r1_chk','Run the following command to determine the current status of the "ntpd" service: 
 
  service ntpd status
 
@@ -895,7 +895,7 @@ If NTP servers are properly configured for synchronizing the time, you can see g
 If output is "1", this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38622','SV-50423r2_rule','default','medium','Mail relaying must be restricted.','This ensures "postfix" accepts mail messages (such as cron job reports) from the local system only, and not from the network, which protects it from network attack.','F-43572r1_fix','Edit the file "/etc/postfix/main.cf" to ensure that only the following "inet_interfaces" line appears: 
 
-inet_interfaces = localhost' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000249','C-46182r2_chk','If the system is an authorized mail relay host, this is not applicable. 
+inet_interfaces = localhost' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000249','C-46182r2_chk','If the system is an authorized mail relay host, this is not applicable. 
 
 Run the following command to ensure postfix accepts mail messages from only the local system: 
 
@@ -925,7 +925,7 @@ OR you can schedule it in /etc/anacrontab
 
 To schedule a cron job in /etc/anacrontab :
 
-1        5        cron.daily        run-parts --report /etc/cron.daily' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000138','C-46183r1_chk','Run the following commands to determine the current status of the "logrotate" configuration.
+1        5        cron.daily        run-parts --report /etc/cron.daily' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000138','C-46183r1_chk','Run the following commands to determine the current status of the "logrotate" configuration.
 
 Make sure logrotate configuration file is configured to rotate logs daily.
 
@@ -943,7 +943,7 @@ select add_rule_data ('default','V-38627','SV-50428r1_rule','default','low','The
 
  yum erase openldap-servers
 
-The openldap-servers RPM is not installed by default on RHEL6 machines. It is needed only by the OpenLDAP server, not by the clients which use LDAP for authentication. If the system is not intended for use as an LDAP Server it should be removed.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000256','C-46187r1_chk','To verify the "openldap-servers" package is not installed, run the following command: 
+The openldap-servers RPM is not installed by default on RHEL6 machines. It is needed only by the OpenLDAP server, not by the clients which use LDAP for authentication. If the system is not intended for use as an LDAP Server it should be removed.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000256','C-46187r1_chk','To verify the "openldap-servers" package is not installed, run the following command: 
 
 $ rpm -q openldap-servers
 
@@ -956,7 +956,7 @@ select add_rule_data ('default','V-38629','SV-50430r3_rule','default','medium','
 
 
  gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type int --set /desktop/gnome/session/idle_delay 15
-' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000257','C-46188r3_chk','If the GConf2 package is not installed, this is not applicable.
+' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000257','C-46188r3_chk','If the GConf2 package is not installed, this is not applicable.
 
 To check the current idle time-out value, run the following command: 
 
@@ -967,7 +967,7 @@ If properly configured, the output should be "15".
 If it is not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38647','SV-50448r1_rule','default','low','The system default umask in /etc/profile must be 077.','The umask value influences the permissions assigned to files when they are created. A misconfigured umask value could result in files with excessive permissions that can be read and/or written to by unauthorized users.','F-43596r1_fix','To ensure the default umask controlled by "/etc/profile" is set properly, add or correct the "umask" setting in "/etc/profile" to read as follows: 
 
-umask 077' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000344','C-46207r1_chk','Verify the "umask" setting is configured correctly in the "/etc/profile" file by running the following command: 
+umask 077' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000344','C-46207r1_chk','Verify the "umask" setting is configured correctly in the "/etc/profile" file by running the following command: 
 
  grep "umask" /etc/profile
 
@@ -980,7 +980,7 @@ umask 077
 If the above command returns no output, or if the umask is configured incorrectly, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38651','SV-50452r1_rule','default','low','The system default umask for the bash shell must be 077.','The umask value influences the permissions assigned to files when they are created. A misconfigured umask value could result in files with excessive permissions that can be read and/or written to by unauthorized users.','F-43600r1_fix','To ensure the default umask for users of the Bash shell is set properly, add or correct the "umask" setting in "/etc/bashrc" to read as follows: 
 
-umask 077' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000342','C-46211r1_chk','Verify the "umask" setting is configured correctly in the "/etc/bashrc" file by running the following command: 
+umask 077' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000342','C-46211r1_chk','Verify the "umask" setting is configured correctly in the "/etc/bashrc" file by running the following command: 
 
  grep "umask" /etc/bashrc
 
@@ -996,7 +996,7 @@ select add_rule_data ('default','V-38658','SV-50459r1_rule','default','medium','
 
 password sufficient pam_unix.so [] remember=24
 
-The requirement is 24 passwords.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000274','C-46219r1_chk','To verify the password reuse setting is compliant, run the following command: 
+The requirement is 24 passwords.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000274','C-46219r1_chk','To verify the password reuse setting is compliant, run the following command: 
 
 $ grep -w remember /etc/pam.d/system-auth | grep -w password | grep -v "^"
 
@@ -1012,7 +1012,7 @@ $ yum install aide
 
 Creating aide database by using the command:
 
-$ aide --init' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000285','C-46227r1_chk','Inspect the system to determine if intrusion detection software has been installed. Verify the intrusion detection software is active by using selinux or aide tools.
+$ aide --init' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000285','C-46227r1_chk','Inspect the system to determine if intrusion detection software has been installed. Verify the intrusion detection software is active by using selinux or aide tools.
 
 If no host-based intrusion detection tools are installed, this is a finding
 
@@ -1033,7 +1033,7 @@ select add_rule_data ('default','V-38670','SV-50471r2_rule','default','medium','
 
 05 4 * * * root /usr/sbin/aide --check
 
-AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000306','C-46229r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
+AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000306','C-46229r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
 
  grep aide /etc/crontab /etc/cron.*/*
 
@@ -1042,14 +1042,14 @@ select add_rule_data ('default','V-38673','SV-50474r2_rule','default','medium','
 
 05 4 * * * root /usr/sbin/aide --check
 
-AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000307','C-46232r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
+AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000307','C-46232r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
 
  grep aide /etc/crontab /etc/cron.*/*
 
 If there is no output, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38674','SV-50475r1_rule','default','medium','X Windows must not be enabled unless required.','Unnecessary services should be disabled to decrease the attack surface of the system.','F-43623r1_fix','Setting the system"s runlevel to 3 will prevent automatic startup of the X server. To do so, ensure the following line in "/etc/inittab" features a "3" as shown: 
 
-id:3:initdefault:' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000290','C-46234r1_chk','To verify the default runlevel is 3, run the following command: 
+id:3:initdefault:' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000290','C-46234r1_chk','To verify the default runlevel is 3, run the following command: 
 
  grep initdefault /etc/inittab
 
@@ -1060,7 +1060,7 @@ id:3:initdefault:
 If it does not, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-38676','SV-50477r2_rule','default','low','The xorg-x11-server-common (X Windows) package must not be installed, unless required.','Unnecessary packages should not be installed to decrease the attack surface of the system.','F-43625r1_fix','Removing all packages which constitute the X Window System ensures users or malicious software cannot start X. To do so, run the following command: 
 
- rpm -e xorg-x11-server-common --nodeps"' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000291','C-46236r1_chk','To ensure the X Windows package group is removed, run the following command: 
+ rpm -e xorg-x11-server-common --nodeps"' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000291','C-46236r1_chk','To ensure the X Windows package group is removed, run the following command: 
 
 $ rpm -qi xorg-x11-server-common
 
@@ -1070,7 +1070,7 @@ package xorg-x11-server-common is not installed
 
 
 If it is not, this is a finding.','Customized rule by Cloud Raxak') from dual;
-select add_rule_data ('default','V-38681','SV-50482r2_rule','default','low','All GIDs referenced in /etc/passwd must be defined in /etc/group','Inconsistency in GIDs between /etc/passwd and /etc/group could lead to a user having unintended rights.','F-43630r1_fix','Add a group to the system for each GID referenced without a corresponding group.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000294','C-46243r2_chk','To ensure all GIDs referenced in /etc/passwd are defined in /etc/group, run the following command: 
+select add_rule_data ('default','V-38681','SV-50482r2_rule','default','low','All GIDs referenced in /etc/passwd must be defined in /etc/group','Inconsistency in GIDs between /etc/passwd and /etc/group could lead to a user having unintended rights.','F-43630r1_fix','Add a group to the system for each GID referenced without a corresponding group.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000294','C-46243r2_chk','To ensure all GIDs referenced in /etc/passwd are defined in /etc/group, run the following command: 
 
  pwck -r | grep "no group"
 
@@ -1080,7 +1080,7 @@ select add_rule_data ('default','V-38688','SV-50489r3_rule','default','medium','
 
   gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type bool --set /apps/gdm/simple-greeter/banner_message_enable true
 
-To display a banner, this setting must be enabled and then banner text must also be set.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000324','C-46250r3_chk','If the GConf2 package is not installed, this is not applicable.
+To display a banner, this setting must be enabled and then banner text must also be set.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000324','C-46250r3_chk','If the GConf2 package is not installed, this is not applicable.
 
 To ensure a login warning banner is enabled, run the following: 
 
@@ -1105,7 +1105,7 @@ OR:
 
 "I"ve read AND consent to terms in IS user agreem"t."
 
-When entering a warning banner that spans several lines, remember to begin and end the string with """. This command writes directly to the file "/var/lib/gdm/.gconf/apps/gdm/simple-greeter/%gconf.xml", and this file can later be edited directly if necessary.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000326','C-46252r3_chk','If the GConf2 package is not installed, this is not applicable.
+When entering a warning banner that spans several lines, remember to begin and end the string with """. This command writes directly to the file "/var/lib/gdm/.gconf/apps/gdm/simple-greeter/%gconf.xml", and this file can later be edited directly if necessary.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000326','C-46252r3_chk','If the GConf2 package is not installed, this is not applicable.
 
 To ensure login warning banner text is properly set, run the following: 
 
@@ -1118,7 +1118,7 @@ select add_rule_data ('default','V-38694','SV-50495r1_rule','default','low','The
 
 INACTIVE=[NUM_DAYS]
 
-A value of 35 is recommended. If a password is currently on the verge of expiration, then 35 days remain until the account is automatically disabled. However, if the password will not expire for another 60 days, then 95 days could elapse until the account would be automatically disabled. See the "useradd" man page for more information. Determining the inactivity timeout must be done with careful consideration of the length of a "normal" period of inactivity for users in the particular environment. Setting the timeout too low incurs support costs and also has the potential to impact availability of the system to legitimate users.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000335','C-46256r1_chk','To verify the "INACTIVE" setting, run the following command: 
+A value of 35 is recommended. If a password is currently on the verge of expiration, then 35 days remain until the account is automatically disabled. However, if the password will not expire for another 60 days, then 95 days could elapse until the account would be automatically disabled. See the "useradd" man page for more information. Determining the inactivity timeout must be done with careful consideration of the length of a "normal" period of inactivity for users in the particular environment. Setting the timeout too low incurs support costs and also has the potential to impact availability of the system to legitimate users.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000335','C-46256r1_chk','To verify the "INACTIVE" setting, run the following command: 
 
 grep "INACTIVE" /etc/default/useradd
 
@@ -1132,7 +1132,7 @@ select add_rule_data ('default','V-38695','SV-50496r2_rule','default','medium','
 
 05 4 * * * root /usr/sbin/aide --check
 
-AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000302','C-46257r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
+AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000302','C-46257r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
 
  grep "aide" /etc/crontab /etc/cron./ | grep "/etc/aide.conf" | grep -w nice | grep -v ":\s*"
 
@@ -1141,7 +1141,7 @@ select add_rule_data ('default','V-38696','SV-50497r2_rule','default','medium','
 
 05 4 * * * root /usr/sbin/aide --check
 
-AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000303','C-46258r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
+AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000303','C-46258r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
 
  grep aide /etc/crontab /etc/cron.*/*
 
@@ -1151,7 +1151,7 @@ select add_rule_data ('default','V-38697','SV-50498r2_rule','default','low','The
 The only authorized public directories are those temporary directories supplied with the system, or those designed to be temporary file repositories. The setting is normally reserved for directories used by the system, and by users for temporary file storage - such as /tmp - and for directories requiring global read/write access.','F-43646r1_fix','When the so-called "sticky bit" is set on a directory, only the owner of a given file may remove that file from the directory. Without the sticky bit, any user with write access to a directory may remove any file in the directory. Setting the sticky bit prevents users from removing each other"s files. In cases where there is no reason for a directory to be world-writable, a better solution is to remove that permission rather than to set the sticky bit. However, if a directory is used by a particular application, consult that application"s documentation instead of blindly changing modes. 
 To set the sticky bit on a world-writable directory [], run the following command: 
 
- chmod +t [DIR]' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000336','C-46259r4_chk','To find world-writable directories that lack the sticky bit, run the following command for each local partition []: 
+ chmod +t [DIR]' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000336','C-46259r4_chk','To find world-writable directories that lack the sticky bit, run the following command for each local partition []: 
 
  find [PART] -xdev -type d -perm -002 \! -perm -1000
 
@@ -1161,7 +1161,7 @@ select add_rule_data ('default','V-38698','SV-50499r2_rule','default','medium','
 
 05 4 * * * root /usr/sbin/aide --check
 
-AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000304','C-46261r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
+AIDE can be executed periodically through other means; this is merely one example.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000304','C-46261r2_chk','To determine that periodic AIDE execution has been scheduled, run the following command: 
 
  grep aide /etc/crontab /etc/cron.*/*
 
@@ -1178,7 +1178,7 @@ To initiate a manual check, run the following command:
 
  /usr/sbin/aide --check
 
-If this check produces any unexpected output, investigate. ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000018','C-53727r1_chk','To find the location of the AIDE database file, run the following command:
+If this check produces any unexpected output, investigate. ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000018','C-53727r1_chk','To find the location of the AIDE database file, run the following command:
 
  grep DBDIR /etc/aide.conf
 
@@ -1193,7 +1193,7 @@ select add_rule_data ('default','V-56001','SV-50462r1_rule','default','high','
     These legacy user entries may provide an avenue for attackers to gain privileged access on the system.
    ','F-56001','
     If legacy user "+" entries exist in files /etc/passwd, /etc/shadow, /etc/group. Delete or replace them as normal users.
-   ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+   ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check for any legacy user entry run:
  grep "^+:" /etc/passwd /etc/shadow /etc/group
 If any line is returned this is a finding.
@@ -1208,7 +1208,7 @@ Change the permission of /etc/crontab to 600 and change the user and group owner
  chmod 600 /etc/crontab
  chown root /etc/crontab
  chgrp root /etc/crontab
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/crontab" file, run the following command:
 
  stat --format=%U,%G,%a /etc/crontab
@@ -1229,7 +1229,7 @@ Change the permission of /etc/cron.weekly to 700 and change the user and group o
  chmod 700 /etc/cron.weekly
  chown root /etc/cron.weekly
  chgrp root /etc/cron.weekly
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/cron.weekly", run the follwoing command:
 
  stat --format=%U,%G,%a /etc/cron.weekly
@@ -1250,7 +1250,7 @@ Change the permission of /etc/cron.monthly to 700 and change the user and group 
  chmod 700 /etc/cron.monthly
  chown root /etc/cron.monthly
  chgrp root /etc/cron.monthly
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/cron.monthly", run the following command:
 
  stat --format=%U,%G,%a /etc/cron.monthly
@@ -1271,7 +1271,7 @@ Change the permission of /etc/cron.hourly to 700 and change the user and group o
  chmod 700 /etc/cron.hourly
  chown root /etc/cron.hourly
  chgrp root /etc/cron.hourly
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/cron.hourly", run the following command:
 
  stat --format=%U,%G,%a /etc/cron.hourly
@@ -1292,7 +1292,7 @@ Change the permission of /etc/cron.daily to 700 and change the user and group ow
  chmod 700 /etc/cron.daily
  chown root /etc/cron.daily
  chgrp root /etc/cron.daily
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/cron.daily", run the following command:
 
  stat --format=%U,%G,%a /etc/cron.daily
@@ -1313,7 +1313,7 @@ Change the permission of /etc/cron.d to 700 and change the user and group owners
  chmod 700 /etc/cron.d
  chown root /etc/cron.d
  chgrp root /etc/cron.d
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/cron.d", run the following command:
 
  stat --format=%U,%G,%a /etc/cron.d
@@ -1334,7 +1334,7 @@ Add the "nosuid" option to the mount option column of "/etc/fstab" for the line 
 If there is no /tmp entry in /etc/fstab, then copy the entry from /etc/mtab paste in /etc/fstab and then add "nosuid" option in the mount option column of the entry.
 
 []
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check whether /tmp partitions mounted on system do not allow set-user-identifier or set-group-identifier bits to take effect:
  grep -w tmp /etc/mtab /etc/fstab | grep "nosuid"
 
@@ -1350,7 +1350,7 @@ Add the "nodev" option to the mount option column of "/etc/fstab" for the line w
 If there is no /tmp entry in /etc/fstab, then copy the entry from /etc/mtab paste in /etc/fstab and then add "nodev" option in the mount option column of the entry.
 
 []
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check /tmp partitions mounted on system do not interpret character or block special devices on the file system:
  grep tmp /etc/mtab /etc/fstab | grep "nodev"
 
@@ -1372,7 +1372,7 @@ and run following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether fs.suid_dumpable = 0 using the below command: 
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether fs.suid_dumpable = 0 using the below command: 
  sysctl fs.suid_dumpable
 
 If the output of the command is not "0", this is a finding.
@@ -1387,7 +1387,7 @@ select add_rule_data ('default','V-56013','SV-50462r1_rule','default','high','
                         ','F-56013','
 If the file /etc/cron.deny exists, for removing it run:
  rm /etc/cron.deny 
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Check whether /etc/cron.deny file exists on the system. If the file exists, this is a finding.
                                 ','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56014','SV-50462r1_rule','default','high','
@@ -1400,7 +1400,7 @@ Change the permission of /etc/cron.allow to 600 and change the user and group ow
  chmod 600 /etc/cron.allow
  chown root /etc/cron.allow
  chgrp root /etc/cron.allow
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/cron.allow", run the following  command:
 
  stat --format=%U,%G,%a /etc/cron.allow 
@@ -1420,7 +1420,7 @@ select add_rule_data ('default','V-56015','SV-50462r1_rule','default','high','
                         ','F-55014','
 If the file /etc/at.deny exists, for removing it run:
  rm /etc/at.deny
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Check whether /etc/at.deny file exists on the system. If the file exists, this is a finding.
                                 ','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56016','SV-50462r1_rule','default','high','
@@ -1433,7 +1433,7 @@ Change the permission of /etc/at.allow to 600 and change the user and group owne
  chmod 600 /etc/at.allow
  chown root /etc/at.allow
  chgrp root /etc/at.allow
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/at.allow", run the following command:
 
  stat --format=%U,%G,%a /etc/at.allow 
@@ -1451,7 +1451,7 @@ select add_rule_data ('default','V-56017','SV-50462r1_rule','default','high','
                         ','
                         Setroubleshoot explains in plain English why a script or an application was blocked from executing. The tool also gives you suggestions on how to resolve the issue, which may involve running a simple command. This can be a problem if an attacker tries to execute something and it failed due to some security. This package might just help the attacker, how to bypass the security wall. This rule verifies that setroubleshoot is not installed.
                         ','F-56017','If installed on the system, remove this package by running:
- yum remove setroubleshoot-server setroubleshoot' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether setroubleshoot package is installed:
+ yum remove setroubleshoot-server setroubleshoot' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether setroubleshoot package is installed:
  rpm -q setroubleshoot
  rpm -q setroubleshoot-server
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
@@ -1461,7 +1461,7 @@ select add_rule_data ('default','V-56018','SV-50462r1_rule','default','high','
          If an account with empty password field exists means that anybody may login as that user without providing a password.
    ','F-56018','
 If there are users which have empty password fields, they don"t have a password set. Set a password for these users to avoid passwordless login and to avoid security risks.
-   ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+   ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Run the below command to check for empty password fields:
  grep "^[]*::" /etc/shadow | cut -d: -f1
 If a line is returned, this is a finding.
@@ -1472,7 +1472,7 @@ select add_rule_data ('default','V-56019','SV-50462r1_rule','default','high','
 If the user"s home directory does not exist or is unassigned, the user will be placed in "/" and will not be able to write any files or have local environment variables set.
    ','F-56019','
 If there are users with unassigned home directories, they should be assigned a home directory appropriately.
-   ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+   ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Check the users home directories assigned in the /etc/passwd file.
 
  awk -F: "$3>=500 ANDAND $3<=60000 {print $1, $6}" /etc/passwd
@@ -1490,7 +1490,7 @@ Bind mount the /var/tmp to /tmp directory to preserve temporary files between re
 mount –bind /var/tmp /tmp
 
 []
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check if /var/tmp directory is bind-mounted to /tmp run:
  grep -w ^/var/tmp /etc/fstab /etc/mtab | grep -w bind | grep -v ":\s*"
 
@@ -1507,7 +1507,7 @@ Add the "nosuid" option to the mount option column of "/etc/fstab" for the line 
 If there is no /dev/shm entry in /etc/fstab, then copy the entry from /etc/mtab paste in /etc/fstab and then add "nosuid" option in the mount option column of the entry.
 
 []
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To verify that set-user-identifier or set-group-identifier bits do not take effect , run the following command:
 
 grep -w "/dev/shm" /etc/fstab | grep -v "^"
@@ -1525,7 +1525,7 @@ Add the "noexec" option to the mount option column of "/etc/fstab" for the line 
 If there is no /dev/shm entry in /etc/fstab, then copy the entry from /etc/mtab paste in /etc/fstab and then add "noexec" option in the mount option column of the entry.
 
 []
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To verify that binaries cannot be directly executed from /dev/shm partition, run the following command:
 
 grep -w "/dev/shm" /etc/fstab | grep -v "^"
@@ -1543,7 +1543,7 @@ Add the "nodev" option to the mount option column of "/etc/fstab" for the line w
 If there is no /home entry in /etc/fstab, then copy the entry from /etc/mtab paste in /etc/fstab and then add "nodev" option in the mount option column of the entry.
 
 []
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To verify that the file system do not interpret character or block special devices , run the following command:
 
 grep -w "/home" /etc/fstab | grep -v "^"
@@ -1561,7 +1561,7 @@ Add the "nodev" option to the mount option column of "/etc/fstab" for the line w
 If there is no /dev/shm entry in /etc/fstab, then copy the entry from /etc/mtab paste in /etc/fstab and then add "nodev" option in the mount option column of the entry.
 
 []
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To verify that the file system do not interpret character or block special devices , run the following command:
 
 grep -w "/dev/shm" /etc/fstab | grep -v "^"
@@ -1579,7 +1579,7 @@ MaxAuthTries 4
 
 Restart the ssh service:
 $ service ssh restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Check the value of maximum number of authentication attempts permitted per connection by running:
  grep -iw MaxAuthTries /etc/ssh/sshd_config  | grep -v "^"
 
@@ -1595,7 +1595,7 @@ Change the permission of /etc/ssh/sshd_config to 600 and change the user and gro
  chmod 600 /etc/ssh/sshd_config
  chown root /etc/ssh/sshd_config
  chgrp root /etc/ssh/sshd_config
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of  "/etc/ssh/sshd_config", run the following  command:
 
  stat --format=%U,%G,%a /etc/ssh/sshd_config
@@ -1616,7 +1616,7 @@ LogLevel INFO
 
 Restart the ssh service:
 $ service ssh restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Check for Loglevel value in sshd_config file by running:
  grep -w LogLevel /etc/ssh/sshd_config
 Acceptable value is INFO. If its not this is the finding.
@@ -1626,7 +1626,7 @@ select add_rule_data ('default','V-56028','SV-50462r1_rule','default','high','
                         ','
                               Talk is a very simple, basic chat program. All the client does is establish a link between the terminals of two computer users. The users can either reside on the same computer or on different, networked computers. Everything that one user types into his terminal will instantly be shown on the other user"s terminal and vice versa. This rule verifies that talk-server is not installed.
                         ','F-56028','If installed on system, remove the talk-server package by running:
- yum remove talk-server' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether talk-server is installed on system:
+ yum remove talk-server' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether talk-server is installed on system:
  rpm -q talk-server
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56029','SV-50462r1_rule','default','high','
@@ -1634,7 +1634,7 @@ select add_rule_data ('default','V-56029','SV-50462r1_rule','default','high','
                         ','
                               Talk is a very simple, basic chat program. All the client does is establish a link between the terminals of two computer users. The users can either reside on the same computer or on different, networked computers. Everything that one user types into his terminal will instantly be shown on the other user"s terminal and vice versa.This rule verifies that talk is not installed.
                         ','F-56029','If installed on system, remove the talk package by running:
- yum remove talk' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether talk is installed on system:
+ yum remove talk' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether talk is installed on system:
  rpm -q talk
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56030','SV-50462r1_rule','default','high','
@@ -1642,7 +1642,7 @@ select add_rule_data ('default','V-56030','SV-50462r1_rule','default','high','
                         ','
                               This rule verifies that net-snmp package does not exist.
                         ','F-56030','If installed on system, remove the net-snmp package by running:
- yum remove net-snmp' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether net-snmp is installed on system:
+ yum remove net-snmp' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether net-snmp is installed on system:
  rpm -q net-snmp
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56033','SV-50462r1_rule','default','high','
@@ -1650,7 +1650,7 @@ select add_rule_data ('default','V-56033','SV-50462r1_rule','default','high','
                         ','
                               MCS Translation Service translates output of Linux errors or configuration warnings or messages into a readable format. This rule verifies that mcstrans is not installed.
                         ','F-56033','If installed on system, remove the mcstrans package by running:
- yum remove mctrans' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether mcstrans is installed on system:
+ yum remove mctrans' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether mcstrans is installed on system:
  rpm -q mcstrans
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56034','SV-50462r1_rule','default','high','
@@ -1658,7 +1658,7 @@ select add_rule_data ('default','V-56034','SV-50462r1_rule','default','high','
                         ','
                               The HTTP server daemon just replies to the request header it receives. It is not secure like HTTPS which has stronger security checks than HTTP. This rule verifies that httpd package does not exist.
                         ','F-56034','If installed on system, remove the httpd package by running:
- yum remove httpd httpd-tools apr-util apr-util-ldap' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether httpd is installed on system:
+ yum remove httpd httpd-tools apr-util apr-util-ldap' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether httpd is installed on system:
  rpm -q httpd
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56035','SV-50462r1_rule','default','high','
@@ -1666,7 +1666,7 @@ select add_rule_data ('default','V-56035','SV-50462r1_rule','default','high','
                         ','
                               Malicious clients try to exploit open proxy servers to access a website without revealing their true location. They could be doing this to manipulate pay-per-click ad systems, to add comment or link-spam to someone else"s site, or just to do something nasty without being detected. This rule verifies that squid package does not exist.
                         ','F-56035','If installed on system, remove the squid package by running:
- yum remove squid' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether squid is installed on system:
+ yum remove squid' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether squid is installed on system:
  rpm -q squid
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56036','SV-50462r1_rule','default','high','
@@ -1674,7 +1674,7 @@ select add_rule_data ('default','V-56036','SV-50462r1_rule','default','high','
                         ','
                               The dovecot service has a lesser memory footprint hence it uses lesser resources. But it has a poor error handling mechanism. This rule verifies that dovecot package does not exist.
                         ','F-56036','If installed on system, remove the dovecot package by running:
- yum remove dovecot' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether dovecot is installed on system:
+ yum remove dovecot' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether dovecot is installed on system:
  rpm -q dovecot
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56037','SV-50462r1_rule','default','high','
@@ -1682,7 +1682,7 @@ select add_rule_data ('default','V-56037','SV-50462r1_rule','default','high','
                         ','
                              Domain Name System (DNS) is a centralised mechanism for resolving / giving the IP addresses for a given domain name. Breakdown of DNS would crash the world wide web though there are many root servers and backup servers targetting DNS servers at particular key locations would do lot of harm. This rule verifies that DNS server is not installed.
                         ','F-56037','If installed on system, remove the bind package by running:
- yum remove bind' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether bind is installed on system:
+ yum remove bind' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether bind is installed on system:
  rpm -q bind
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56039','SV-50462r1_rule','default','high','
@@ -1694,7 +1694,7 @@ CUPS (an acronym for Common Unix Printing System) is a modular printing system f
 
  chkconfig --level 0123456 cups off
  service cups stop
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Run the following command to verify "cups" is disabled through current runtime configuration: 
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Run the following command to verify "cups" is disabled through current runtime configuration: 
 
  service cups status
 
@@ -1727,7 +1727,7 @@ NFS (Network File System) allows you to "share" a directory located on one netwo
  service rpcbind stop
 Restart the xinetd service
  service xinetd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "rpcbind" and "nfs" service is disabled in system boot configuration, run the following command: 
 
  chkconfig "rpcbind" --list
@@ -1763,7 +1763,7 @@ daytime-stream is a network service that respondes with the server"s current dat
 
 Restart the xinetd service
  service xinetd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "xinetd" service is enabled, run the following command: 
  service xinetd status
 
@@ -1792,7 +1792,7 @@ A host may connect to a server that supports the Daytime Protocol on either Tran
 
 Restart the xinetd service
  service xinetd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "xinetd" service is enabled, run the following command: 
  service xinetd status
 
@@ -1819,7 +1819,7 @@ e Character Generator Protocol (CHARGEN) is a service of the Internet Protocol S
 
 Restart the xinetd service
  service xinetd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "xinetd" service is enabled, run the following command: 
  service xinetd status
 
@@ -1846,7 +1846,7 @@ chargen-dram is a network service that responds with 0 to 512 ASCII characters f
 
 Restart the xinetd service
  service xinetd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "xinetd" service is enabled, run the following command: 
  service xinetd status
 
@@ -1874,7 +1874,7 @@ A host may connect to a server that supports the Echo Protocol using the Transmi
 
 Restart the xinetd service
  service xinetd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "xinetd" service is enabled, run the following command: 
  service xinetd status
 
@@ -1901,7 +1901,7 @@ If number of failed log-in attempts are not logged create a log file for it by r
  touch /var/log/btmp
  chmod 600 /var/log/btmp
  chgrp utmp /var/log/btmp
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check if the number of failed log-in attempts are logged, check if file /var/log/btmp exists on the system.
 If this file does not exist on system, this is a finding.
                                 ','Customized rule by Cloud Raxak') from dual;
@@ -1922,7 +1922,7 @@ Change the permission of /var/log/messages, /var/log/secure, /var/log/maillog, /
  chgrp root /var/log/messages
 
 (Similarly fix for remaining files /var/log/secure, /var/log/maillog, /var/log/cron, /var/log/spooler and /var/log/boot.log)
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/var/log/messages, /var/log/secure, /var/log/maillog, /var/log/cron, /var/log/spooler and /var/log/boot.log ", run the following commands:
 
  stat --format=%U,%G,%a /var/log/messages
@@ -1946,7 +1946,7 @@ The file /etc/hosts.deny must have mode 0644 or less.
 Change the permission of /etc/hosts.deny to 644.
 
  chmod 644 /etc/hosts.deny
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the permission of "/etc/hosts.deny", run the following command:
 
  stat --format=%a /etc/hosts.deny
@@ -1963,7 +1963,7 @@ The /etc/hosts.allow file must have mode 0644 or less.
 Change the permission of /etc/hosts.allow to 644.
 
  chmod 644 /etc/hosts.allow
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the permission of "/etc/hosts.allow", run the following command:
 
  stat --format=%a /etc/hosts.allow
@@ -1982,7 +1982,7 @@ To install package tcp_wrappers run below commands:
 
 If "/etc/hosts.allow" or "/etc/hosts.deny" file(s) does not exist then run,
   yum reinstall setup -y
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To verify if the package is installed:
  rpm -q tcp_wrappers
 
@@ -1995,7 +1995,7 @@ System access via SSH service must be restricted to authorized users and groups.
 Restricting access via SSH improves the security by avoiding system access to unwanted users or groups.
                     ','F-55014','
 Review the list of allowed users, allowed groups, denied users and denied groups and make sure that it is legitimate.
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check DenyUsers, AllowUsers, DenyGroups, AllowGroups in /etc/ssh/sshd_config run:
  grep -iw AllowUsers /etc/ssh/sshd_config | grep -v "^"
  grep -iw DenyUsers /etc/ssh/sshd_config | grep -v "^"
@@ -2009,7 +2009,7 @@ The audit events configured on the system must be legitimate.
                         ','
 User should review the list of audit events that are configured and ensure that it is legitimate. This rule produces the list of audit events that are configured for review. Auditing unnecessary activity on the system may require more disk space in log files.
    ','F-56059','Go through all the audit events carefully.
-Remove those audit events which are not required as doing this can save disk space and prevent it from logging activities which are not required.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','List out all the audit events configured on the system by running:
+Remove those audit events which are not required as doing this can save disk space and prevent it from logging activities which are not required.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','List out all the audit events configured on the system by running:
  auditctl -l
 Review the entire list of audit events configured and make sure they are legitimate.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56063','SV-50462r1_rule','default','high','
@@ -2017,7 +2017,7 @@ select add_rule_data ('default','V-56063','SV-50462r1_rule','default','high','
                         ','
                               Rsyslog is the system logger. It helps in logging all the crucial activity of linux system locally and can also be used to forward logs to  remote server. This rule verifies that rsyslog is installed.
                         ','F-56063','Rsyslog is the system logger. It helps in logging all the crucial activity of linux systems. Install it by running:
- yum -y install rsyslog' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether rsyslog is installed on system:
+ yum -y install rsyslog' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether rsyslog is installed on system:
  rpm -q rsyslog
 If a line with "package rsyslog not installed" is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56062','SV-50462r1_rule','default','high','
@@ -2030,7 +2030,7 @@ It offers high-performance, great security features and a modular design. While 
  chkconfig rsyslog on
  service rsyslog start
 
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Run the following command to verify "rsyslog" is enabled through current runtime configuration: 
 
  service rsyslog status
@@ -2059,7 +2059,7 @@ X11Forwarding no []
 
 Restart the ssh service:
 $ service ssh restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the whether X11 Forwarding is disabled run:
  grep -iw "X11Forwarding" /etc/ssh/sshd_config | grep -v "^"
 
@@ -2076,7 +2076,7 @@ If crond service is not installed then install it with the below command:
 The "crond" daemon service can be enabled with the following commands: 
  chkconfig crond on
  service crond start
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "crond" service is enabled in system boot configuration, run the following command: 
 
  chkconfig crond --list
@@ -2107,7 +2107,7 @@ Change the permission of file /etc/anacrontab to 600 and change the user and gro
  chmod 600 /etc/anacrontab
  chown root /etc/anacrontab
  chgrp root /etc/anacrontab
-                    ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                    ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check the ownership, group ownership and permission of "/etc/anacrontab", run the following command:
 
  stat --format=%U,%G,%a /etc/anacrontab
@@ -2123,7 +2123,7 @@ select add_rule_data ('default','V-56066','SV-50462r1_rule','default','high','
                         ','
                               DHCP automation can be a serious security risk if a rogue DHCP server is introduced to the network. A rogue server isn"t under control of the network staff, and can offer IP addresses to users connecting to the network. If a user connects to the rogue DHCP, information sent over that connection can be intercepted or looked at, violating user privacy and network security. This rule verifies that dhcp package does not exist.
                         ','F-56066','If installed on system, remove the dhcp package by running:
- yum remove dhcp dnsmasq' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether dhcp server is installed on system:
+ yum remove dhcp dnsmasq' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether dhcp server is installed on system:
  rpm -q dhcp
  rpm -q dnsmasq
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
@@ -2142,7 +2142,7 @@ Run the following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','To check that the IPv6 Redirects Acceptance is disabled, run the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','To check that the IPv6 Redirects Acceptance is disabled, run the following command:
 
  sysctl net.ipv6.conf.all.accept_redirects 
  sysctl net.ipv6.conf.default.accept_redirects 
@@ -2169,7 +2169,7 @@ Run the following command.
 
  sysctl -p
 
-or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','To check that the "IPv6" Router Advertisements are disabled, run the following command:
+or restart sysctl.' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','To check that the "IPv6" Router Advertisements are disabled, run the following command:
 
  sysctl net.ipv6.conf.default.accept_ra
  sysctl net.ipv6.conf.all.accept_ra
@@ -2185,7 +2185,7 @@ select add_rule_data ('default','V-56071','SV-50462r1_rule','default','high','
                                 This rule verifies that for root account GID is 0.
                         ','F-56071','Set root account"s GID as 0 by running:
  usermod -g 0 root
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Check the group id (GID) of the root user:
  id -g root
 
@@ -2198,7 +2198,7 @@ select add_rule_data ('default','V-56073','SV-50462r1_rule','default','high','
                         ','F-56073','If there are users with duplicate UIDs, assign a different UID to them by running:
  usermod -u new_UID user_name
 Where in new_UID will take the new UID to be assigned and user_name is the particular user account"s name.
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 Check whether there aren"t any duplicate UIDs:
 $ awk -F: "{print $3}" /etc/passwd | sort |uniq -d
 
@@ -2209,7 +2209,7 @@ select add_rule_data ('default','V-56075','SV-50462r1_rule','default','high','
                         ','
                               FTP (File transfer protocol) is resposible for insecure file transfers over the network. This rule asks to uninstall ftp server if installed.
                         ','F-56075','If installed on system, remove the vsftpd package by running:
- yum remove vsftpd' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether vsftpd is installed on system:
+ yum remove vsftpd' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether vsftpd is installed on system:
  rpm -q vsftpd
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56076','SV-50462r1_rule','default','high','
@@ -2217,7 +2217,7 @@ select add_rule_data ('default','V-56076','SV-50462r1_rule','default','high','
                         ','
                               Since Samba server is in it"s development phase, it is not secure because the bugs in the software leave the system vulnerable to mail archive loss. This rule asks to uninstall samba package from the system.
                         ','F-56076','If installed on system, remove the samba package by running:
- yum remove samba' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether samba is installed on system:
+ yum remove samba' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether samba is installed on system:
  rpm -q samba
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56077','SV-50462r1_rule','default','high','
@@ -2225,7 +2225,7 @@ select add_rule_data ('default','V-56077','SV-50462r1_rule','default','high','
                         ','
                               Telenet client or server are not as secure as ssh over a network. This rule asks to uninstall telnet client from the system.
                         ','F-56077','If installed on system, remove the telnet package by running:
- yum remove telnet' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether telnet is installed on system:
+ yum remove telnet' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether telnet is installed on system:
  rpm -q telnet
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56078','SV-50462r1_rule','default','high','
@@ -2233,7 +2233,7 @@ select add_rule_data ('default','V-56078','SV-50462r1_rule','default','high','
                         ','
                               The tftp protocol is a lot insecure since it does not require an id or password. This rule asks to uninstall tftp from the system.
                         ','F-56078','If installed on system, remove the tftp package by running:
- yum remove tftp' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether tftp is installed on system:
+ yum remove tftp' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','Check whether tftp is installed on system:
  rpm -q tftp
 If a line with package name and version is returned, this is a finding.','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56079','SV-50462r1_rule','default','high','
@@ -2247,7 +2247,7 @@ A host may connect to a server that supports the Echo Protocol using the Transmi
 
 Restart the xinetd service
  service xinetd restart
-                        ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000276','','
+                        ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000276','','
 To check that the "xinetd" service is enabled, run the following command: 
  service xinetd status
 
@@ -2270,7 +2270,7 @@ Add the "noexec" option to the mount option column of "/etc/fstab" for the line 
 If there is no /tmp entry in /etc/fstab, then copy the entry from /etc/mtab paste in /etc/fstab and then add "noexec" option in the mount option column of the entry.
 
 []
-            ' , '[rpm-based Linux] PCI-DSS Compliance','Profile Customized by CloudRaxak','RHEL-06-000528','C-58279r1_chk','
+            ' , '[rpm-based Linux] PCI-DSS Compliance (Subset)','Profile Customized by CloudRaxak','RHEL-06-000528','C-58279r1_chk','
 To verify that binaries cannot be directly executed from /tmp partition, run the following command:
 
 grep -w "/tmp" /etc/mtab /etc/fstab | grep -v "^"

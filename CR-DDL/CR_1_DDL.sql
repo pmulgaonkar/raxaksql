@@ -604,7 +604,8 @@ CREATE TABLE CPE_RESOURCE_MGMT
     CREATED_BY             VARCHAR2 (64) ,
     CREATE_DATE            TIMESTAMP ,
     UPDATED_BY             VARCHAR2 (64) ,
-    UPDATE_DATE            TIMESTAMP
+    UPDATE_DATE            TIMESTAMP,
+    GROUP_ID               NUMBER (16)
   ) ;
 CREATE TABLE CPE_RES_MGMT_EXCEPTION
   (
@@ -981,6 +982,8 @@ ALTER TABLE CPE_RESOURCE_MGMT
 	ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_3 FOREIGN KEY ( PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_RESOURCE_MGMT 
 	ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_4 FOREIGN KEY ( LAST_RUN_ID ) REFERENCES CPE_RESOURCE_LOG ( ID ) ON DELETE CASCADE ;
+ALTER TABLE CPE_RESOURCE_MGMT 
+    ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_5 FOREIGN KEY ( GROUP_ID ) REFERENCES CPE_GROUP_FUNCTIONAL_TYPE ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_RESOURCE_TYPE 
 	ADD CONSTRAINT CPE_RESOURCE_TYPE_FK_1 FOREIGN KEY ( REF_PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_RESOURCE_VERSION 
@@ -1003,8 +1006,6 @@ ALTER TABLE CPE_USER
 	ADD CONSTRAINT CPE_USER_FK_3 FOREIGN KEY ( USER_TYPE_ID ) REFERENCES CPE_USER_TYPE ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_USER 
 	ADD CONSTRAINT CPE_USER_FK_4 FOREIGN KEY ( USER_ORG_ID ) REFERENCES CPE_ORGANIZATION ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER 
-	ADD CONSTRAINT CPE_USER_FK_5 FOREIGN KEY ( AUTH_USER_ID ) REFERENCES AUTH_USER ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_USER_MESSAGES 
 	ADD CONSTRAINT CPE_USER_MESSAGES_FK_1 FOREIGN KEY ( TARGET_USER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_USER_MESSAGES 
@@ -1064,7 +1065,7 @@ ALTER TABLE CPE_RULE_PARAMETER ADD CONSTRAINT CPE_RULE_PARAMETER_CHK1 CHECK (is_
 ALTER TABLE CPE_USER ADD CONSTRAINT CPE_USER_CHK1 CHECK (is_active IN ('Y','N') );
 ALTER TABLE CPE_USER ADD CONSTRAINT CPE_USER_CHK2 CHECK (remediate_priviledge IN ('Y','N') );
 ALTER TABLE CPE_USER ADD CONSTRAINT CPE_USER_CHK3 CHECK (RES_VIEW_TYPE IN ('User','Org','All_Org') );
-ALTER TABLE CPE_USER ADD CONSTRAINT CPE_USER_CHK4 CHECK (USER_VIEW_TYPE IN ('User','Org','All_Org', 'N/A') );
+ALTER TABLE CPE_USER ADD CONSTRAINT CPE_USER_CHK4 CHECK (USER_VIEW_TYPE IN ('User','Org','All_Org') );
 ALTER TABLE CPE_USER_MESSAGES ADD CONSTRAINT CPE_USER_MESSAGES_CHK1 CHECK (is_active IN ('Y','N') );
 ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MESSAGE_TYPE_CHK1 CHECK (is_active IN ('Y','N') );
 ALTER TABLE CPE_USER_PREFERENCE ADD CONSTRAINT CPE_USER_PREFERENCE_CHK1 CHECK (is_active IN ('Y','N') );
@@ -1078,8 +1079,8 @@ ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MTYPE_CHK2
 
 ALTER TABLE CPE_RES_MGMT_EXCEPTION ADD CONSTRAINT CPE_RES_MGMT_EXCEPTION_CHK2 CHECK (override_type IN ('S','K','M','R') );
 
-PROMPT You lazy bum, letting DB do most of work for you? ok , go ahead and add some data as triggers
-PROMPT first make sure no one deltes any data....only makes it inactive
+PROMPT add some data as triggers to make sure no one deletes any data....only makes it inactive
+
 CREATE OR REPLACE TRIGGER "CPE_AUTH_TYPE_TRIG0" before delete on CPE_AUTH_TYPE for each row
 begin
     raise_application_error( -20032, 'Error : 20032 : Can not delete this record');
@@ -1698,10 +1699,10 @@ begin
                UPDATEXML (log_xml,'/ResourceLog/Info/failure_rules_count/text()', v_fcount)
                where id = v_rlog_id;
           if ( ( v_scount + v_fcount) > 0 ) then      
-             select  round(cast(( 
+             select  round(cast((
                (sum((case rule_status when '1' then 1 when '0' then -1 when '-1' then -1 else 0 end) * rule_weight)) + sum(rule_weight)) / (2 * sum(rule_weight)) * 100 as decimal(8,2))) into v_health
-               from cpe_resource_log_detail where resource_log_id = v_rlog_id;
-             update cpe_resource_log set overall_health = v_health  where id = v_rlog_id and rule_status != -2;
+               from cpe_resource_log_detail where resource_log_id = v_rlog_id and rule_status != -2;
+             update cpe_resource_log set overall_health = v_health  where id = v_rlog_id;
           end if;    
        end if;
     end if;
@@ -2897,7 +2898,7 @@ if ( updating ) then
                   exception
                     when others then raise_application_error ( -20001, 'Error : 20001 : Error updating new parent');
                   end;
-                  if v_ptype < 20 and v_ptype > 9 then
+                  if v_ptype = 0 OR v_ptype <= 20 and v_ptype >= 10 then
                      select sysdate + 7 into v_expiry from dual;
                   else
                      raise_application_error ( -20001, 'Error : 20001 : Error : User does not have suitable parent');
@@ -3780,11 +3781,6 @@ ALTER TRIGGER "CPE_RESOURCE_LOG_TRIG9" ENABLE;
 /
 
 
-Alter table cpe_resource_mgmt add group_id number(16);
-/
-Alter table cpe_resource_mgmt add constraint cpe_resource_mgmt_fk_5 foreign key ( group_id ) references cpe_group_functional_type ( ID) on delete cascade ;
-/
-
 create or replace TRIGGER "CPE_RESOURCE_TRIG7" after update on CPE_RESOURCE for each row
 DECLARE
 pragma autonomous_transaction;
@@ -3825,6 +3821,4 @@ ALTER TRIGGER "CPE_RESOURCE_TRIG7" ENABLE;
 /
 			   
 PROMPT all done with DDL portion
-PROMPT go get a cup of coffee.....IF you havent got foggiest idea what happened here....which might be the caseLOL
 PROMPT Good bye.
- 

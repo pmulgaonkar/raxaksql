@@ -37,14 +37,14 @@ type c_user_cur is ref cursor; c_user c_user_cur;
 type c_org_cur is ref cursor; c_org c_org_cur;
 type c_res_execption_cur is ref cursor; c_res_exception c_res_execption_cur;
 
-cursor c1 is select id, resource_id,profile_id, owner_id, schedule_next_run_time,
+cursor c1 is select id, resource_id,profile_id, owner_id, schedule_next_run_time, 
                         decode(run_remediate,'Y',run_cost_remediate,run_cost_scan), run_remediate, run_status
              from cpe_resource_mgmt
              where
                   (schedule_next_run_time is not null and to_char(schedule_next_run_time ,'mm-dd-yyyy hh24:mi') = to_char(sysdate,'mm-dd-yyyy hh24:mi') )
-                  and
+                  and 
                   nvl(schedule_end_time,sysdate+1) >= sysdate and is_active ='Y' Order by ID;
-cursor c2 is select id, resource_mgmt_id from cpe_resource_log where overall_status in ('QUEUED','ON-HOLD') order by 1,2 asc;
+cursor c2 is select id, resource_mgmt_id from cpe_resource_log where overall_status = 'ON-HOLD' order by 1,2 asc;
 cursor c3 is select resource_mgmt_id, profile_info_id, id from cpe_resource_log where overall_status = 'READY';
 
 v_id number(16);v_target number(16); v_profile number(16);v_owner number(16);v_runtime timestamp;v_cost number(9,3);
@@ -55,18 +55,18 @@ v_s1 number(8,3); v_s2 number(8,3);v_s_id number(16);v_s_temp number(8,3);
 v_qid number(16);v_q_status varchar2(8);v_q_ast timestamp;
 v_temp number(16);v_temp2 number(16);v_temp3 number(16); v_cnote varchar2(1024);v_temp4 number(16);
 api_ret CLOB;
-p_resource_id number(16); p_profile_id number(16); p_log_id number(16); t_running number(16); t_skip number(16);
+p_resource_id number(16); p_profile_id number(16); p_log_id number(16); t_running number(16); t_skip number(16); 
 
 begin
 -- Checking number schedule currently running
     select count(id) into t_running from cpe_resource_log where overall_status in ('READY','RUNNING','ON-HOLD','QUEUED');
-    update cpe_resource_mgmt set schedule_next_run_time = (sysdate+1/1440),schedule_end_time = (sysdate+1/1440)
+    update cpe_resource_mgmt set schedule_next_run_time = (sysdate+1/1440),schedule_end_time = (sysdate+1/1440) 
     where run_status = 'SKIPPED' and schedule_next_run_time < sysdate;
     t_skip := 50 - t_running;
     OPEN c1; LOOP
     FETCH c1 into v_id,v_target,v_profile,v_owner,v_runtime,v_cost,v_remediate,v_cnote; EXIT WHEN c1%notfound;
         if c1%ROWCOUNT > t_skip then
-            update cpe_resource_mgmt set run_status = 'SKIPPED',
+            update cpe_resource_mgmt set run_status = 'SKIPPED', 
             schedule_next_run_time = (schedule_end_time+1/1440),schedule_end_time = (schedule_end_time+1/1440) where id = v_id;
             commit;
         else
@@ -208,7 +208,7 @@ begin
                         from cpe_resource_log a, cpe_resource_mgmt b
                         where a.resource_mgmt_id in ( select id from cpe_resource_mgmt
                                                       where resource_id = v_temp2 and profile_id not in
-                                                                       ( select id from cpe_profile where name = 'Rule-by-rule Force Remediation -- Initiated by User')
+                                                                       ( select id from cpe_profile where name = 'Rule-by-rule Force Remediation -- Initiated by User') 
                                                     )
                         and a.overall_status in ('COMPLETE','QUEUED','RUNNING');
                      exception
@@ -276,7 +276,7 @@ begin
                     update cpe_resource_mgmt set run_status=null,last_run_id = v_temp3 where id = v_id;
                 end if;
             end if;
-
+    
             if v_err = 0 then
                 c_err := 'Organizational quota exceeded';
                 open c_org for
@@ -302,7 +302,7 @@ begin
                 end if;
             end if;
 
-/* Below code commented, in order to improve performace for IBM scalability testing. Will uncomment it after scalability testing and need to improve below code.
+/* Below code commented, in order to improve performace for IBM scalability testing. Will uncomment it after scalabiluty testing and need to improve below code.
             if v_err = 0 then
                 open c_user for
                 'select
@@ -356,7 +356,7 @@ begin
                     where resource_mgmt_id IN ( select id from cpe_resource_mgmt
                                                 where resource_id = (select resource_id from cpe_resource_mgmt where id = v_id)
                                               )
-                    and overall_status IN ('RUNNING','QUEUED','READY') ;
+                    and overall_status IN  ('RUNNING','QUEUED') ;
                   exception
                     when others then v_qid := 0 ;
                 end;
@@ -382,7 +382,7 @@ begin
                     where resource_mgmt_id IN ( select id from cpe_resource_mgmt
                                                      where resource_id = (select resource_id from cpe_resource_mgmt where id = v_id)
                                               )
-                    and overall_status IN  ('RUNNING','QUEUED','READY') ;
+                    and overall_status IN  ('RUNNING','QUEUED') ;
                   exception
                     when others then v_qid := 0 ;
                 end;
@@ -415,7 +415,7 @@ begin
             where resource_mgmt_id IN ( select id from cpe_resource_mgmt
                                         where resource_id = (select resource_id from cpe_resource_mgmt where id = c_id)
                                       )
-            and overall_status IN ('RUNNING','READY') ;
+            and overall_status IN  ('RUNNING','QUEUED') ;
           exception
             when others then v_qid := 0 ;
         end;

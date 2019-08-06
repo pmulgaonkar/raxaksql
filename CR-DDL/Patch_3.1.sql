@@ -1069,12 +1069,10 @@ begin
                UPDATEXML (log_xml,'/ResourceLog/Info/failure_rules_count/text()', v_fcount)
                where id = v_rlog_id;
           if ( ( v_scount + v_fcount) > 0 ) then      
-             select  round(cast(( 
-               (sum((case rule_status when '1' then 1 when '0' then -1 when '-1' then -1 else 0 end) * rule_weight)) + sum(rule_weight)) 
-               / 
-               (2 * sum(rule_weight)) * 100 as decimal(8,2))) into v_health
-               from cpe_resource_log_detail where resource_log_id = v_rlog_id;
-             update cpe_resource_log set overall_health = v_health  where id = v_rlog_id and rule_status != -2;
+             select  round(cast((
+               (sum((case rule_status when '1' then 1 when '0' then -1 when '-1' then -1 else 0 end) * rule_weight)) + sum(rule_weight)) / (2 * sum(rule_weight)) * 100 as decimal(8,2))) into v_health
+               from cpe_resource_log_detail where resource_log_id = v_rlog_id and rule_status != -2;
+             update cpe_resource_log set overall_health = v_health  where id = v_rlog_id;
           end if;    
        end if;
     end if;
@@ -1398,7 +1396,7 @@ if ( updating ) then
                   exception 
                     when others then raise_application_error ( -20001, 'Error : 20001 : Error updating new parent');
                   end;  
-                  if v_ptype < 20 and v_ptype > 9 then 
+                  if v_ptype = 0 OR v_ptype <= 20 and v_ptype >= 10 then
                      select sysdate + 7 into v_expiry from dual;
                   else 
                      raise_application_error ( -20001, 'Error : 20001 : Error : User does not have suitable parent');

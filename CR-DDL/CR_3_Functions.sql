@@ -1,4 +1,3 @@
-
 prompt now create some functions
 
 create or replace function "CREATE_ORGANIZATION" (
