@@ -1,0 +1,284 @@
+Category,CIS,Rule_ID,Compliance,CIS Rule_Heading,"Total CIS: 225
+Matched with DISA:142
+Matched with PCI-DSS:54
+Scored Matched count:140
+Not Scored Matched:16
+Total Scored Rules:192
+Total Not Scored Rules:33",Sesh Murthy comments,References
+File System Configuration,1.1,,,,,,
+,1.1.1,,,Disable unused filesystems,,"1.1.1 to 1.1.8 are individual rules that appear not to be mapped to DISA.  Komal can you confirm
+
+Comment By Shubhakant:
+1.1.1, 1.1.3, 1.1.4, 1.1.7 (No Matching Rule found)",https://secscan.acron.pl/centos7/1/1/1
+,1.1.2,V-38455,DISA,Ensure separate partition exists for /tmp (Scored),,,
+,1.1.3,,,Ensure nodev option set on /tmp partition (Scored),,,https://secscan.acron.pl/centos7/1/1/3
+,1.1.4,,,Ensure nosuid option set on /tmp partition (Scored),,,https://secscan.acron.pl/centos7/1/1/4
+,1.1.5 ,V-57569,DISA,Ensure noexec option set on /tmp partition (Scored),,,
+,1.1.6,V-38456,DISA, Ensure separate partition exists for /var (Scored),,,
+,1.1.7,,,"Ensure separate partition exists for /var/tmp (Scored)
+",,,https://secscan.acron.pl/centos7/1/1/7
+,1.1.8,V-56011,PCI-DSS, Ensure nodev option set on /var/tmp partition (Scored),,,
+,1.1.9,V-56009,PCI-DSS,Ensure nosuid option set on /var/tmp partition (Scored),,,
+,1.1.10,V-57569,PCI-DSS, Ensure noexec option set on /var/tmp partition (Scored),,,
+,1.1.11,V-38463,DISA,Ensure separate partition exists for /var/log (Scored),,,
+,1.1.12,V-38467,PCI-DSS,Ensure separate partition exists for /var/log/audit (Scored),,,
+,1.1.13,V-38473,DISA,Ensure separate partition exists for /home (Scored),,,
+,1.1.14,V-56023,PCI-DSS,Ensure nodev option set on /home partition (Scored),,,
+,1.1.15,V-56024,PCI-DSS,Ensure nodev option set on /dev/shm partition (Scored),,,
+,1.1.16,V-56021,PCI-DSS, Ensure nosuid option set on /dev/shm partition  (Scored),,,
+,1.1.17,V-56022,PCI-DSS,Ensure noexec option set on /dev/shm partition (Scored),,,
+,1.1.18,,,"Ensure nodev option set on removable media partitions (Not Scored)
+
+","we set noexec option on rule 1.1.20, But there is no rule for nodev option",,https://secscan.acron.pl/centos7/1/1/18
+,1.1.19,,,Ensure nosuid option set on removable media partitions (Not Scored),"we set noexec option on rule 1.1.20, But there is no rule for nosuid option",,https://secscan.acron.pl/centos7/1/1/19
+,1.1.20,V-38655,DISA, Ensure noexec option set on removable media partitions  (Not Scored),,,
+,1.1.21,V-38697,DISA,Ensure sticky bit is set on all world-writable directories  (Scored),,,
+,1.1.22,V-38437,DISA, Disable Automounting   (Scored),,,
+Configure Software Updates,1.2,,,,,,
+,1.2.1,,,Ensure package manager repositories are configured (Not Scored),No rule found to list all enabled Yum repositories on the system,,https://secscan.acron.pl/centos7/1/2/1
+,1.2.2,V-38483,DISA,Ensure gpgcheck is globally activated (Scored),,,
+,1.2.3,V-38476,DISA,Ensure GPG keys are configured (Not Scored),,,
+,1.2.4,,,Ensure Red Hat Network or Subscription Manager connection is configured (Not Scored),No rule found which is relate to Subscription manager ,"This is covered by V-38748, But exact check is different",https://access.redhat.com/solutions/65300
+,1.2.5,V-38478,DISA,Disable the rhnsd Daemon  (Not Scored),,,
+Filesystem Integrity Checking,1.3,,,,,,
+,1.3.1,V-38489,DISA,Ensure AIDE is installed  (Scored),,,
+,1.3.2 ,V-38695,DISA,Ensure filesystem integrity is regularly checked  (Scored),,,
+Secure Boot Settings,1.4,,,,,,
+,1.4.1 ,V-38579,DISA,Ensure permissions on bootloader config are configured  (Scored),,,
+,,V-38581,,,,,
+,,V-38583,,,,,
+,1.4.2,V-38585,DISA,Ensure bootloader password is set  (Scored),,,
+,1.4.3,V-38586,DISA,Ensure authentication required for single user mode  (Scored),,,
+,1.4.4,V-38588,DISA,Ensure interactive boot is not enabled   (Scored),,,
+Additional Process Hardening,1.5,,,,,,
+,1.5.1 ,V-38675,DISA,Ensure core dumps are restricted  (Scored),,,
+,1.5.2,,,Ensure XD/NX support is enabled (Not Scored),No rule exist ,,https://secscan.acron.pl/centos7/1/5/2
+,1.5.3 ,V-38596,DISA,Ensure address space layout randomization (ASLR) is enabled  (Scored),,,
+,1.5.4,V-38447,,Ensure prelink is disabled (Scored),Close match,,https://secscan.acron.pl/centos7/1/5/4
+Mandatory Access Control,1.6,,,,,,
+,1.6.1,V-51369,DISA,Configure SELinux  (Scored),,,
+,1.6.1.1,V-51337,DISA, Ensure SELinux is not disabled in bootloader configuration (Scored),,,
+,1.6.1.2 ,V-51363,DISA,Ensure the SELinux state is enforcing (Scored),,,
+,1.6.1.3,V-51369,DISA, Ensure SELinux policy is configured  (Scored),1.6.1,,
+,1.6.1.4,V-56017,PCI-DSS, Ensure SETroubleshoot is not installed  (Scored),,,
+,1.6.1.5,V-56033,PCI-DSS,Ensure the MCS Translation Service (mcstrans) is not installed  (Scored),,,
+,1.6.1.6,,,Ensure no unconfined daemons exist (Scored),No rule found,,https://secscan.acron.pl/ubuntu1604/1/6/1/4
+,1.6.2,,,Ensure SELinux is installed (Scored),No rule found,Different implementation on DISA,https://secscan.acron.pl/centos7/1/6/2
+Warning Banners,1.7,,,,,,
+,1.7.1,,,Command Line Warning Banners,,,
+,1.7.1.1,,, Ensure message of the day is configured properly    (Scored),No rule found,,https://secscan.acron.pl/centos7/1/7/1/2
+,1.7.1.2,V-38593,DISA,Ensure local login warning banner is configured properly (Not Scored),,,
+,1.7.1.3,V-38614,DISA,Ensure remote login warning banner is configured properly (Not Scored),,Rule 5.2.15 ,
+,1.7.1.4,,,Ensure permissions on /etc/motd are configured (Not Scored),No rule found,,https://secscan.acron.pl/centos7/1/7/1/4
+,1.7.1.5,,,Ensure permissions on /etc/issue are configured (Scored),No rule found,,https://secscan.acron.pl/centos7/1/7
+,1.7.1.6,,,Ensure permissions on /etc/issue.net are configured (Not Scored),No rule found,,https://secscan.acron.pl/centos7/1/7
+,1.7.2 ,V-38689,DISA,Ensure GDM login banner is configured  (Scored),,,
+,1.8,V-38481,DISA,"Ensure updates, patches, and additional security software are installed  (Scored)",,,
+Services,1.2.5 ,,,,,,
+,2.1.1 ,V-56043,PCI-DSS,Ensure chargen services are not enabled  (Scored),,,
+,,V-56044,,,,,
+,2.1.2,V-56041,PCI-DSS,Ensure daytime services are not enabled  (Scored),,,
+,,V-56042,,,,,
+,2.1.3,,,Ensure discard services are not enabled (Scored),No rule found,,
+,2.1.4,V-56045,PCI-DSS,Ensure echo services are not enabled   (Scored),,,
+,2.1.5,,,Ensure time services are not enabled (Scored),No rule found,,
+,2.2.17,V-38591,DISA,Ensure rsh server is not enabled  (Scored),,,
+,2.2.18,V-38594,DISA,Ensure talk server is not enabled  (Scored),,,
+,2.2.19,V-38589,DISA,Ensure telnet server is not enabled   (Scored),,,
+,2.2.20,V-38609,DISA,Ensure tftp server is not enabled  (Scored),,,
+,2.2.21,,, Ensure rsync service is not enabled (Scored),No rule found,,https://secscan.acron.pl/centos7/2/2/20
+,2.1.7,V-38582,DISA,Ensure xinetd is not enabled  (Scored),,,
+Special Purpose Services,2.2,,,,,,
+,2.2.1,,,Time Synchronization,,,
+,"2.2.1.1
+2.2.1.2
+2.2.1.3",V-38620,DISA,"Ensure ntp is configured (Scored)
+Ensure time synchronization is in use (Not Scored)
+Ensure chrony is configured (Scored)",,,
+,,V-38621,,,,,
+,2.2.2,V-38676,DISA,Ensure X Window System is not installed  (Scored),,,
+,2.2.3,V-38618,DISA,Ensure Avahi Server is not enabled  (Scored),,,
+,2.2.4,V-56039,PCI-DSS,Ensure CUPS is not enabled  (Scored),,,
+,2.2.5,V-56066,PCI-DSS,Ensure DHCP Server is not enabled (Scored),,,
+,2.2.6,V-38627,DISA,"Ensure LDAP server is not enabled (Scored)
+
+V-38627 - The openldap-servers package must not be installed unless required.",,,
+,2.2.7 ,V-56040,PCI-DSS,Ensure NFS and RPC are not enabled  (Scored),,,
+,2.2.8,V-56037,PCI-DSS,"Ensure DNS Server is not enabled (Scored)
+
+V-56037 - The DNS Server package must not be installed on system.",,,
+,2.2.9,V-56075,PCI-DSS,"Ensure FTP Server is not enabled (Scored)
+
+V-56075 - The FTP Server package must not be installed on system.",,,
+,2.2.10,V-56034,PCI-DSS,"Ensure HTTP server is not enabled (Scored)
+
+The HTTP Server package must not be installed on system.",,,
+,2.2.11,V-56036,PCI-DSS, ,,,
+,2.2.12,"V-56076",PCI-DSS,Ensure Samba is not enabled (Scored),,,
+,2.2.13,V-56035,PCI-DSS,Ensure HTTP Proxy Server is not enabled (Scored),,,
+,2.2.14,V-56030,PCI-DSS,Ensure SNMP Server is not enabled (Scored),,,
+,2.2.15,V-38622,DISA,Ensure mail transfer agent is configured for local-only mode (Scored),,,
+,2.2.16,V-38604,DISA,Ensure NIS Server is not enabled (Scored),,,
+Service Clients,2.3,,,,,,
+,2.3.1,V-38603,DISA,Ensure NIS Client is not installed (Scored),,,
+,2.3.2,V-38591,DISA, Ensure rsh client is not installed (Scored),,,
+,2.3.3 ,V-56029,PCI-DSS,Ensure talk client is not installed  (Scored),,,
+,2.3.4 ,V-56077,PCI-DSS,Ensure telnet client is not installed  (Scored),,,
+,2.3.5,,,Ensure LDAP client is not installed (Scored),There is no rule defined by DISA to Verify LDAP client package installation,Implement differently in DISA,https://secscan.acron.pl/centos7/2/3/5
+Network Configuration,3,,,,,,
+,3.1.1 ,V-38511,DISA,Ensure IP forwarding is disabled   (Scored),,,
+,3.1.2,V-38601,DISA,Ensure packet redirect sending is disabled (Scored),,,
+Network Parameters ,,,,,,,
+,3.2.1,V-38523,DISA,Ensure source routed packets are not accepted  (Scored),,,
+,,V-38529,,,,,
+,3.2.2,"V-38532",DISA,Ensure ICMP redirects are not accepted  (Scored),,,
+,3.2.3,"V-38526",DISA,Ensure secure ICMP redirects are not accepted  (Scored),,,
+,3.2.4 ,V-38528,DISA,Ensure suspicious packets are logged  (Scored),,,
+,3.2.5 ,V-38535,DISA,Ensure broadcast ICMP requests are ignored  (Scored),,,
+,3.2.6,V-38537,DISA, Ensure bogus ICMP responses are ignored  (Scored),,,
+,3.2.7 ,V-38542,DISA,Ensure Reverse Path Filtering is enabled  (Scored),,,
+,,V-38544,,,,,
+,3.2.8 ,V-38539,DISA,Ensure TCP SYN Cookies is enabled  (Scored),,,
+IPv6,,,,,,,
+,3.3.1 ,V-56068,PCI-DSS,Ensure IPv6 router advertisements are not accepted  (Not Scored) ,,,
+,3.3.2 ,V-56067,PCI-DSS,Ensure IPv6 redirects are not accepted  (Not Scored) ,,,
+,3.3.3,V-38546,DISA,Ensure IPv6 is disabled (Not Scored) ,,,
+TCP Wrappers,,,,,,,
+,3.4.1 ,V-56051,PCI-DSS,Ensure TCP Wrappers is installed  (Scored) ,,,
+,3.4.2,,,Ensure /etc/hosts.allow is configured (Scored),Not Found,,https://secscan.acron.pl/centos7/3/4/2
+,3.4.3,,,Ensure /etc/hosts.deny is configured (Scored),Not Found,,https://secscan.acron.pl/centos7/3/4/3
+,3.4.4 ,V-56050,PCI-DSS,Ensure permissions on /etc/hosts.allow are configured (Scored),,,
+,3.4.5 ,V-56049,PCI-DSS,Ensure permissions on /etc/hosts.deny are configured (Scored),,,
+Uncommon Network Protocols,,,,,,,
+,3.5.1 ,V-38514,DISA,Ensure DCCP is disabled (Not Scored) ,,,
+,3.5.2 ,V-38515,DISA,Ensure SCTP is disabled  (Not Scored) ,,,
+,3.5.3,V-38516,DISA, Ensure RDS is disabled (Not Scored) ,,,
+,3.5.4,V-38517,DISA,Ensure TIPC is disabled (Not Scored) ,,,
+,3.6.1,V-38444,DISA,Ensure iptables is installed (Scored),Only check whether iptables is installed or not,,
+,,,,,,,
+,3.6.2,V-38686,DISA,Ensure default deny firewall policy (Scored),,,
+,,V-38513,,,,,
+,,V-38444,,,,,
+,3.6.3,,,Ensure loopback traffic is configured (Scored),,,
+,3.6.4,,,Ensure outbound and established connections are configured (Not Scored),,,
+,3.6.5,,,Ensure firewall rules exist for all open ports (Scored),,,
+,3.7,V-56054,PCI-DSS,Ensure wireless interfaces are disabled (Not Scored),,,
+Logging and Auditing,,,,,,,
+,4.1.1.1 ,V-38633,DISA,Ensure audit log storage size is configured (Not Scored),,,
+,4.1.1.2 ,V-38468,DISA,Ensure system is disabled when audit logs are full (Scored),,,
+,4.1.1.3 ,V-38634,DISA,Ensure audit logs are not automatically deleted (Scored),,,
+,4.1.2 ,V-38632,DISA,Ensure auditd service is enabled (Scored),,,
+,4.1.3 ,V-38438,DISA,Ensure auditing for processes that start prior to auditd is enabled (Scored),,,
+,4.1.4 ,V-38635,DISA,Ensure events that modify date and time information are collected (Scored),,,
+,,V-38522,,,,,
+,,V-38527,,,,,
+,4.1.5,"V-38538
+",DISA,Ensure events that modify user/group information are collected (Scored),,,
+,,V-38536 ,,,,,
+,,V-38531,,,,,
+,4.1.6 ,V-38540,DISA,Ensure events that modify the system's network environment are collected (Scored),,,
+,4.1.7,V-38541,DISA,Ensure events that modify the system's Mandatory Access Controls are collected (Scored),,,
+,4.1.8,,,Ensure login and logout events are collected (Scored),,,
+,4.1.10 ,"V-38543
+",DISA,"Ensure discretionary access control permission modification
+events are collected (Scored)",,,
+,,V-38545,,,,,
+,,V-38547 ,,,,,
+,,V-38550 ,,,,,
+,,V-38552 ,,,,,
+,,V-38554 ,,,,,
+,,V-38556 ,,,,,
+,,V-38557,,,,,
+,,V-38558,,,,,
+,,V-38559 ,,,,,
+,,V-38561 ,,,,,
+,,V-38563 ,,,,,
+,,V-38565,,,,,
+,4.1.11 ,V-38566,DISA,Ensure unsuccessful unauthorized file access attempts are collected  (Scored),,,
+,4.1.12 ,V-38567,DISA,Ensure use of privileged commands is collected (Scored),,,
+,4.1.13 ,V-38568,DISA,Ensure successful file system mounts are collected (Scored),,,
+,4.1.14 ,V-38575,DISA,Ensure file deletion events by users are collected (Scored),,,
+,4.1.15,,,Ensure changes to system administration scope (sudoers) is collected (Scored),,,
+,4.1.16 ,V-38578,DISA,Ensure system administrator actions (sudolog) are collected  (Scored),,,
+,4.1.17,V-38580,DISA,Ensure kernel module loading and unloading is collected (Scored),,,
+Configure rsyslog,,,,,,,
+,4.2.1.1 ,V-56062,"DISA , PCI-DSS ",Ensure rsyslog Service is enabled (Scored),,,
+,,V-38520,,,,,
+,4.2.1.2,V-38520,DISA,Ensure logging is configured (Not Scored),,,
+,4.2.1.3 ,V-38623,DISA,"4.2.1.3 Ensure rsyslog default file permissions configured
+V-38623 - All rsyslog-generated log files must have mode 0600 or less permissive.",,,
+,4.2.1.4 ,V-38520,DISA,Ensure rsyslog is configured to send logs to a remote log host  (Scored),,,
+Configure syslog-ng,,,,,,,
+,4.2.3,V-56063,PCI-DSS, Ensure rsyslog or syslog-ng is installed (Scored),,,
+,4.2.4 ,V-56047,PCI-DSS,Ensure permissions on all logfiles are configured (Scored),,,
+Configure cron,,,,,,,
+,5.1.1 ,V-38605,DISA,Ensure cron daemon is enabled (Scored),,,
+,5.1.2 ,V-56002 ,PCI-DSS,Ensure permissions on /etc/crontab are configured (Scored),,,
+,5.1.3 ,V-56005,PCI-DSS,Ensure permissions on /etc/cron.hourly are configured (Scored),,,
+,5.1.4 ,V-56006,PCI-DSS,Ensure permissions on /etc/cron.daily are configured (Scored),,,
+,5.1.5 ,V-56003,PCI-DSS,Ensure permissions on /etc/cron.weekly are configured (Scored),,,
+,5.1.6,V-56004,PCI-DSS,Ensure permissions on /etc/cron.monthly are configured (Scored),,,
+,5.1.7 ,V-56007,PCI-DSS,Ensure permissions on /etc/cron.d are configured (Scored),,,
+,5.1.8 ,V-56053,PCI-DSS,Ensure at/cron is restricted to authorized users (Scored),,,
+ SSH Server Configuration,,,,,,,
+,5.2.1 ,V-56026,PCI-DSS,Ensure permissions on /etc/ssh/sshd_config are configured (Scored),,,
+,5.2.2 ,V-38607,DISA,Ensure SSH Protocol is set to 2 (Scored),,,
+,5.2.3,V-56027,PCI-DSS,Ensure SSH LogLevel is set to INFO (Scored),,,
+,5.2.4 ,V-56064,PCI-DSS,Ensure SSH X11 forwarding is disabled (Scored),,,
+,5.2.6 ,V-38611,DISA,Ensure SSH IgnoreRhosts is enabled (Scored),,,
+,5.2.7 ,V-38612,DISA,Ensure SSH HostbasedAuthentication is disabled (Scored),,,
+,5.2.8 ,V-38613,DISA,Ensure SSH root login is disabled (Scored),,,
+,5.2.9 ,V-38614,DISA,Ensure SSH PermitEmptyPasswords is disabled (Scored),,,
+,5.2.10,V-38616,DISA, Ensure SSH PermitUserEnvironment is disabled (Scored),,,
+,5.2.12 ,V-38608,DISA,Ensure SSH Idle Timeout Interval is configured (Scored),,,
+,5.2.14 ,V-56058,PCI-DSS,Ensure SSH access is limited (Scored),,,
+,"5.2.15 , 1.7.1.3",V-38615,DISA,Ensure SSH warning banner is configured (Scored),,,
+Configure PAM,,,,,,,
+,5.3.1 ,V-38569,DISA,Ensure password creation requirements are configured (Scored),,,
+,,V-38571,,,,,
+,,V-38570,,,,,
+,,V-38475,,,,,
+,,V-38482,,,,,
+,5.3.2 ,V-38573,DISA,Ensure lockout for failed password attempts is configured (Scored),,,
+,5.3.3 ,V-38658,DISA,Ensure password reuse is limited (Scored),,,
+,5.3.4 ,V-38574,DISA,Ensure password hashing algorithm is SHA-512 (Scored),,,
+User Accounts and Environment,,,,,,,
+,5.4.1.1 ,V-38479,DISA,Ensure password expiration is 365 days or less (Scored),,,
+,5.4.1.2 ,V-38477 ,DISA,"5.4.1.2 - Ensure minimum days between password changes is 7 or more (Scored)
+
+V-38477 - Users must not be able to change passwords more than once every 24 hours.
+",,,
+,5.4.1.3 ,V-38480,DISA,Ensure password expiration warning days is 7 or more  (Scored),,,
+,5.4.3 ,V-56071,PCI-DSS,Ensure default group for the root account is GID 0 (Scored),,,
+,5.4.4 ,"V-38651
+",DISA,Ensure default user umask is 027 or more restrictive (Scored),,,
+,,V-38647,,,,,
+System File Permissions,,,,,,,
+,6.1.2 ,"V-38450
+",DISA,Ensure permissions on /etc/passwd are configured (Scored),,,
+,,V-38451,,,,,
+,,V-38457,,,,,
+,6.1.3,"V-38502
+",DISA,Ensure permissions on /etc/shadow are configured (Scored),,,
+,,V-38503 ,,,,,
+,,V-38504,,,,,
+,6.1.4,"V-38458
+",DISA,Ensure permissions on /etc/group are configured (Scored),,,
+,,V-38459 ,,,,,
+,,V-38461,,,,,
+,6.1.5,"V-38443
+",DISA,Ensure permissions on /etc/gshadow are configured (Scored),,,
+,,V-38448 ,,,,,
+,,V-38449,,,,,
+,6.1.10 ,V-38643,DISA,Ensure no world writable files exist  (Scored),,,
+User and Group Settings,,,,,,,
+,6.2.1 ,V-38497,DISA,Ensure password fields are not empty  (Scored),,,
+,6.2.2 ,V-56001,PCI-DSS,"Ensure no legacy ""+"" entries exist in /etc/passwd  (Scored)",,,
+,6.2.3,V-56001,PCI-DSS,"Ensure no legacy ""+"" entries exist in /etc/shadow (Scored)",,,
+,6.2.4,V-56001,PCI-DSS,"Ensure no legacy ""+"" entries exist in /etc/group (Scored)",,,
+,6.2.5 ,V-38500,DISA,Ensure root is the only UID 0 account (Scored),,,
+,6.2.7 ,V-56019,PCI-DSS,Ensure all users' home directories exist  (Scored),,,
+,6.2.12 ,V-38619,DISA,Ensure no users have .netrc files  (Scored),,,
+,6.2.14 ,V-38491,DISA,Ensure no users have .rhosts files (Scored),,,
+,6.2.15 ,V-38681,DISA,Ensure all groups in /etc/passwd exist in /etc/group  (Scored),,,
+,6.2.16 ,V-56073,PCI-DSS,Ensure no duplicate UIDs exist (Scored),,,
