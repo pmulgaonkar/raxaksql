@@ -1,3 +1,4 @@
+set verify off
 PROMPT Updating Domain based IP
 delete from DJANGO_SITE;
 insert into DJANGO_SITE (id,domain,name) values (1, '&1' , 'Cloud-Raxak Server');

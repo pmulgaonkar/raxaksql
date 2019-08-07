@@ -1,3 +1,4 @@
+set verify off
 create or replace function deactivate_users
 return varchar2 is
 ret_str varchar2(1024);

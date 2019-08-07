@@ -1,3 +1,4 @@
+set verify off
 update cpe_user set auth_user_id = 1 where parent_id is null;
 commit;
 ALTER TABLE CPE_USER ADD CONSTRAINT CPE_USER_FK_5 FOREIGN KEY ( AUTH_USER_ID ) REFERENCES AUTH_USER ( ID ) ON DELETE CASCADE ;

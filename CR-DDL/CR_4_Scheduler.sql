@@ -44,7 +44,7 @@ cursor c1 is select id, resource_id,profile_id, owner_id, schedule_next_run_time
                   (schedule_next_run_time is not null and to_char(schedule_next_run_time ,'mm-dd-yyyy hh24:mi') = to_char(sysdate,'mm-dd-yyyy hh24:mi') )
                   and 
                   nvl(schedule_end_time,sysdate+1) >= sysdate and is_active ='Y' Order by ID;
-cursor c2 is select id, resource_mgmt_id from cpe_resource_log where overall_status = 'ON-HOLD' order by 1,2 asc;
+cursor c2 is select id, resource_mgmt_id from cpe_resource_log where overall_status in ('QUEUED','ON-HOLD') order by 1,2 asc;
 cursor c3 is select resource_mgmt_id, profile_info_id, id from cpe_resource_log where overall_status = 'READY';
 
 v_id number(16);v_target number(16); v_profile number(16);v_owner number(16);v_runtime timestamp;v_cost number(9,3);
@@ -302,7 +302,7 @@ begin
                 end if;
             end if;
 
-/* Below code commented, in order to improve performace for IBM scalability testing. Will uncomment it after scalabiluty testing and need to improve below code.
+/* Below code commented, in order to improve performace for IBM scalability testing. Will uncomment it after scalability testing and need to improve below code.
             if v_err = 0 then
                 open c_user for
                 'select
@@ -356,7 +356,7 @@ begin
                     where resource_mgmt_id IN ( select id from cpe_resource_mgmt
                                                 where resource_id = (select resource_id from cpe_resource_mgmt where id = v_id)
                                               )
-                    and overall_status IN  ('RUNNING','QUEUED') ;
+                    and overall_status IN  ('RUNNING','QUEUED','READY') ;
                   exception
                     when others then v_qid := 0 ;
                 end;
@@ -382,7 +382,7 @@ begin
                     where resource_mgmt_id IN ( select id from cpe_resource_mgmt
                                                      where resource_id = (select resource_id from cpe_resource_mgmt where id = v_id)
                                               )
-                    and overall_status IN  ('RUNNING','QUEUED') ;
+                    and overall_status IN  ('RUNNING','QUEUED','READY') ;
                   exception
                     when others then v_qid := 0 ;
                 end;
@@ -415,7 +415,7 @@ begin
             where resource_mgmt_id IN ( select id from cpe_resource_mgmt
                                         where resource_id = (select resource_id from cpe_resource_mgmt where id = c_id)
                                       )
-            and overall_status IN  ('RUNNING','QUEUED') ;
+            and overall_status IN  ('RUNNING','QUEUED','READY') ;
           exception
             when others then v_qid := 0 ;
         end;
