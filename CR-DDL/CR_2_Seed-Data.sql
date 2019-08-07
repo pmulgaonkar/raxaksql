@@ -183,7 +183,7 @@ INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY)
 INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY) 
    VALUES ('Network_Group', 'all rules related to network','Seed_Data');
 INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY) 
-   VALUES ('Service_Group', 'all rules related to services','Seed_Data');
+   VALUES ('Service Group', 'all rules related to services','Seed_Data');
 INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY) 
    VALUES ('FileSystem_Group', 'all rules related to fileSystem','Seed_Data');
 INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY) 
@@ -225,7 +225,7 @@ INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY)
 INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY) 
    VALUES ('Virtual Machines', 'CIS Profile for Management Plane','Seed_Data');
 INSERT INTO "CPE_RULE_FUNCTIONAL_GROUP_TYPE" (NAME, DESCRIPTION, CREATED_BY) 
-   VALUES ('default', 'all rules which we don’t understand','Seed_Data');
+   VALUES ('default', 'all rules which we dont understand','Seed_Data');
 commit;
 
 prompt message types
