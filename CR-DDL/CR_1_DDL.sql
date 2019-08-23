@@ -2908,7 +2908,9 @@ if ( updating ) then
                begin
                    select v_id into :new.parent_id from dual;
                    select 0,0,0 into :new.usage_resource, :new.usage_runs ,:new.usage_cost from dual;
-                   select v_expiry into :new.user_expiry_date from dual;
+                   if :new.user_expiry_date > v_expiry then
+                       select v_expiry into :new.user_expiry_date from dual;
+                    end if;
                 exception
                    when others then raise_application_error ( -20001, 'Error : 20001 : Error updating new parent');
                 end;
@@ -3669,7 +3671,7 @@ if c_id < 0 then
 else     
 
 select nvl(parent_id,-1) into c_id from cpe_organization
-       where id = ( select parent_id from cpe_organization where id = :old.id and is_active = 'Y');
+       where id = ( select parent_id from cpe_organization where id = :old.id);
 select id,parent_id,name  into v_self_id,v_parent_id,v_self_name from cpe_organization where id = :old.id;
 select name into v_parent_name from cpe_organization where id = v_parent_id;
 
