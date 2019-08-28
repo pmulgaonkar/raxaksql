@@ -123,6 +123,8 @@ insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by )
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 7.5' , 'Seed_Data');       
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 7.6' , 'Seed_Data');              
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'debian 8.0' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'debian 8.1' , 'Seed_Data');
