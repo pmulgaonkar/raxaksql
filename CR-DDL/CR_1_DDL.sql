@@ -2501,7 +2501,7 @@ cursor c2 is select id,
              usage_resource from cpe_organization
              where is_active = 'Y'
              connect by prior parent_id = id
-             start with id = ( select user_org_id from cpe_user where id = :new.owner_id and is_active = 'Y') ;
+             start with id = ( select user_org_id from cpe_user where id = :old.owner_id and is_active = 'Y') ;
 cursor c4 is select id,
              case when quota_expiry_date is null then decode(quota_resource,-1,99999999,quota_resource)
              when quota_expiry_date < sysdate then 0
@@ -3207,7 +3207,7 @@ begin
        then
           null;
        else
-          raise_application_error( -20205, 'Error : 20205' || :new.parent_id || '---' || :new.id);
+          raise_application_error( -20205, 'Error : Quota expiry date can not exceed Parent Quota expiry date.');
        end if;
 
        IF (:new.quota_resource < 0  OR  :new.quota_resource > v_qr )
