@@ -35,6 +35,7 @@ drop table CPE_USER_RELATION			cascade constraints purge;
 drop table CPE_USER_TYPE			cascade constraints purge;
 drop table CPE_SYS_ERROR_MESSAGE		cascade constraints purge;
 drop table CPE_USAGE_LOG			cascade constraints purge;
+drop table Appliance_Details			cascade constraints purge;
 
 drop sequence CPE_SYSTEM_SEQ;
 
@@ -315,6 +316,32 @@ end;
 /
 
 PROMPT now let us create few tables
+CREATE TABLE Appliance_Details
+  (
+    ID                     NUMBER (16) NOT NULL,
+    host                   VARCHAR2 (64),
+    disk_avail             NUMBER (16),
+    disk_used              NUMBER (16),
+    disk_size		       NUMBER (16),
+    uptime                 VARCHAR2 (64),
+    reboot                 VARCHAR2 (1024),
+    orgs_active            NUMBER (8),
+    orgs_inactive          NUMBER (8),
+    users_active           NUMBER (8),
+    users_inactive         NUMBER (8),
+    resources_by_type      VARCHAR2 (4000),
+    resources_active       NUMBER (8),
+    resources_inactive     NUMBER (8),
+    default_profile        VARCHAR2 (1000),
+    custom_profile         VARCHAR2 (2000),
+    total_compliance       VARCHAR2 (2000),
+    month_compliance       VARCHAR2 (2000),
+    code_version           VARCHAR2 (64),
+    code_difference        VARCHAR2 (4000),
+    CREATED_BY             VARCHAR2 (64),
+    CREATE_DATE            TIMESTAMP
+  );
+
 CREATE TABLE CPE_AUTH_TYPE
   (
     ID          NUMBER (16) NOT NULL ,
@@ -850,7 +877,8 @@ CREATE TABLE CPE_USAGE_LOG
 
 
 PROMPT Add some table constraints
-PROMPT let us start with primary keys 
+PROMPT let us start with primary keys
+ALTER TABLE Appliance_Details ADD CONSTRAINT Appliance_Details_PK PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_AUTH_TYPE ADD CONSTRAINT CPE_AUTH_TYPE_PK PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_AZURE_VM ADD CONSTRAINT CPE_AZURE_VM PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_CRITICALITY_TYPE ADD CONSTRAINT CPE_CRITICALITY_PK PRIMARY KEY ( ID ) ;
@@ -1080,7 +1108,14 @@ ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MTYPE_CHK2
 ALTER TABLE CPE_RES_MGMT_EXCEPTION ADD CONSTRAINT CPE_RES_MGMT_EXCEPTION_CHK2 CHECK (override_type IN ('S','K','M','R') );
 
 PROMPT add some data as triggers to make sure no one deletes any data....only makes it inactive
-
+create or replace TRIGGER Appliance_Details_TRIG1 before INSERT ON Appliance_Details for each row
+begin
+      select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
+      select SYSDATE into :new.CREATE_DATE from dual;
+end;
+/
+ALTER TRIGGER "Appliance_Details_TRIG1" ENABLE;
+/
 CREATE OR REPLACE TRIGGER "CPE_AUTH_TYPE_TRIG0" before delete on CPE_AUTH_TYPE for each row
 begin
     raise_application_error( -20032, 'Error : 20032 : Can not delete this record');
