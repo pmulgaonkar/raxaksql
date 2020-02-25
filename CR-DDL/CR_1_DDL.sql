@@ -2249,7 +2249,7 @@ begin
       end if;
       
       begin
-         select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s1
+         select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s1
          from cpe_profile_member a , cpe_profile b
          where a.is_active='Y' and b.id = a.profile_id and b.id = :old.id;
       exception
@@ -2263,7 +2263,7 @@ begin
           when others then v_id := 0;
       end;
       begin 
-        select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s2
+        select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s2
         from cpe_profile_member a, cpe_profile b
         where a.is_active='Y' and b.id = a.profile_id 
         and b.id = v_id;
@@ -2367,7 +2367,7 @@ begin
       end if;
       
       begin
-          select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s1
+          select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s1
           from cpe_profile_member a , cpe_profile b
           where a.is_active='Y' and b.id = a.profile_id and b.id = v_profile_id;
       exception
@@ -2381,7 +2381,7 @@ begin
           when others then v_id := 0;
       end;
       begin
-        select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s2
+        select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s2
         from cpe_profile_member a, cpe_profile b
         where a.is_active='Y' and b.id = a.profile_id
         and b.id = v_id;
