@@ -3770,11 +3770,11 @@ select add_rule_data ('default','V-6027','sv-52949r1_cis_rule','default','medium
 This user right supersedes the Log on as a service user right if an account is subject to both policies.
 The recommended state for this setting is to include: "Guests"',
 'F-55776r1_cis_fix',
-'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.',
-'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000001',
-'C-47166r2_cis_chk',
 'To establish the recommended configuration via GP, set the following UI path to include: "Guests":
 Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignment -> Deny log on as a service',
+'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000001',
+'C-47166r2_cis_chk',
+'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.',
 'Customized rule by Cloud Raxak') from dual;
 
 --CIS 2.3.1.2 (L1)
