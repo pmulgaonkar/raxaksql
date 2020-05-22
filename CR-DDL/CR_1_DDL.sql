@@ -35,6 +35,7 @@ drop table CPE_USER_RELATION			cascade constraints purge;
 drop table CPE_USER_TYPE			cascade constraints purge;
 drop table CPE_SYS_ERROR_MESSAGE		cascade constraints purge;
 drop table CPE_USAGE_LOG			cascade constraints purge;
+drop table Appliance_Details			cascade constraints purge;
 drop table LDAP_SERVER_CONFIG			cascade constraints purge;
 
 drop sequence CPE_SYSTEM_SEQ;
@@ -316,6 +317,32 @@ end;
 /
 
 PROMPT now let us create few tables
+CREATE TABLE Appliance_Details
+  (
+    ID                     NUMBER (16) NOT NULL,
+    host                   VARCHAR2 (64),
+    disk_avail             NUMBER (16),
+    disk_used              NUMBER (16),
+    disk_size		       NUMBER (16),
+    uptime                 VARCHAR2 (64),
+    reboot                 VARCHAR2 (1024),
+    orgs_active            NUMBER (8),
+    orgs_inactive          NUMBER (8),
+    users_active           NUMBER (8),
+    users_inactive         NUMBER (8),
+    resources_by_type      VARCHAR2 (4000),
+    resources_active       NUMBER (8),
+    resources_inactive     NUMBER (8),
+    default_profile        VARCHAR2 (1000),
+    custom_profile         VARCHAR2 (2000),
+    total_compliance       VARCHAR2 (2000),
+    month_compliance       VARCHAR2 (2000),
+    code_version           VARCHAR2 (64),
+    code_difference        VARCHAR2 (4000),
+    CREATED_BY             VARCHAR2 (64),
+    CREATE_DATE            TIMESTAMP
+  );
+
 CREATE TABLE CPE_AUTH_TYPE
   (
     ID          NUMBER (16) NOT NULL ,
@@ -864,7 +891,8 @@ CREATE TABLE LDAP_SERVER_CONFIG
 
 
 PROMPT Add some table constraints
-PROMPT let us start with primary keys 
+PROMPT let us start with primary keys
+ALTER TABLE Appliance_Details ADD CONSTRAINT Appliance_Details_PK PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_AUTH_TYPE ADD CONSTRAINT CPE_AUTH_TYPE_PK PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_AZURE_VM ADD CONSTRAINT CPE_AZURE_VM PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_CRITICALITY_TYPE ADD CONSTRAINT CPE_CRITICALITY_PK PRIMARY KEY ( ID ) ;
@@ -1096,7 +1124,14 @@ ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MTYPE_CHK2
 ALTER TABLE CPE_RES_MGMT_EXCEPTION ADD CONSTRAINT CPE_RES_MGMT_EXCEPTION_CHK2 CHECK (override_type IN ('S','K','M','R') );
 
 PROMPT add some data as triggers to make sure no one deletes any data....only makes it inactive
-
+create or replace TRIGGER Appliance_Details_TRIG1 before INSERT ON Appliance_Details for each row
+begin
+      select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
+      select SYSDATE into :new.CREATE_DATE from dual;
+end;
+/
+ALTER TRIGGER "Appliance_Details_TRIG1" ENABLE;
+/
 CREATE OR REPLACE TRIGGER "CPE_AUTH_TYPE_TRIG0" before delete on CPE_AUTH_TYPE for each row
 begin
     raise_application_error( -20032, 'Error : 20032 : Can not delete this record');
@@ -2239,7 +2274,7 @@ begin
       end if;
       
       begin
-         select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s1
+         select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s1
          from cpe_profile_member a , cpe_profile b
          where a.is_active='Y' and b.id = a.profile_id and b.id = :old.id;
       exception
@@ -2253,7 +2288,7 @@ begin
           when others then v_id := 0;
       end;
       begin 
-        select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s2
+        select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s2
         from cpe_profile_member a, cpe_profile b
         where a.is_active='Y' and b.id = a.profile_id 
         and b.id = v_id;
@@ -2357,7 +2392,7 @@ begin
       end if;
       
       begin
-          select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s1
+          select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s1
           from cpe_profile_member a , cpe_profile b
           where a.is_active='Y' and b.id = a.profile_id and b.id = v_profile_id;
       exception
@@ -2371,7 +2406,7 @@ begin
           when others then v_id := 0;
       end;
       begin
-        select nvl(sum(case a.criticality_id when 5 then 1 when 6 then 2 when 7 then 3 else 0 end),0) into v_s2
+        select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s2
         from cpe_profile_member a, cpe_profile b
         where a.is_active='Y' and b.id = a.profile_id
         and b.id = v_id;
@@ -2526,7 +2561,7 @@ cursor c2 is select id,
              usage_resource from cpe_organization
              where is_active = 'Y'
              connect by prior parent_id = id
-             start with id = ( select user_org_id from cpe_user where id = :new.owner_id and is_active = 'Y') ;
+             start with id = ( select user_org_id from cpe_user where id = :old.owner_id and is_active = 'Y') ;
 cursor c4 is select id,
              case when quota_expiry_date is null then decode(quota_resource,-1,99999999,quota_resource)
              when quota_expiry_date < sysdate then 0
@@ -2941,7 +2976,9 @@ if ( updating ) then
                begin
                    select v_id into :new.parent_id from dual;
                    select 0,0,0 into :new.usage_resource, :new.usage_runs ,:new.usage_cost from dual;
-                   select v_expiry into :new.user_expiry_date from dual;
+                   if :new.user_expiry_date > v_expiry then
+                       select v_expiry into :new.user_expiry_date from dual;
+                    end if;
                 exception
                    when others then raise_application_error ( -20001, 'Error : 20001 : Error updating new parent');
                 end;
@@ -3238,7 +3275,7 @@ begin
        then
           null;
        else
-          raise_application_error( -20205, 'Error : 20205' || :new.parent_id || '---' || :new.id);
+          raise_application_error( -20205, 'Error : Quota expiry date can not exceed Parent Quota expiry date.');
        end if;
 
        IF (:new.quota_resource < 0  OR  :new.quota_resource > v_qr )
@@ -3702,7 +3739,7 @@ if c_id < 0 then
 else     
 
 select nvl(parent_id,-1) into c_id from cpe_organization
-       where id = ( select parent_id from cpe_organization where id = :old.id and is_active = 'Y');
+       where id = ( select parent_id from cpe_organization where id = :old.id);
 select id,parent_id,name  into v_self_id,v_parent_id,v_self_name from cpe_organization where id = :old.id;
 select name into v_parent_name from cpe_organization where id = v_parent_id;
 

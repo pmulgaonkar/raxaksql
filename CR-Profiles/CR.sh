@@ -5,6 +5,7 @@
 ./import_profile.pl Microsoft_Windows_Server_2012_MAC-1_Classified_2012_Beta.sql
 ./import_profile.pl CIS_Windows_2012_Std_Beta.sql
 ./import_profile.pl Microsoft_Windows_Server_2016_MAC-1_Classified_2016_Beta.sql
+./import_profile.pl CIS_Microsoft_Windows_Server_2016.sql
 ./import_profile.pl [debian-based_Linux]__MAC-1_Classified.sql
 ./import_profile.pl [debian-based_Linux]__MAC-1_Classified1.sql
 ./import_profile.pl [debian-based_Linux]__CIS_Profile_Subset.sql
@@ -13,6 +14,7 @@
 ./import_profile.pl [rpm-based_Linux]__MAC-1_Classified1.sql
 ./import_profile.pl [rpm-based_Linux]__PCI_DSS.sql
 ./import_profile.pl [rpm-based_Linux]__CIS_Profile_Subset.sql
+./import_profile.pl [rpm-based_Linux]__CIS_Profile_Full.sql
 ./import_profile.pl [debian-based_Linux]__Master_Profile.sql
 ./import_profile.pl [rpm-based_Linux]__Master_Profile.sql
 ./import_profile.pl Microsoft_Windows_Server_2008_R2_Master_Profile.sql
