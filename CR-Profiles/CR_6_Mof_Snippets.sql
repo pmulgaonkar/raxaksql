@@ -10318,8 +10318,8 @@ ResourceID = "[GPRegistry]V-56335";
 '";
  ValueType = "DWord";
  ModuleName = "xGPRegistry";
- ValueData = "0";
- Property = "Domain:InboundUserNotification:Enable";
+ ValueData = "1";
+ Property = "Domain:InboundUserNotification:Disable";
  PolicyName = "Display a notification";
  ModuleVersion = "1.0";
  ValueName = "DisableNotifications";
@@ -10559,8 +10559,8 @@ ResourceID = "[GPRegistry]V-56342";
 '";
  ValueType = "DWord";
  ModuleName = "xGPRegistry";
- ValueData = "0";
- Property = "Private:InboundUserNotification:Enable";
+ ValueData = "1";
+ Property = "Private:InboundUserNotification:Disable";
  PolicyName = "Display a notification";
  ModuleVersion = "1.0";
  ValueName = "DisableNotifications";
@@ -10801,7 +10801,7 @@ ResourceID = "[GPRegistry]V-56349";
  ValueType = "DWord";
  ModuleName = "xGPRegistry";
  ValueData = "1";
- Property = "Public:InboundUserNotification:Enable";
+ Property = "Public:InboundUserNotification:Disable";
  PolicyName = "Display a notification";
  ModuleVersion = "1.0";
  ValueName = "DisableNotifications";
@@ -19629,7 +19629,7 @@ ResourceID = "[DSCRegistry]V-6029";
 select 'instance of GPRegistry as $GPRegistry57ref
 {
 ResourceID = "[GPRegistry]V-6030";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19665,7 +19665,7 @@ ResourceID = "[GPRegistry]V-6030";
 select 'instance of GPRegistry as $GPRegistry58ref
 {
 ResourceID = "[GPRegistry]V-6031";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19701,7 +19701,7 @@ ResourceID = "[GPRegistry]V-6031";
 select 'instance of GPRegistry as $GPRegistry59ref
 {
 ResourceID = "[GPRegistry]V-6032";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19737,7 +19737,7 @@ ResourceID = "[GPRegistry]V-6032";
 select 'instance of GPRegistry as $GPRegistry60ref
 {
 ResourceID = "[GPRegistry]V-6033";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19773,7 +19773,7 @@ ResourceID = "[GPRegistry]V-6033";
 select 'instance of GPRegistry as $GPRegistry61ref
 {
 ResourceID = "[GPRegistry]V-6034";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19809,7 +19809,7 @@ ResourceID = "[GPRegistry]V-6034";
 select 'instance of GPRegistry as $GPRegistry62ref
 {
 ResourceID = "[GPRegistry]V-6035";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19845,7 +19845,7 @@ ResourceID = "[GPRegistry]V-6035";
 select 'instance of GPRegistry as $GPRegistry63ref
 {
 ResourceID = "[GPRegistry]V-6036";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19881,7 +19881,7 @@ ResourceID = "[GPRegistry]V-6036";
 select 'instance of GPRegistry as $GPRegistry64ref
 {
 ResourceID = "[GPRegistry]V-6037";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19917,7 +19917,7 @@ ResourceID = "[GPRegistry]V-6037";
 select 'instance of GPRegistry as $GPRegistry65ref
 {
 ResourceID = "[GPRegistry]V-6038";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19953,7 +19953,7 @@ ResourceID = "[GPRegistry]V-6038";
 select 'instance of GPRegistry as $GPRegistry66ref
 {
 ResourceID = "[GPRegistry]V-6039";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19989,7 +19989,7 @@ ResourceID = "[GPRegistry]V-6039";
 select 'instance of GPRegistry as $GPRegistry67ref
 {
 ResourceID = "[GPRegistry]V-6040";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -20025,7 +20025,7 @@ ResourceID = "[GPRegistry]V-6040";
 select 'instance of GPRegistry as $GPRegistry68ref
 {
 ResourceID = "[GPRegistry]V-6041";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -20440,7 +20440,7 @@ ResourceID = "[DSCRegistry]V-6066";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "1";
+ ValueData = "0";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -20540,7 +20540,7 @@ ResourceID = "[DSCRegistry]V-6069";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "1";
+ ValueData = "0";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -20646,7 +20646,7 @@ ResourceID = "[GPRegistry]V-6079-2";
 ---
 
 --CIS 18.9.39.1.1 (L2)
-select 'instance of DSCRegistry as $DSCRegistry342ref
+select 'instance of DSCRegistry as $DSCRegistry340ref
 {
 ResourceID = "[DSCRegistry]V-6080";
  ValueName = "DisableWindowsLocationProvider";
@@ -20736,7 +20736,7 @@ ResourceID = "[DSCRegistry]V-6085";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "1";
+ ValueData = "0";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -20802,7 +20802,7 @@ ResourceID = "[DSCRegistry]V-6087";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "0";
+ ValueData = "1";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;

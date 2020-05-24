@@ -1481,7 +1481,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Firewall state" to "On (recommended)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Altenative method though group policy: Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Firewall state" to "On (recommended)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1503,7 +1503,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Inbound connections" to "Block (default)"             ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
@@ -1528,7 +1528,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Outbound connections" to "Allow (default)" ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
@@ -1549,13 +1549,13 @@ Registry Hive: HKEY_LOCAL_MACHINE
 Registry Path: \Software\Policies\Microsoft\WindowsFirewall\DomainProfile\ 
 Value Name: DisableNotifications 
 Type: REG_DWORD 
-Value: 0 
+Value: 1 
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
-Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "Yes (default)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "No".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1564,7 +1564,7 @@ Registry Path: \Software\Policies\Microsoft\WindowsFirewall\DomainProfile\
 Value Name: DisableNotifications
 
 Type: REG_DWORD
-Value: 0','Customized rule by Cloud Raxak') from dual;
+Value: 1','Customized rule by Cloud Raxak') from dual;
 
 
 --9.2 Private Profile (Firewall)
@@ -1578,7 +1578,7 @@ Value Name: EnableFirewall
 Type: REG_DWORD 
 Value: 1 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Private Profile Tab -> State, "Firewall state" to "On (recommended)"
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1602,7 +1602,7 @@ Type: REG_DWORD
 Value: 1 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Private Profile Tab -> State, "Inbound connections" to "Block (default)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
@@ -1626,7 +1626,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Private Profile Tab -> State, "Outbound connections" to "Allow (default)".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1649,13 +1649,13 @@ Registry Hive: HKEY_LOCAL_MACHINE
 Registry Path: \Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\ 
 Value Name: DisableNotifications 
 Type: REG_DWORD 
-Value: 0 
+Value: 1 
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
-Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Private Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "Yes (default)" ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Private Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "No" ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1664,7 +1664,7 @@ Registry Path: \Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\
 Value Name: DisableNotifications
 
 Type: REG_DWORD 
-Value: 0','Customized rule by Cloud Raxak') from dual;
+Value: 1','Customized rule by Cloud Raxak') from dual;
 
 
 --9.3 Public Profile (Firewall)
@@ -1680,7 +1680,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> State,"Firewall state" to ON.
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1705,7 +1705,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> State, "Inbound connections" to "Block (default)".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1730,7 +1730,7 @@ Type: REG_DWORD
 Value: 0 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Public Profile Tab -> State, "Outbound connections" to "Allow (default)".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1757,9 +1757,9 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
-Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "Yes".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "No".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1782,7 +1782,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Public Profile Tab -> Settings (select Customize) -> Rule merging, "Apply local firewall rules:" to "No".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1809,7 +1809,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force"
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Public Profile Tab -> Settings (select Customize) -> Rule merging, "Apply local connection security rules:" to "No".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -2588,7 +2588,7 @@ Type: REG_DWORD
 Value: 1 ','Customized rule by Cloud Raxak') from dual;
 
 --CIS 18.8.22.1.9 (L2)
-select add_rule_data ('default','V-15676','SV-32414r1_rule','default','low','The Order Prints Online wizard will be turned off.','This check verifies that the Order Prints Online task is not available in Windows Explorer.','F-15543r1_fix','Configure the policy value for Computer Configuration -> Administrative Templates -> System -gt; Internet Communication Management -> Internet Communication settings Turn off the Order Prints picture task to Enabled.' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','5.219','http://oval.mitre.org/XMLSchema/oval-definitions-5','If the following registry value doesnt exist or is not configured as specified, this is a finding:
+select add_rule_data ('default','V-15676','SV-32414r1_rule','default','low','The Order Prints Online wizard will be turned off.','This check verifies that the Order Prints Online task is not available in Windows Explorer.','F-15543r1_fix','Configure the policy value for Computer Configuration -> Administrative Templates -> System ->; Internet Communication Management -> Internet Communication settings Turn off the Order Prints picture task to Enabled.' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','5.219','http://oval.mitre.org/XMLSchema/oval-definitions-5','If the following registry value doesnt exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
 Subkey: \Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\
@@ -2602,15 +2602,8 @@ Value: 1 ','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56543','SV-50462r1_rule','default','high','The system configuration for "Publish to Web" task for files and folders must be turned off.
 ','This rule defines whether to make the tasks for publishing files, folders and selected items to web available from File and Folder Tasks in Window folders. For all profiles, the recommended state for this setting is Enabled.
 ','F-56000','
-Configure the following registry value:
-
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path: SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
-
-Value Name: NoPublishingWizard
-
-Type: REG_DWORD
-Value: 1' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+To establish the recommended configuration via GP, set the following UI path to Enabled:
+Computer Configuration\Policies\Administrative Templates\System\Internet Communication Management\Internet Communication settings\Turn off the Publish to Web task for files and folders.' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding: 
 Registry Hive: HKEY_LOCAL_MACHINE
 Registry Path: SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
@@ -3149,7 +3142,7 @@ Value: 0x00000000 (0)',
 
 --18.9.76.3 MAPS
 --CIS 18.9.76.3.2 (L2)
-select add_rule_data ('default','V-15713','SV-53134r2_rule','default','medium','Microsoft Active Protection Service membership must be disabled.','Some features may communicate with the vendor, sending system information or downloading data or components for the feature.  Turning off this feature will prevent potentially sensitive information from being sent outside the enterprise and uncontrolled updates to the system.  This setting disables Microsoft Active Protection Service membership and reporting.','F-62313r2_fix','Windows 2012 R2:
+select add_rule_data ('default','V-15713','SV-53134r2_rule','default','medium','Microsoft Active Protection Service membership must be disabled.','Some features may communicate with the vendor, sending system information or downloading data or components for the feature.  Turning off this feature will prevent potentially sensitive information from being sent outside the enterprise and uncontrolled updates to the system.  This setting disables Microsoft Active Protection Service membership and reporting.','F-62313r2_fix','Windows 2012 R2 & Windows 2016:
 Configure the policy value for Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender -> MAPS -> "Join Microsoft MAPS" to "Disabled".
 
 Windows 2012:
@@ -3300,7 +3293,7 @@ Value: 1','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-6001','sv-52850r1_cis_rule','default','medium','The lockout duration must be configured to require an administrator to unlock an account.',
 'The account lockout feature, when enabled, prevents brute-force password attacks on the system.  This parameter specifies the period of time that an account will remain locked after the specified number of failed logon attempts.  A value of 0 will require an administrator to unlock the account.',
 'F-45776r1_cis_fix',
-'Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Account Lockout Policy -> "Account lockout duration" to "15 or more" minutes, "Account is locked out until administrator unlocks it".',
+'Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Account Lockout Policy -> "Account lockout duration" to "15 or more" minutes.',
 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000001',
 'C-47167r2_cis_chk',
 'Verify the effective setting in Local Group Policy Editor.
@@ -4283,7 +4276,7 @@ Computer Configuration -> Policies -> Administrative Templates -> System -> Wind
 This group policy setting is backed by the following registry location:
 Path: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\W32Time\TimeProviders\NtpServer 
 Registry: Enabled 
-Valu: 0',
+Value: 0',
 'Customized rule by Cloud Raxak') from dual;
 
 
@@ -4423,7 +4416,7 @@ Computer Configuration -> Policies -> Administrative Templates -> Windows Compon
 This group policy setting is backed by the following registry location:
 Path: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting 
 Registry: DisableGenericRePorts 
-Value: 0',
+Value: 1',
 'Customized rule by Cloud Raxak') from dual;
 
 
@@ -4583,7 +4576,7 @@ The recommended state for this setting is: Enabled.
 This feature is designed to block exploits that use the Structured Exception Handler (SEH) overwrite technique. This protection mechanism is provided at run-time. 
 Therefore, it helps protect applications regardless of whether they have been compiled with the latest improvements, such as the /SAFESEH option.',
 'F-55796r1_cis_fix',
-'To establish the recommended configuration via GP, set the following UI path to Disabled:
+'To establish the recommended configuration via GP, set the following UI path to Enabled:
 Computer Configuration\Policies\Administrative Templates\MS Security Guide\Enable Structured Exception Handling Overwrite Protection (SEHOP)
 Note: This Group Policy path does not exist by default. An additional Group Policy template (SecGuide.admx/adml) is required - it is available from Microsoft at https://blogs.technet.microsoft.com/secguide/2017/08/30/security-baseline-for-windows-10-creators-update-v1703-final/',
 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000025',
@@ -4701,7 +4694,7 @@ Computer Configuration\Policies\Administrative Templates\Windows Components\Sear
 'C-47222r2_cis_chk',
 'Navigate to the UI Path articulated in the Fix description section and confirm it is set as prescribed. 
 This group policy setting is backed by the following registry location:
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search: ConnectedSearchPrivacy : 0',
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search: ConnectedSearchPrivacy : 3',
 'Customized rule by Cloud Raxak') from dual;
 
 --CIS 18.9.80.1.1 (L1)
