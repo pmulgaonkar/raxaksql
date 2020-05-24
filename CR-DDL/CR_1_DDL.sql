@@ -331,6 +331,7 @@ CREATE TABLE Appliance_Details
     users_active           NUMBER (8),
     users_inactive         NUMBER (8),
     resources_by_type      VARCHAR2 (4000),
+    resources_by_version   VARCHAR2 (4000),
     resources_active       NUMBER (8),
     resources_inactive     NUMBER (8),
     default_profile        VARCHAR2 (1000),
