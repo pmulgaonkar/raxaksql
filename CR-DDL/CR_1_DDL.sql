@@ -36,6 +36,7 @@ drop table CPE_USER_TYPE			cascade constraints purge;
 drop table CPE_SYS_ERROR_MESSAGE		cascade constraints purge;
 drop table CPE_USAGE_LOG			cascade constraints purge;
 drop table Appliance_Details			cascade constraints purge;
+drop table LDAP_SERVER_CONFIG			cascade constraints purge;
 
 drop sequence CPE_SYSTEM_SEQ;
 
@@ -330,6 +331,7 @@ CREATE TABLE Appliance_Details
     users_active           NUMBER (8),
     users_inactive         NUMBER (8),
     resources_by_type      VARCHAR2 (4000),
+    resources_by_version   VARCHAR2 (4000),
     resources_active       NUMBER (8),
     resources_inactive     NUMBER (8),
     default_profile        VARCHAR2 (1000),
@@ -875,6 +877,19 @@ CREATE TABLE CPE_USAGE_LOG
     USER_TYPE_ID NUMBER (16)
   ) ;
 
+CREATE TABLE LDAP_SERVER_CONFIG
+   (
+      ID NUMBER (16) NOT NULL,
+      AUTH_LDAP_SERVER_URI VARCHAR2 (64) NOT NULL,
+      AUTH_LDAP_BIND_DN VARCHAR2 (64) NOT NULL ,
+      BIND_SEARCH VARCHAR2 (64) NOT NULL,
+      BIND_PASSWORD VARCHAR2(64),
+      CREATE_DATE TIMESTAMP,
+      CREATED_BY VARCHAR2 (64),
+      UPDATED_BY VARCHAR2 (64),
+      UPDATE_DATE TIMESTAMP
+   );
+
 
 
 PROMPT Add some table constraints
@@ -914,6 +929,8 @@ ALTER TABLE CPE_USER_RELATION ADD CONSTRAINT CPE_USER_RELATION_PK PRIMARY KEY ( 
 ALTER TABLE CPE_USER_TYPE ADD CONSTRAINT CPE_USER_TYPE_PK PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_SYS_ERROR_MESSAGE ADD CONSTRAINT CPE_SYS_ERROR_MESSAGE_PK PRIMARY KEY ( ID ) ;
 ALTER TABLE CPE_USAGE_LOG ADD CONSTRAINT CPE_USAGE_LOG_PK PRIMARY KEY ( ID ) ;
+ALTER TABLE LDAP_SERVER_CONFIG ADD CONSTRAINT LDAP_SERVER_CONFIG_PK PRIMARY KEY ( ID ) ;
+
 
 PROMPT now add some unique constraints
 ALTER TABLE CPE_RESOURCE_VERSION ADD CONSTRAINT CPE_RESOURCE_VERSION_UNQ_1 UNIQUE ( RESOURCE_TYPE , RESOURCE_VERSION ) ;
@@ -2181,6 +2198,15 @@ end;
 ALTER TRIGGER "CPE_USAGE_LOG_TRIG1" ENABLE;
 /
 
+create or replace TRIGGER LDAP_SERVER_CONFIG_TRIG1 before insert on LDAP_SERVER_CONFIG for each row
+begin
+   select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
+   select SYSDATE into :new.CREATE_DATE from dual;
+end;
+/
+ALTER TRIGGER "LDAP_SERVER_CONFIG_TRIG1" ENABLE;
+/
+
 prompt update triggers
 create or replace TRIGGER "CPE_AUTH_TYPE_TRIG2" before update on CPE_AUTH_TYPE for each row
 begin
@@ -2890,6 +2916,14 @@ end;
 /
 ALTER TRIGGER "CPE_SYS_ERROR_MESSAGE_TRIG2" ENABLE;
 /
+CREATE OR REPLACE TRIGGER "LDAP_SERVER_CONFIG_TRIG2" before update on LDAP_SERVER_CONFIG for each row
+begin
+     if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
+     select SYSDATE into :new.UPDATE_DATE from dual; end;
+/
+ALTER TRIGGER "LDAP_SERVER_CONFIG_TRIG2"  ENABLE;
+/
+
 CREATE OR REPLACE TRIGGER "CPE_USAGE_LOG_TRIG2" before update or delete on CPE_USAGE_LOG for each row
 begin
     raise_application_error( -20029, 'Error : 20029 : Can not update or delete this record');
