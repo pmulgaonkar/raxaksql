@@ -11,12 +11,12 @@ BEGIN
 		event_type := 'Failed login attempt';
 		event_trigger := 'Failed login attempt by ' || :NEW.USERNAME ;
 	END IF;
-	insert into cpe_usage_log ( user_id, org_id, usage_type, event_type, event_trigger, event_value, mon_rrrr, created_by, CREATE_DATE,USER_TYPE_ID)
-          values (user_id, org_id, usage_type, event_type, event_trigger, :NEW.login_valid, (select to_char(sysdate,'Mon-rrrr') from dual), :NEW.USERNAME, (select SYSDATE from dual),user_type_id) ;
+	insert into cpe_usage_log ( user_id, org_id, usage_type, event_type, event_trigger, event_value, mon_rrrr, created_by, CREATE_DATE,USER_TYPE_ID,description_type,severity)
+          values (user_id, org_id, usage_type, event_type, event_trigger, :NEW.login_valid, (select to_char(sysdate,'Mon-rrrr') from dual), :NEW.USERNAME, (select SYSDATE from dual),user_type_id,'Info','Medium') ;
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
-			insert into cpe_usage_log (event_type, event_trigger, event_value, mon_rrrr, created_by, CREATE_DATE )
-          	values ('Unknown User', 'Some unknown user tried logging as ' ||:NEW.USERNAME, :NEW.login_valid, (select to_char(sysdate,'Mon-rrrr') from dual), :NEW.USERNAME, (select SYSDATE from dual)) ;
+			insert into cpe_usage_log (event_type, event_trigger, event_value, mon_rrrr, created_by, CREATE_DATE,DESCRIPTION_TYPE,SEVERITY )
+          	values ('Unknown User', 'Some unknown user tried logging as ' ||:NEW.USERNAME, :NEW.login_valid, (select to_char(sysdate,'Mon-rrrr') from dual), :NEW.USERNAME, (select SYSDATE from dual),'Info','Medium') ;
 END;
 
 /

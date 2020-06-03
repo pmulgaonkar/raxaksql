@@ -68,7 +68,7 @@ END;
 
 PROMPT Start with sequence creation
 CREATE SEQUENCE  "CPE_SYSTEM_SEQ"  MINVALUE 1 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
-PROMPT create access list needed for calling API 
+PROMPT create access list needed for calling API
 BEGIN
         DBMS_NETWORK_ACL_ADMIN.CREATE_ACL('CR-Release-3-00.xml', 'HTTP access ACL', 'RAXAK3', TRUE, 'connect');
         DBMS_NETWORK_ACL_ADMIN.ADD_PRIVILEGE('CR-Release-3-00.xml', 'RAXAK3', TRUE, 'connect');
@@ -874,7 +874,9 @@ CREATE TABLE CPE_USAGE_LOG
     CREATE_DATE         TIMESTAMP ,
     UPDATED_BY          VARCHAR2 (64) ,
     UPDATE_DATE         TIMESTAMP  ,
-    USER_TYPE_ID NUMBER (16)
+    USER_TYPE_ID NUMBER (16),
+    SEVERITY varchar2 (64) ,
+    DESCRIPTION_TYPE varchar2 (64)
   ) ;
 
 CREATE TABLE LDAP_SERVER_CONFIG
@@ -1644,9 +1646,11 @@ begin
          close c2;
       end if;
 end;
+
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG1" ENABLE;
 /
+
 create or replace TRIGGER "CPE_RESOURCE_TRIG2" after insert on CPE_RESOURCE for each row
 DECLARE
 v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_id number(16);v_org_name varchar2(64); user_type_id number(16);
@@ -1659,8 +1663,8 @@ cursor c2 is select name from cpe_organization
              start with id = ( select user_org_id from cpe_user where id = :new.owner_id and is_active = 'Y' ) ;
 begin
     select login_id,user_org_id,USER_TYPE_ID into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
-	insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,USER_TYPE_ID )
-         values ( :new.owner_id, :new.owner_id, :new.id , 'New resource added', 'Registered a new resource: '  || :new.name , 1 , v_name,v_org_id,user_type_id) ;
+	insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,USER_TYPE_ID,description_type,severity )
+         values ( :new.owner_id, :new.owner_id, :new.id , 'New resource added', 'Registered a new resource: '  || :new.name , 1 , v_name,v_org_id,user_type_id,'Info','Medium') ;
     open c1;
     loop
          FETCH c1 into v_id,v_login; EXIT WHEN c1%notfound;
@@ -1677,9 +1681,11 @@ begin
     end loop;
     close c2;
 end;
+
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG2" ENABLE;
 /
+
 CREATE OR REPLACE TRIGGER "CPE_RESOURCE_LOG_TRIG1" before insert on CPE_RESOURCE_LOG for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
@@ -2467,6 +2473,7 @@ end;
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG3" ENABLE;
 /
+
 create or replace TRIGGER "CPE_RESOURCE_TRIG4" after update on CPE_RESOURCE for each row
 DECLARE
 v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_id number(16);v_org_name varchar2(64);user_type_id number(16);
@@ -2482,8 +2489,8 @@ begin
 --    end if;
     if (:old.is_active = 'Y' AND :new.is_active = 'N' ) THEN
        select login_id, user_org_id, user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :old.owner_id and is_active = 'Y';
-	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by ,org_id,user_type_id)
-          values ( :old.owner_id, :old.owner_id, :old.id , 'Resource deactivated',  ' Deactivated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id) ;
+	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by ,org_id,user_type_id,description_type,severity)
+          values ( :old.owner_id, :old.owner_id, :old.id , 'Resource deactivated',  ' Deactivated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,'Info','Medium') ;
        open c1;
        loop
           FETCH c1 into v_id; EXIT WHEN c1%notfound;
@@ -2511,8 +2518,8 @@ begin
      end if;
     if (:old.is_active = 'N' AND :new.is_active = 'Y' ) THEN
        select login_id,user_org_id,user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
-	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,user_type_id )
-          values ( :new.owner_id, :new.owner_id, :new.id , 'Resource activated', 'Activated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id) ;
+	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,user_type_id,description_type,severity )
+          values ( :new.owner_id, :new.owner_id, :new.id , 'Resource activated', 'Activated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,'Info','Medium') ;
        open c1;
        loop
           FETCH c1 into v_id; EXIT WHEN c1%notfound;
@@ -2531,6 +2538,7 @@ begin
      end if;
 
 end;
+
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG4" ENABLE;
 /
@@ -3892,31 +3900,43 @@ end;
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG7" ENABLE;
 /
-create or replace TRIGGER "CPE_RESOURCE_LOG_TRIG3" AFTER UPDATE on CPE_RESOURCE_LOG FOR EACH ROW
+
+create or replace TRIGGER "CPE_RESOURCE_LOG_TRIG3" AFTER  INSERT or UPDATE on CPE_RESOURCE_LOG FOR EACH ROW
 DECLARE
-user_id number(16); org_id number(16); usage_type varchar2(64); event_type varchar2(256); event_trigger varchar2(256); user_type_id number(16);
+user_id number(16); org_id number(16); usage_type varchar2(64); event_type varchar2(256); event_trigger varchar2(256); user_type_id number(16); owner number(16);
 user_name varchar2(64); r_id number(16); r_name varchar2(64); r_type_id number(16); schedule_type varchar2(64); rem_type varchar2(64); r_type varchar2(64);
 BEGIN
-	SELECT CREATED_BY,RESOURCE_ID,RUN_REMEDIATE INTO user_name,r_id,schedule_type FROM CPE_RESOURCE_MGMT WHERE id=:NEW.RESOURCE_MGMT_ID;
+	SELECT CREATED_BY,RESOURCE_ID,RUN_REMEDIATE,owner_id INTO user_name,r_id,schedule_type,owner FROM CPE_RESOURCE_MGMT WHERE id=:NEW.RESOURCE_MGMT_ID;
 	SELECT RESOURCE_TYPE_ID,NAME INTO r_type_id,r_name FROM CPE_RESOURCE WHERE id = r_id;
 	SELECT level3 INTO r_type from CPE_RESOURCE_TYPE WHERE id=r_type_id;
-	SELECT id,user_org_id,user_view_type,user_type_id INTO user_id,org_id,usage_type,user_type_id  FROM CPE_USER WHERE LOGIN_ID=user_name;
 	IF (schedule_type = 'N') THEN
 		rem_type := 'scanning';
 	ELSE
 		rem_type := 'remediation';
 	END IF;
-	IF :NEW.OVERALL_STATUS = 'FAILED' OR :NEW.OVERALL_STATUS = 'ABORTED' THEN
+	IF user_name = 'System Generated Schedule' THEN
+		SELECT user_org_id,user_view_type,user_type_id INTO org_id,usage_type,user_type_id  FROM CPE_USER WHERE ID=owner;
+		user_id := owner;
+		event_trigger := 'System generated scheduled ' || rem_type || ' got  ' || :NEW.OVERALL_STATUS || ' due to ' || :NEW.overall_info;
+	ELSE
+		SELECT id,user_org_id,user_view_type,user_type_id INTO user_id,org_id,usage_type,user_type_id  FROM CPE_USER WHERE LOGIN_ID=user_name;
 		event_trigger := 'Scheduled ' || rem_type || ' got  ' || :NEW.OVERALL_STATUS || ' due to ' || :NEW.overall_info;
+	END IF;
+
+	IF :NEW.OVERALL_STATUS = 'FAILED' OR :NEW.OVERALL_STATUS = 'ABORTED' OR :NEW.OVERALL_STATUS = 'SKIPPED' THEN
 		insert into cpe_usage_log ( user_id, org_id, usage_type, event_type, event_trigger, event_value, mon_rrrr, created_by,
-		CREATE_DATE,USER_TYPE_ID,RESOURCE_ID,RESOURCE_MGMT_ID)
+		create_date,user_type_id,resource_id,resource_mgmt_id,description_type,severity)
           values (user_id, org_id, usage_type, 'Scheduled scan/remediation status', event_trigger, 1, (select to_char(sysdate,'Mon-rrrr') from dual),
-         user_name, (select SYSDATE from dual),user_type_id,r_id,:NEW.RESOURCE_MGMT_ID);
+         user_name, (select SYSDATE from dual),user_type_id,r_id,:NEW.RESOURCE_MGMT_ID,'Info','Medium');
 	END IF;
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
         	raise_application_error( -20000, 'Error : Data not found');
 END;
+
+/
+ALTER TRIGGER "CPE_RESOURCE_LOG_TRIG3" ENABLE;
+/
 
 /
 ALTER TRIGGER "CPE_RESOURCE_LOG_TRIG3" ENABLE;
