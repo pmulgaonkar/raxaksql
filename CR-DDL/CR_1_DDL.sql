@@ -875,8 +875,7 @@ CREATE TABLE CPE_USAGE_LOG
     UPDATED_BY          VARCHAR2 (64) ,
     UPDATE_DATE         TIMESTAMP  ,
     USER_TYPE_ID NUMBER (16),
-    SEVERITY varchar2 (64) ,
-    DESCRIPTION_TYPE varchar2 (64)
+    SEVERITY NUMBER (16)
   ) ;
 
 CREATE TABLE LDAP_SERVER_CONFIG
@@ -1663,8 +1662,8 @@ cursor c2 is select name from cpe_organization
              start with id = ( select user_org_id from cpe_user where id = :new.owner_id and is_active = 'Y' ) ;
 begin
     select login_id,user_org_id,USER_TYPE_ID into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
-	insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,USER_TYPE_ID,description_type,severity )
-         values ( :new.owner_id, :new.owner_id, :new.id , 'New resource added', 'Registered a new resource: '  || :new.name , 1 , v_name,v_org_id,user_type_id,'Info','Medium') ;
+	insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,USER_TYPE_ID,severity )
+         values ( :new.owner_id, :new.owner_id, :new.id , 'New resource added', 'Registered a new resource: '  || :new.name , 1 , v_name,v_org_id,user_type_id,6) ;
     open c1;
     loop
          FETCH c1 into v_id,v_login; EXIT WHEN c1%notfound;
@@ -2489,8 +2488,8 @@ begin
 --    end if;
     if (:old.is_active = 'Y' AND :new.is_active = 'N' ) THEN
        select login_id, user_org_id, user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :old.owner_id and is_active = 'Y';
-	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by ,org_id,user_type_id,description_type,severity)
-          values ( :old.owner_id, :old.owner_id, :old.id , 'Resource deactivated',  ' Deactivated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,'Info','Medium') ;
+	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by ,org_id,user_type_id,severity)
+          values ( :old.owner_id, :old.owner_id, :old.id , 'Resource deactivated',  ' Deactivated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,6) ;
        open c1;
        loop
           FETCH c1 into v_id; EXIT WHEN c1%notfound;
@@ -2518,8 +2517,8 @@ begin
      end if;
     if (:old.is_active = 'N' AND :new.is_active = 'Y' ) THEN
        select login_id,user_org_id,user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
-	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,user_type_id,description_type,severity )
-          values ( :new.owner_id, :new.owner_id, :new.id , 'Resource activated', 'Activated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,'Info','Medium') ;
+	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,user_type_id,severity )
+          values ( :new.owner_id, :new.owner_id, :new.id , 'Resource activated', 'Activated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,6) ;
        open c1;
        loop
           FETCH c1 into v_id; EXIT WHEN c1%notfound;
@@ -3925,9 +3924,9 @@ BEGIN
 
 	IF :NEW.OVERALL_STATUS = 'FAILED' OR :NEW.OVERALL_STATUS = 'ABORTED' OR :NEW.OVERALL_STATUS = 'SKIPPED' THEN
 		insert into cpe_usage_log ( user_id, org_id, usage_type, event_type, event_trigger, event_value, mon_rrrr, created_by,
-		create_date,user_type_id,resource_id,resource_mgmt_id,description_type,severity)
+		create_date,user_type_id,resource_id,resource_mgmt_id,severity)
           values (user_id, org_id, usage_type, 'Scheduled scan/remediation status', event_trigger, 1, (select to_char(sysdate,'Mon-rrrr') from dual),
-         user_name, (select SYSDATE from dual),user_type_id,r_id,:NEW.RESOURCE_MGMT_ID,'Info','Medium');
+         user_name, (select SYSDATE from dual),user_type_id,r_id,:NEW.RESOURCE_MGMT_ID,6);
 	END IF;
 	EXCEPTION
 		WHEN NO_DATA_FOUND THEN
