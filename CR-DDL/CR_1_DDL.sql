@@ -68,7 +68,7 @@ END;
 
 PROMPT Start with sequence creation
 CREATE SEQUENCE  "CPE_SYSTEM_SEQ"  MINVALUE 1 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
-PROMPT create access list needed for calling API 
+PROMPT create access list needed for calling API
 BEGIN
         DBMS_NETWORK_ACL_ADMIN.CREATE_ACL('CR-Release-3-00.xml', 'HTTP access ACL', 'RAXAK3', TRUE, 'connect');
         DBMS_NETWORK_ACL_ADMIN.ADD_PRIVILEGE('CR-Release-3-00.xml', 'RAXAK3', TRUE, 'connect');
@@ -172,16 +172,16 @@ BEGIN
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="os_architecture"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="ssh_port"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="username"/>
-             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="aws_access_key"/> 
+             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="aws_access_key"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="aws_secret_key"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="aws_account_number"/>
-             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="azure_application_id"/> 
+             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="azure_application_id"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="azure_secret_key"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="azure_subscription_id"/>
-             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="azure_tenant_id"/>             
+             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="azure_tenant_id"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_userid"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_password"/>
-             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_access_ID"/> 
+             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_access_ID"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_access_key"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_version"/>
              <xs:element minOccurs="0" maxOccurs="1" type="IPtype" name="MP_endpoint_ip"/>
@@ -241,7 +241,7 @@ BEGIN
 </xs:schema>',
 LOCAL => TRUE
 );
-end;        
+end;
 /
 
 BEGIN
@@ -259,7 +259,7 @@ BEGIN
              <xs:element minOccurs="0" maxOccurs="1"  type="xs:string" name="rule_console"/>
              <xs:element minOccurs="1" maxOccurs="1"  type="xs:string" name="execution_status"/>
              <xs:element minOccurs="0" maxOccurs="1"  type="xs:string" name="outcome"/>
-            <xs:element minOccurs="0" maxOccurs="1"  type="xs:float" name="health_value"/>  
+            <xs:element minOccurs="0" maxOccurs="1"  type="xs:float" name="health_value"/>
            </xs:sequence>
          </xs:complexType>
        </xs:element>
@@ -269,7 +269,7 @@ BEGIN
 </xs:schema>',
 LOCAL => TRUE
 );
-end; 
+end;
 /
 
 BEGIN
@@ -283,9 +283,9 @@ DBMS_XMLSCHEMA.registerSchema(
  </xs:simpleType>
  <xs:simpleType name="URLtype">
       <xs:restriction base="xs:string">
-           <xs:pattern value="https?://.+" />   
+           <xs:pattern value="https?://.+" />
        </xs:restriction>
- </xs:simpleType> 
+ </xs:simpleType>
 <xs:element name="OrganizationInfo">
    <xs:complexType>
      <xs:sequence>
@@ -300,7 +300,7 @@ DBMS_XMLSCHEMA.registerSchema(
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_userid"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_password"/>
              <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_access_ID"/>
-             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_access_key"/> 
+             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_access_key"/>
             <xs:element minOccurs="0" maxOccurs="1" type="URLtype" name="MP_endpoint_URL"/>
            <xs:element minOccurs="0" maxOccurs="1" type="IPtype"  name="MP_endpoint_ip"/>
             <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="MP_version"/>
@@ -355,22 +355,22 @@ CREATE TABLE CPE_AUTH_TYPE
     UPDATED_BY  VARCHAR2 (16) ,
     UPDATE_DATE TIMESTAMP
   ) ;
-CREATE TABLE CPE_AZURE_VM 
-  (	
-    ID                 NUMBER(16,0) NOT NULL ENABLE, 
-    OWNER_ID           NUMBER(16,0) NOT NULL ENABLE, 
-    SUBSCRIPTION_ID    VARCHAR2(64 BYTE) NOT NULL ENABLE, 
-    RESOURCE_NAME      VARCHAR2(64 BYTE), 
-    REGISTERED         CHAR(1 BYTE), 
-    AZURE_PARENT_ID    NUMBER(16,0), 
-    OS_TYPE            VARCHAR2(20 BYTE), 
-    PROVIDER           VARCHAR2(20 BYTE), 
-    GUID               VARCHAR2(64 BYTE), 
-    RESOURCE_GROUP     VARCHAR2(64 BYTE), 
-    RESOURCE_TYPE      VARCHAR2(20 BYTE), 
-    CREATED_BY         VARCHAR2(64 BYTE), 
-    CREATE_DATE        TIMESTAMP (6), 
-    UPDATED_BY         VARCHAR2(64 BYTE), 
+CREATE TABLE CPE_AZURE_VM
+  (
+    ID                 NUMBER(16,0) NOT NULL ENABLE,
+    OWNER_ID           NUMBER(16,0) NOT NULL ENABLE,
+    SUBSCRIPTION_ID    VARCHAR2(64 BYTE) NOT NULL ENABLE,
+    RESOURCE_NAME      VARCHAR2(64 BYTE),
+    REGISTERED         CHAR(1 BYTE),
+    AZURE_PARENT_ID    NUMBER(16,0),
+    OS_TYPE            VARCHAR2(20 BYTE),
+    PROVIDER           VARCHAR2(20 BYTE),
+    GUID               VARCHAR2(64 BYTE),
+    RESOURCE_GROUP     VARCHAR2(64 BYTE),
+    RESOURCE_TYPE      VARCHAR2(20 BYTE),
+    CREATED_BY         VARCHAR2(64 BYTE),
+    CREATE_DATE        TIMESTAMP (6),
+    UPDATED_BY         VARCHAR2(64 BYTE),
     UPDATE_DATE        TIMESTAMP (6)
   ) ;
 CREATE TABLE CPE_CRITICALITY_TYPE
@@ -464,7 +464,7 @@ CREATE TABLE CPE_ORGANIZATION
     CREATE_DATE          TIMESTAMP ,
     UPDATED_BY           VARCHAR2 (64) ,
     UPDATE_DATE          TIMESTAMP
-  ) 
+  )
   XMLType COLUMN ORG_INFO XMLSCHEMA "http://www.cloudraxak.com/schemas/organization_info.xsd" ELEMENT "OrganizationInfo"
   ;
 CREATE TABLE CPE_PROFILE
@@ -505,7 +505,7 @@ CREATE TABLE CPE_PROFILE_INFO
     ID         		NUMBER (16) NOT NULL ,
     PROFILE_ID 		NUMBER (16) NOT NULL ,
     PROFILE_INFO	XMLTYPE ,
-    PROFILE_DATA	XMLTYPE , 
+    PROFILE_DATA	XMLTYPE ,
     PROFILE_MOF         CLOB,
     MOF_CHKSUM          VARCHAR2(1024),
     IS_ACTIVE           CHAR (1) ,
@@ -513,7 +513,7 @@ CREATE TABLE CPE_PROFILE_INFO
     CREATE_DATE 	TIMESTAMP ,
     UPDATED_BY  	VARCHAR2 (64) ,
     UPDATE_DATE 	TIMESTAMP
-  ) 
+  )
     XMLType COLUMN PROFILE_INFO XMLSCHEMA "http://www.cloudraxak.com/schemas/profile_info.xsd" ELEMENT "ProfileInfo"
     XMLType COLUMN PROFILE_DATA XMLSCHEMA "http://www.cloudraxak.com/schemas/profile_data.xsd" ELEMENT "ProfileData"
   ;
@@ -540,7 +540,7 @@ CREATE TABLE CPE_VIEW_LEVEL
    (
     ID            NUMBER (16) NOT NULL ,
     NAME          VARCHAR2 (64) ,
-    VIEW_TYPE    VARCHAR2(10 BYTE), 
+    VIEW_TYPE    VARCHAR2(10 BYTE),
     IS_ACTIVE     CHAR (1) ,
     CREATED_BY    VARCHAR2 (64) ,
     CREATE_DATE   TIMESTAMP ,
@@ -580,7 +580,7 @@ CREATE TABLE CPE_RESOURCE_LOG
     ACTUAL_END_TIME      TIMESTAMP ,
     OVERALL_HEALTH       NUMBER (9,2) ,
     OVERALL_STATUS       VARCHAR2(16) ,
-    OVERALL_INFO         VARCHAR2(1024) ,
+    OVERALL_INFO         VARCHAR2(4000) ,
     PROFILE_REF_ID	 NUMBER (16),
     PROFILE_STRENGTH	 NUMBER (8,3),
     RAW_LOG 		 CLOB ,
@@ -590,7 +590,7 @@ CREATE TABLE CPE_RESOURCE_LOG
     CREATE_DATE 	 TIMESTAMP ,
     UPDATED_BY  	 VARCHAR2 (64) ,
     UPDATE_DATE 	 TIMESTAMP
-  ) 
+  )
 XMLType COLUMN LOG_XML XMLSCHEMA "http://www.cloudraxak.com/schemas/resource_log.xsd" ELEMENT "ResourceLog"
 ;
 CREATE TABLE CPE_RESOURCE_LOG_DETAIL
@@ -610,7 +610,7 @@ CREATE TABLE CPE_RESOURCE_LOG_DETAIL
     UPDATED_BY               VARCHAR2 (64) ,
     UPDATE_DATE              TIMESTAMP
   )
---- XMLType COLUMN LOG_XML XMLSCHEMA "http://www.cloudraxak.com/schemas/resource_log_detail.xsd" ELEMENT "ResourceLogDetail" 
+--- XMLType COLUMN LOG_XML XMLSCHEMA "http://www.cloudraxak.com/schemas/resource_log_detail.xsd" ELEMENT "ResourceLogDetail"
 ;
 CREATE TABLE CPE_RESOURCE_MGMT
   (
@@ -709,7 +709,7 @@ CREATE TABLE CPE_RULE_HEADER
     ID                NUMBER (16) NOT NULL ,
     NAME              VARCHAR2 (2048),
     RULE_ID           VARCHAR2 (2048),
-    CUSTOM_VERSION    NUMBER (8),      
+    CUSTOM_VERSION    NUMBER (8),
     VERSION           VARCHAR2(2048),
     TITLE             VARCHAR2(2048),
     DESCRIPTION       VARCHAR2 (4000),
@@ -750,7 +750,7 @@ CREATE TABLE CPE_USER
     AUTH_TYPE_ID         NUMBER (16) NOT NULL ,
     USER_TYPE_ID         NUMBER (16) NOT NULL ,
     USER_ORG_ID          NUMBER (16)  ,
-    PARENT_ID            NUMBER (16)  , 
+    PARENT_ID            NUMBER (16)  ,
     AUTH_USER_ID	 NUMBER (16)  ,
     USER_CREATE_DATE     TIMESTAMP ,
     USER_EXPIRY_DATE     TIMESTAMP ,
@@ -767,7 +767,7 @@ CREATE TABLE CPE_USER
     CREATED_BY           VARCHAR2 (64) ,
     CREATE_DATE          TIMESTAMP ,
     UPDATED_BY           VARCHAR2 (64) ,
-    UPDATE_DATE          TIMESTAMP 
+    UPDATE_DATE          TIMESTAMP
   ) ;
 CREATE TABLE CPE_USER_MESSAGES
   (
@@ -860,12 +860,12 @@ CREATE TABLE CPE_SYS_ERROR_MESSAGE
 CREATE TABLE CPE_USAGE_LOG
   (
     ID			NUMBER (16) NOT NULL,
-    USAGE_TYPE		VARCHAR2(4),
+    USAGE_TYPE		VARCHAR2(256),
     USER_ID		NUMBER (16) ,
     ORG_ID		NUMBER (16) ,
     RESOURCE_ID		NUMBER (16),
     RESOURCE_MGMT_ID	NUMBER (16),
-    EVENT_TYPE          VARCHAR2(16) NOT NULL,
+    EVENT_TYPE          VARCHAR2(256) NOT NULL,
     EVENT_TRIGGER       VARCHAR2(256),
     EVENT_TRIGGER_BY    NUMBER(16),
     EVENT_VALUE		NUMBER (10,2),
@@ -873,7 +873,9 @@ CREATE TABLE CPE_USAGE_LOG
     CREATED_BY          VARCHAR2 (64) ,
     CREATE_DATE         TIMESTAMP ,
     UPDATED_BY          VARCHAR2 (64) ,
-    UPDATE_DATE         TIMESTAMP    
+    UPDATE_DATE         TIMESTAMP  ,
+    USER_TYPE_ID NUMBER (16),
+    SEVERITY NUMBER (16)
   ) ;
 
 CREATE TABLE LDAP_SERVER_CONFIG
@@ -956,122 +958,122 @@ ALTER TABLE CPE_VIEW_LEVEL ADD CONSTRAINT CPE_VIEW_LEVEL_UNQ_1 UNIQUE ( VIEW_TYP
 PROMPT Now add referential constraints
 ALTER TABLE CPE_AZURE_VM
 	ADD CONSTRAINT CPE_AZURE_VM_FK_1 FOREIGN KEY ( AZURE_PARENT_ID ) REFERENCES CPE_RESOURCE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_FUNCTIONAL_TYPE 
+ALTER TABLE CPE_GROUP_FUNCTIONAL_TYPE
 	ADD CONSTRAINT CPE_GFT_FK_1 FOREIGN KEY ( OWNER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_GFT_MEMBER 
+ALTER TABLE CPE_GROUP_GFT_MEMBER
 	ADD CONSTRAINT CPE_GROUP_GFT_MEMBER_FK_1 FOREIGN KEY ( GROUP_ID ) REFERENCES CPE_GROUP_FUNCTIONAL_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_GFT_MEMBER 
+ALTER TABLE CPE_GROUP_GFT_MEMBER
 	ADD CONSTRAINT CPE_GROUP_GFT_MEMBER_FK_2 FOREIGN KEY ( RESOURCE_ID ) REFERENCES CPE_RESOURCE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_GRT_MEMBER 
+ALTER TABLE CPE_GROUP_GRT_MEMBER
 	ADD CONSTRAINT CPE_GROUP_GRT_MEMBER_FK_1 FOREIGN KEY ( GROUP_ID ) REFERENCES CPE_GROUP_RESOURCE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_GRT_MEMBER 
+ALTER TABLE CPE_GROUP_GRT_MEMBER
 	ADD CONSTRAINT CPE_GROUP_GRT_MEMBER_FK_2 FOREIGN KEY ( GROUP_RESOURCE_TYPE_ID ) REFERENCES CPE_RESOURCE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_GRT_MEMBER 
+ALTER TABLE CPE_GROUP_GRT_MEMBER
 	ADD CONSTRAINT CPE_GROUP_GRT_MEMBER_FK_3 FOREIGN KEY ( RESOURCE_ID ) REFERENCES CPE_RESOURCE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_RESOURCE_TYPE 
+ALTER TABLE CPE_GROUP_RESOURCE_TYPE
 	ADD CONSTRAINT CPE_GRT_FK_1 FOREIGN KEY ( OWNER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_GROUP_RESOURCE_TYPE 
+ALTER TABLE CPE_GROUP_RESOURCE_TYPE
 	ADD CONSTRAINT CPE_GRT_FK_2 FOREIGN KEY ( RESOURCE_TYPE_ID ) REFERENCES CPE_RESOURCE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_ORGANIZATION 
+ALTER TABLE CPE_ORGANIZATION
 	ADD CONSTRAINT CPE_ORGANIZATION_FK_1 FOREIGN KEY ( PARENT_ID ) REFERENCES CPE_ORGANIZATION ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_ORGANIZATION 
+ALTER TABLE CPE_ORGANIZATION
 	ADD CONSTRAINT CPE_ORGANIZATION_FK_2 FOREIGN KEY ( OWNER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE 
+ALTER TABLE CPE_PROFILE
 	ADD CONSTRAINT CPE_PROFILE_FK_1 FOREIGN KEY ( OWNER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE 
+ALTER TABLE CPE_PROFILE
 	ADD CONSTRAINT CPE_PROFILE_FK_2 FOREIGN KEY ( RESOURCE_TYPE_ID ) REFERENCES CPE_RESOURCE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_SUPPORT_MATRIX 
+ALTER TABLE CPE_PROFILE_SUPPORT_MATRIX
 	ADD CONSTRAINT CPE_PROFILE_SM_FK_1 FOREIGN KEY ( PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_SUPPORT_MATRIX 
+ALTER TABLE CPE_PROFILE_SUPPORT_MATRIX
 	ADD CONSTRAINT CPE_PROFILE_SM_FK_2 FOREIGN KEY ( RESOURCE_TYPE_ID ) REFERENCES CPE_RESOURCE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_SUPPORT_MATRIX 
+ALTER TABLE CPE_PROFILE_SUPPORT_MATRIX
 	ADD CONSTRAINT CPE_PROFILE_SM_FK_3 FOREIGN KEY ( RESOURCE_VERSION_ID ) REFERENCES CPE_RESOURCE_VERSION ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_INFO 
+ALTER TABLE CPE_PROFILE_INFO
 	ADD CONSTRAINT CPE_PROFILE_INFO_FK_1 FOREIGN KEY ( PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_MEMBER_RULE_PARAMETER 
+ALTER TABLE CPE_MEMBER_RULE_PARAMETER
 	ADD CONSTRAINT CPE_PROFILE_MEMBER_FK_1v1 FOREIGN KEY ( PROFILE_MEMBER_ID ) REFERENCES CPE_PROFILE_MEMBER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_MEMBER 
+ALTER TABLE CPE_PROFILE_MEMBER
 	ADD CONSTRAINT CPE_PROFILE_MEMBER_FK_1 FOREIGN KEY ( PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_MEMBER 
+ALTER TABLE CPE_PROFILE_MEMBER
 	ADD CONSTRAINT CPE_PROFILE_MEMBER_FK_2 FOREIGN KEY ( CRITICALITY_ID ) REFERENCES CPE_CRITICALITY_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_MEMBER 
+ALTER TABLE CPE_PROFILE_MEMBER
 	ADD CONSTRAINT CPE_PROFILE_MEMBER_FK_3 FOREIGN KEY ( BASE_RULE_ID ) REFERENCES CPE_RULE_HEADER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_MEMBER 
+ALTER TABLE CPE_PROFILE_MEMBER
 	ADD CONSTRAINT CPE_PROFILE_MEMBER_FK_4 FOREIGN KEY ( PARENT_PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_PROFILE_MEMBER 
+ALTER TABLE CPE_PROFILE_MEMBER
 	ADD CONSTRAINT CPE_PROFILE_MEMBER_FK_5 FOREIGN KEY ( OVERRIDE_CREATED_BY ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE 
+ALTER TABLE CPE_RESOURCE
 	ADD CONSTRAINT CPE_RESOURCE_FK_1 FOREIGN KEY ( RESOURCE_TYPE_ID ) REFERENCES CPE_RESOURCE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE 
+ALTER TABLE CPE_RESOURCE
 	ADD CONSTRAINT CPE_RESOURCE_FK_2 FOREIGN KEY ( RESOURCE_VERSION_ID ) REFERENCES CPE_RESOURCE_VERSION ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE 
+ALTER TABLE CPE_RESOURCE
 	ADD CONSTRAINT CPE_RESOURCE_FK_3 FOREIGN KEY ( OWNER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_LOG_DETAIL 
+ALTER TABLE CPE_RESOURCE_LOG_DETAIL
 	ADD CONSTRAINT CPE_RESOURCE_LOG_DETAIL_FK_1 FOREIGN KEY ( RESOURCE_LOG_ID ) REFERENCES CPE_RESOURCE_LOG ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_LOG_DETAIL 
+ALTER TABLE CPE_RESOURCE_LOG_DETAIL
 	ADD CONSTRAINT CPE_RESOURCE_LOG_DETAIL_FK_2 FOREIGN KEY ( RULE_ID ) REFERENCES CPE_RULE_HEADER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_LOG_DETAIL 
-	ADD CONSTRAINT CPE_RESOURCE_LOG_DETAIL_FK_3 FOREIGN KEY ( RULE_FUNCTIONAL_GROUP_ID ) 
+ALTER TABLE CPE_RESOURCE_LOG_DETAIL
+	ADD CONSTRAINT CPE_RESOURCE_LOG_DETAIL_FK_3 FOREIGN KEY ( RULE_FUNCTIONAL_GROUP_ID )
         REFERENCES CPE_RULE_FUNCTIONAL_GROUP_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_LOG_DETAIL 
+ALTER TABLE CPE_RESOURCE_LOG_DETAIL
 	ADD CONSTRAINT CPE_RESOURCE_LOG_DETAIL_FK_4 FOREIGN KEY ( RESOURCE_VERSION_ID ) REFERENCES CPE_RESOURCE_VERSION ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_LOG 
+ALTER TABLE CPE_RESOURCE_LOG
 	ADD CONSTRAINT CPE_RESOURCE_LOG_FK_1 FOREIGN KEY ( RESOURCE_MGMT_ID ) REFERENCES CPE_RESOURCE_MGMT ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_LOG 
+ALTER TABLE CPE_RESOURCE_LOG
 	ADD CONSTRAINT CPE_RESOURCE_LOG_FK_2 FOREIGN KEY ( PROFILE_INFO_ID ) REFERENCES CPE_PROFILE_INFO ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_MGMT 
+ALTER TABLE CPE_RESOURCE_MGMT
 	ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_1 FOREIGN KEY ( OWNER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_MGMT 
+ALTER TABLE CPE_RESOURCE_MGMT
 	ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_2 FOREIGN KEY ( RESOURCE_ID ) REFERENCES CPE_RESOURCE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_MGMT 
+ALTER TABLE CPE_RESOURCE_MGMT
 	ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_3 FOREIGN KEY ( PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_MGMT 
+ALTER TABLE CPE_RESOURCE_MGMT
 	ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_4 FOREIGN KEY ( LAST_RUN_ID ) REFERENCES CPE_RESOURCE_LOG ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_MGMT 
+ALTER TABLE CPE_RESOURCE_MGMT
     ADD CONSTRAINT CPE_RESOURCE_MGMT_FK_5 FOREIGN KEY ( GROUP_ID ) REFERENCES CPE_GROUP_FUNCTIONAL_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_TYPE 
+ALTER TABLE CPE_RESOURCE_TYPE
 	ADD CONSTRAINT CPE_RESOURCE_TYPE_FK_1 FOREIGN KEY ( REF_PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RESOURCE_VERSION 
+ALTER TABLE CPE_RESOURCE_VERSION
 	ADD CONSTRAINT CPE_RESOURCE_VERSION_FK_1 FOREIGN KEY ( RESOURCE_TYPE ) REFERENCES CPE_RESOURCE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RULE 
+ALTER TABLE CPE_RULE
 	ADD CONSTRAINT CPE_RULE_FK_1 FOREIGN KEY ( RESOURCE_VERSION_ID ) REFERENCES CPE_RESOURCE_VERSION ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RULE 
+ALTER TABLE CPE_RULE
 	ADD CONSTRAINT CPE_RULE_FK_2 FOREIGN KEY ( BASE_RULE_ID ) REFERENCES CPE_RULE_HEADER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RULE_HEADER 
+ALTER TABLE CPE_RULE_HEADER
 	ADD CONSTRAINT CPE_RULE_HEADER_FK_1 FOREIGN KEY ( CRITICALITY_ID ) REFERENCES CPE_CRITICALITY_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RULE_HEADER 
+ALTER TABLE CPE_RULE_HEADER
 	ADD CONSTRAINT CPE_RULE_HEADER_FK_2 FOREIGN KEY ( RULE_FUNC_TYPE_ID ) REFERENCES CPE_RULE_FUNCTIONAL_GROUP_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RULE_PARAMETER 
+ALTER TABLE CPE_RULE_PARAMETER
 	ADD CONSTRAINT CPE_RULE_PARAMETER_FK_1 FOREIGN KEY ( RULE_ID ) REFERENCES CPE_RULE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER 
+ALTER TABLE CPE_USER
 	ADD CONSTRAINT CPE_USER_FK_1 FOREIGN KEY ( PARENT_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER 
+ALTER TABLE CPE_USER
 	ADD CONSTRAINT CPE_USER_FK_2 FOREIGN KEY ( AUTH_TYPE_ID ) REFERENCES CPE_AUTH_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER 
+ALTER TABLE CPE_USER
 	ADD CONSTRAINT CPE_USER_FK_3 FOREIGN KEY ( USER_TYPE_ID ) REFERENCES CPE_USER_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER 
+ALTER TABLE CPE_USER
 	ADD CONSTRAINT CPE_USER_FK_4 FOREIGN KEY ( USER_ORG_ID ) REFERENCES CPE_ORGANIZATION ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_MESSAGES 
+ALTER TABLE CPE_USER_MESSAGES
 	ADD CONSTRAINT CPE_USER_MESSAGES_FK_1 FOREIGN KEY ( TARGET_USER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_MESSAGES 
+ALTER TABLE CPE_USER_MESSAGES
 	ADD CONSTRAINT CPE_USER_MESSAGES_FK_2 FOREIGN KEY ( EVENT_TYPE_ID ) REFERENCES CPE_USER_MESSAGE_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_PREFERENCE 
+ALTER TABLE CPE_USER_PREFERENCE
 	ADD CONSTRAINT CPE_USER_PREFERENCE_FK_1 FOREIGN KEY ( USER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_PROFILE 
+ALTER TABLE CPE_USER_PROFILE
 	ADD CONSTRAINT CPE_USER_PROFILE_FK_1 FOREIGN KEY ( PERMITTED_USER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_PROFILE 
+ALTER TABLE CPE_USER_PROFILE
 	ADD CONSTRAINT CPE_USER_PROFILE_FK_2 FOREIGN KEY ( GRANTED_BY_USER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_PROFILE 
+ALTER TABLE CPE_USER_PROFILE
 	ADD CONSTRAINT CPE_USER_PROFILE_FK_3 FOREIGN KEY ( PROFILE_ID ) REFERENCES CPE_PROFILE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_RELATION 
+ALTER TABLE CPE_USER_RELATION
 	ADD CONSTRAINT CPE_USER_RELATION_FK_1 FOREIGN KEY ( CHILD_ID ) REFERENCES CPE_USER_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_USER_RELATION 
+ALTER TABLE CPE_USER_RELATION
 	ADD CONSTRAINT CPE_USER_RELATION_FK_2 FOREIGN KEY ( PARENT_ID ) REFERENCES CPE_USER_TYPE ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RES_MGMT_EXCEPTION 
+ALTER TABLE CPE_RES_MGMT_EXCEPTION
 	ADD CONSTRAINT CPE_RES_MGMT_EXCEPTION_FK_1 FOREIGN KEY ( RESOURCE_MGMT_ID ) REFERENCES CPE_RESOURCE_MGMT ( ID ) ON DELETE CASCADE ;
--- ALTER TABLE CPE_RES_MGMT_EXCEPTION 
+-- ALTER TABLE CPE_RES_MGMT_EXCEPTION
 --	ADD CONSTRAINT CPE_RES_MGMT_EXCEPTION_FK_2 FOREIGN KEY ( PROFILE_MEMBER_ID ) REFERENCES CPE_PROFILE_MEMBER ( ID ) ON DELETE CASCADE ;
-ALTER TABLE CPE_RES_MGMT_EXCEPTION 
+ALTER TABLE CPE_RES_MGMT_EXCEPTION
 	ADD CONSTRAINT CPE_RES_MGMT_EXCEPTION_FK_3 FOREIGN KEY ( OVERRIDE_CREATED_BY ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_USAGE_LOG
 	ADD CONSTRAINT CPE_USAGE_LOG_FK_1 FOREIGN KEY ( USER_ID ) REFERENCES CPE_USER ( ID ) ON DELETE CASCADE ;
@@ -1081,6 +1083,8 @@ ALTER TABLE CPE_USAGE_LOG
 	ADD CONSTRAINT CPE_USAGE_LOG_FK_3 FOREIGN KEY ( RESOURCE_ID ) REFERENCES CPE_RESOURCE ( ID ) ON DELETE CASCADE ;
 ALTER TABLE CPE_USAGE_LOG
 	ADD CONSTRAINT CPE_USAGE_LOG_FK_4 FOREIGN KEY ( RESOURCE_MGMT_ID ) REFERENCES CPE_RESOURCE_MGMT ( ID ) ON DELETE CASCADE ;
+ALTER TABLE CPE_USAGE_LOG
+	ADD CONSTRAINT CPE_USAGE_LOG_FK_5 FOREIGN KEY ( user_type_id ) REFERENCES CPE_USER_TYPE ( ID ) ON DELETE CASCADE ;
 
 PROMPT add check constraints
 ALTER TABLE CPE_AUTH_TYPE ADD CONSTRAINT CPE_AUTH_TYPE_CHK1 CHECK (is_active IN ('Y','N') );
@@ -1117,9 +1121,9 @@ ALTER TABLE CPE_USER_PREFERENCE ADD CONSTRAINT CPE_USER_PREFERENCE_CHK1 CHECK (i
 ALTER TABLE CPE_USER_PROFILE ADD CONSTRAINT CPE_USER_PROFILE_CHK1 CHECK (is_active IN ('Y','N') );
 ALTER TABLE CPE_USER_RELATION ADD CONSTRAINT CPE_USER_RELATION_CHK1 CHECK (is_active IN ('Y','N') );
 ALTER TABLE CPE_USER_TYPE ADD CONSTRAINT CPE_USER_TYPE_CHK1 CHECK (is_active IN ('Y','N') );
-ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MTYPE_CHK1 
+ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MTYPE_CHK1
             CHECK ( event_category  IN ('Info','Warn','Error') );
-ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MTYPE_CHK2 
+ALTER TABLE CPE_USER_MESSAGE_TYPE ADD CONSTRAINT CPE_USER_MTYPE_CHK2
             CHECK ( event_entity  IN ('User','Profile','Resource','Org') );
 
 ALTER TABLE CPE_RES_MGMT_EXCEPTION ADD CONSTRAINT CPE_RES_MGMT_EXCEPTION_CHK2 CHECK (override_type IN ('S','K','M','R') );
@@ -1370,7 +1374,7 @@ create or replace TRIGGER "CPE_AUTH_TYPE_TRIG1" before insert on CPE_AUTH_TYPE f
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_AUTH_TYPE_TRIG1"  ENABLE;
@@ -1379,7 +1383,7 @@ CREATE OR REPLACE TRIGGER "CPE_CRITICALITY_TYPE_TRIG1" before insert on CPE_CRIT
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_CRITICALITY_TYPE_TRIG1" ENABLE;
@@ -1387,7 +1391,7 @@ ALTER TRIGGER "CPE_CRITICALITY_TYPE_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_GFT_TRIG1" before insert on CPE_GROUP_FUNCTIONAL_TYPE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1398,7 +1402,7 @@ DECLARE
     v_ver number;
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1407,7 +1411,7 @@ ALTER TRIGGER "CPE_GROUP_GFT_MEMBER_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_GROUP_GRT_MEMBER_TRIG1" before insert on CPE_GROUP_GRT_MEMBER for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1416,7 +1420,7 @@ ALTER TRIGGER "CPE_GROUP_GRT_MEMBER_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_GROUP_RESOURCE_TYPE_TRIG1" before insert on CPE_GROUP_RESOURCE_TYPE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1425,7 +1429,7 @@ ALTER TRIGGER "CPE_GROUP_RESOURCE_TYPE_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_MRP_TRIG1" before insert on CPE_MEMBER_RULE_PARAMETER for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1434,7 +1438,7 @@ ALTER TRIGGER "CPE_MRP_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_ORGANIZATION_TRIG1" before insert on CPE_ORGANIZATION for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
       select 0,0,0 into :new.usage_resource, :new.usage_runs, :new.usage_cost from dual;
 end;
@@ -1450,10 +1454,10 @@ begin
       select 'I' into :new.IS_ACTIVE from dual;
       v_id := 0 ;
       begin
-         select nvl(ref_profile_id,0) into v_id from cpe_resource_type 
+         select nvl(ref_profile_id,0) into v_id from cpe_resource_type
               where id = :new.resource_type_id;
          exception when others then v_id := 0;
-      end;   
+      end;
       if v_id > 0 then select v_id into :new.profile_ref_id from dual; end if;
       begin
         select nvl(max(version)+1,1) into :new.version from cpe_profile
@@ -1478,44 +1482,44 @@ end;
 ALTER TRIGGER "CPE_PROFILE_TRIG1" ENABLE;
 /
 create or replace TRIGGER "CPE_PROFILE_SM_TRIG1" before insert on CPE_PROFILE_SUPPORT_MATRIX for each row
-declare 
+declare
 v_id number (16);
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
       select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
-      begin 
+      begin
         select b.id into v_id
-        from cpe_resource_type a, cpe_resource_version b 
+        from cpe_resource_type a, cpe_resource_version b
         where a.id = :new.resource_type_id and a.is_active = 'Y' and a.id = b.resource_type
           and b.id = :new.resource_version_id and b.is_active = 'Y';
       exception
-        when no_data_found then 
+        when no_data_found then
              raise_application_error( -20000, 'Error : Support matrix need active resource type and version');
         when others then raise_application_error( -20000, 'Error : Unknown error');
-      end;  
-      begin 
+      end;
+      begin
         select a.id into v_id
         from cpe_profile a , cpe_resource_type b
         where a.id = :new.profile_id and a.is_active in ('Y','I')  and a.resource_type_id = :new.resource_type_id
           and b.id = a.resource_type_id and b.is_active = 'Y';
       exception
-        when no_data_found then 
+        when no_data_found then
              raise_application_error( -20000, 'Error : Support matrix needs SAME resource type for profile and matrix');
         when others then raise_application_error( -20000, 'Error : Unknown error');
-      end;        
+      end;
 end;
 /
 ALTER TRIGGER "CPE_PROFILE_SM_TRIG1" ENABLE;
 /
 create or replace TRIGGER "CPE_PROFILE_SM_TRIG2" before update on CPE_PROFILE_SUPPORT_MATRIX for each row
-declare 
+declare
 v_id number (16);
 begin
-     if updating('id') OR updating ('profile_id') OR updating ('resource_type_id') 
-        OR updating('resource_version_id')  then 
+     if updating('id') OR updating ('profile_id') OR updating ('resource_type_id')
+        OR updating('resource_version_id')  then
              raise_application_error( -20000, 'Error : you can not update these attributes');
-     end if;        
+     end if;
 end;
 /
 ALTER TRIGGER "CPE_PROFILE_SM_TRIG2" ENABLE;
@@ -1524,7 +1528,7 @@ ALTER TRIGGER "CPE_PROFILE_SM_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_PROFILE_INFO_TRIG1" before insert on CPE_PROFILE_INFO for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1557,7 +1561,7 @@ create or replace TRIGGER "CPE_VIEW_LEVEL_TRIG1" before insert on CPE_VIEW_LEVEL
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_VIEW_LEVEL_TRIG1"  ENABLE;
@@ -1566,7 +1570,7 @@ create or replace TRIGGER "CPE_RESOURCE_TRIG1" before insert on CPE_RESOURCE for
 DECLARE
 v_id number(16);v_quota number(16); v_usage number(16); v_err number(1);
 pragma autonomous_transaction;
-cursor c1 is select id, 
+cursor c1 is select id,
              case when quota_expiry_date is null then decode(quota_resource,-1,99999999,quota_resource)
              when quota_expiry_date < sysdate then 0
              else quota_resource
@@ -1574,7 +1578,7 @@ cursor c1 is select id,
              usage_resource from cpe_user
              where is_active = 'Y'
              connect by prior parent_id = id start with id = :new.owner_id;
-cursor c2 is select id, 
+cursor c2 is select id,
              case when quota_expiry_date is null then decode(quota_resource,-1,99999999,quota_resource)
              when quota_expiry_date < sysdate then 0
              else quota_resource
@@ -1587,8 +1591,8 @@ begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
       select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
-      if :new.created_by is null then 
-         select login_id into :new.created_by from cpe_user where id = :new.owner_id and is_active = 'Y'; 
+      if :new.created_by is null then
+         select login_id into :new.created_by from cpe_user where id = :new.owner_id and is_active = 'Y';
       end if;
       v_id := 0 ;
       begin
@@ -1596,9 +1600,9 @@ begin
       exception
           when others then v_id := 0 ;
       end;
-      if v_id = 0 then 
+      if v_id = 0 then
          raise_application_error ( -20017, 'Error : 20017 : Unknown owner OR owner is not active');
-      end if;   
+      end if;
       v_err := 0;
       open c1;
       loop
@@ -1641,26 +1645,28 @@ begin
          close c2;
       end if;
 end;
+
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG1" ENABLE;
 /
+
 create or replace TRIGGER "CPE_RESOURCE_TRIG2" after insert on CPE_RESOURCE for each row
 DECLARE
-v_id number(16);v_name varchar2(64);v_login varchar2(64);
-cursor c1 is select id,login_id from cpe_user 
+v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_id number(16);v_org_name varchar2(64); user_type_id number(16);
+cursor c1 is select id,login_id from cpe_user
              where is_active = 'Y'
              connect by prior parent_id = id start with id = :new.owner_id;
-cursor c2 is select id from cpe_organization 
+cursor c2 is select name from cpe_organization
              where is_active = 'Y'
              connect by prior parent_id = id
              start with id = ( select user_org_id from cpe_user where id = :new.owner_id and is_active = 'Y' ) ;
 begin
-    select login_id into v_name from cpe_user where id = :new.owner_id and is_active = 'Y';
+    select login_id,user_org_id,USER_TYPE_ID into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
+	insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,USER_TYPE_ID,severity )
+         values ( :new.owner_id, :new.owner_id, :new.id , 'New resource added', 'Registered a new resource: '  || :new.name , 1 , v_name,v_org_id,user_type_id,6) ;
     open c1;
     loop
          FETCH c1 into v_id,v_login; EXIT WHEN c1%notfound;
-         insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by )
-         values ( :new.owner_id, v_id, :new.id , 'add_resource', 'Registered new resource', 1 , v_name) ;
          insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by)
          values ( v_id , ( select id from cpe_user_message_type where event_type = 8 and is_active = 'Y'),
                   'Hello ' || v_login || '  :  '|| v_name || ' registered new resource and your usage is increased  by 1',v_name);
@@ -1668,19 +1674,21 @@ begin
     close c1;
     open c2;
     loop
-         FETCH c2 into v_id; EXIT WHEN c2%notfound;
-         insert into cpe_usage_log ( event_trigger_by, org_id, resource_id, event_type, event_trigger, event_value, created_by )
-         values ( :new.owner_id, v_id, :new.id , 'add_resource', 'Registered new resource', 1 , v_name) ;
+         FETCH c2 into v_org_name; EXIT WHEN c2%notfound;
+         insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by )
+         values ( :new.owner_id, ( select id from cpe_user_message_type where event_type = 8 and is_active = 'Y'), 'Hello ' || v_org_name || '  :  '|| v_name || ' registered new resource and your usage is increased  by 1' , v_name) ;
     end loop;
     close c2;
 end;
+
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG2" ENABLE;
 /
+
 CREATE OR REPLACE TRIGGER "CPE_RESOURCE_LOG_TRIG1" before insert on CPE_RESOURCE_LOG for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_RESOURCE_LOG_TRIG1" ENABLE;
@@ -1741,7 +1749,7 @@ begin
               where id = v_rlog_id;
        if :new.rule_status = 1 then
           select ( extractValue(log_xml,'/ResourceLog/Info/success_rules_count') + 1 ) into v_scount
-               from cpe_resource_log where id= v_rlog_id ;     
+               from cpe_resource_log where id= v_rlog_id ;
           update cpe_resource_log set log_xml =
                UPDATEXML (log_xml,'/ResourceLog/Info/success_rules_count/text()', v_scount)
                where id = v_rlog_id;
@@ -1750,12 +1758,12 @@ begin
           update cpe_resource_log set log_xml =
                UPDATEXML (log_xml,'/ResourceLog/Info/failure_rules_count/text()', v_fcount)
                where id = v_rlog_id;
-          if ( ( v_scount + v_fcount) > 0 ) then      
+          if ( ( v_scount + v_fcount) > 0 ) then
              select  round(cast((
                (sum((case rule_status when '1' then 1 when '0' then -1 when '-1' then -1 else 0 end) * rule_weight)) + sum(rule_weight)) / (2 * sum(rule_weight)) * 100 as decimal(8,2))) into v_health
                from cpe_resource_log_detail where resource_log_id = v_rlog_id and rule_status != -2;
              update cpe_resource_log set overall_health = v_health  where id = v_rlog_id;
-          end if;    
+          end if;
        end if;
     end if;
 end;
@@ -1791,7 +1799,7 @@ begin
       v_rule_by_rule := 0 ;
       begin
          select max(id) into v_rule_by_rule
-                from cpe_profile where name ='Rule-by-rule Force Remediation -- Initiated by User' 
+                from cpe_profile where name ='Rule-by-rule Force Remediation -- Initiated by User'
                 and id = :new.profile_id
                 and is_active in ('Y','I');
       exception
@@ -1851,7 +1859,7 @@ ALTER TRIGGER "CPE_RESOURCE_MGMT_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RESOURCE_TYPE_TRIG1" before insert on CPE_RESOURCE_TYPE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1860,7 +1868,7 @@ ALTER TRIGGER "CPE_RESOURCE_TYPE_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RESOURCE_VERSION_TRIG1" before insert on CPE_RESOURCE_VERSION for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1869,7 +1877,7 @@ ALTER TRIGGER "CPE_RESOURCE_VERSION_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RULE_TRIG1" before insert on CPE_RULE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1878,7 +1886,7 @@ ALTER TRIGGER "CPE_RULE_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RFGT_TRIG1" before insert on CPE_RULE_FUNCTIONAL_GROUP_TYPE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1887,14 +1895,14 @@ ALTER TRIGGER "CPE_RFGT_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RULE_HEADER_TRIG1" before insert on CPE_RULE_HEADER for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
       begin
         select nvl(max(custom_version)+1,1)  into :new.custom_version from cpe_rule_header
-        where rule_id = :new.rule_id and name = :new.name and 
+        where rule_id = :new.rule_id and name = :new.name and
               (  (nvl(fix_text,'a') != nvl(:new.fix_text,'a'))  OR (nvl(check_text,'a') != nvl(:new.check_text,'a')) );
       exception
-        when no_data_found then select 1 into :new.custom_version from dual; 
+        when no_data_found then select 1 into :new.custom_version from dual;
       end;
 end;
 /
@@ -1903,7 +1911,7 @@ ALTER TRIGGER "CPE_RULE_HEADER_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RULE_PARAMETER_TRIG1" before insert on CPE_RULE_PARAMETER for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1913,7 +1921,7 @@ ALTER TRIGGER "CPE_RULE_PARAMETER_TRIG1" ENABLE;
 create or replace TRIGGER "CPE_USER_TRIG1" before insert on CPE_USER for each row
 declare
 v_date timestamp; v_org number(16);
-v_me_ciso number(1); v_other_ciso number(1); 
+v_me_ciso number(1); v_other_ciso number(1);
 
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
@@ -1947,15 +1955,15 @@ begin
           end if;
        end if;
 
- 
+
        begin
           select nvl(parent_id,0) into v_me_ciso from cpe_user where id = :new.parent_id and is_active = 'Y';
        exception
           when others then v_me_ciso :=1;
        end;
-       
+
        begin
-          select count(*) into v_other_ciso from cpe_user where user_org_id = :new.user_org_id 
+          select count(*) into v_other_ciso from cpe_user where user_org_id = :new.user_org_id
               and parent_id = :new.parent_id;
        exception
           when others then v_other_ciso := 1;
@@ -1963,11 +1971,11 @@ begin
 
  -- raise_application_error ( -20005,'Error: Customer here');
 
-      if v_me_ciso = 0 then 
-         if v_other_ciso > 0 then 
+      if v_me_ciso = 0 then
+         if v_other_ciso > 0 then
             raise_application_error ( -20034,'Error: 20034');
          end if;
-      end if;   
+      end if;
 
 end;
 /
@@ -1976,7 +1984,7 @@ ALTER TRIGGER "CPE_USER_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_MESSAGES_TRIG1" before insert on CPE_USER_MESSAGES for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       select SYSDATE into :new.message_date from dual;
       select 'N' into :new.read_status from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
@@ -1987,7 +1995,7 @@ ALTER TRIGGER "CPE_USER_MESSAGES_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_MESSAGE_TYPE_TRIG1" before insert on CPE_USER_MESSAGE_TYPE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -1996,7 +2004,7 @@ ALTER TRIGGER "CPE_USER_MESSAGE_TYPE_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_PREFERENCE_TRIG1" before insert on CPE_USER_PREFERENCE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -2006,7 +2014,7 @@ create or replace TRIGGER "CPE_USER_PROFILE_TRIG1" before insert on CPE_USER_PRO
 DECLARE
 v_id number(16); v_login varchar2(1024); v_id2 number(16);
 pragma autonomous_transaction;
-cursor c1 is select id,login_id from cpe_user where  id <> :new.permitted_user_id and is_active='Y'  
+cursor c1 is select id,login_id from cpe_user where  id <> :new.permitted_user_id and is_active='Y'
 connect by prior parent_id=id start with id = :new.permitted_user_id;
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
@@ -2015,39 +2023,39 @@ begin
       if :new.granted_date is null then select sysdate into :new.granted_date from dual; end if;
       v_id := 0 ;
       begin
-        select id into v_id from cpe_user_profile 
+        select id into v_id from cpe_user_profile
         where profile_id = :new.profile_id and is_active = 'Y' and permitted_user_id = :new.permitted_user_id;
       exception
         when others then v_id := 0 ;
-      end;  
-      if v_id > 0 then 
+      end;
+      if v_id > 0 then
 --         update cpe_user_profile set is_active = 'N' where id = v_id;
 --         commit;
          raise_application_error ( -20000, '20000: User already has access to profile');
-      end if;       
+      end if;
       open c1;
       loop
          fetch c1 into v_id,v_login; exit when c1%notfound;
          begin
-             select id into v_id2 from cpe_user_profile 
+             select id into v_id2 from cpe_user_profile
              where profile_id = :new.profile_id and is_active = 'Y' and permitted_user_id = v_id;
          exception
              when others then v_id2 := 0 ;
-         end;  
-         if v_id2 = 0 then 
+         end;
+         if v_id2 = 0 then
             insert into cpe_user_profile ( profile_id,permitted_user_id,granted_by_user_id )
             values ( :new.profile_id, v_id, :new.granted_by_user_id) ;
             commit;
             insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by)
             values ( v_id , ( select id from cpe_user_message_type where event_type = 14 and is_active = 'Y'),
-                  'Hello ' || v_login || '  :  '|| 
+                  'Hello ' || v_login || '  :  '||
                   ' You are granted access to profile '|| (select name from cpe_profile where id= :new.profile_id)
-                  ,(select login_id from cpe_user where id = :new.granted_by_user_id) 
+                  ,(select login_id from cpe_user where id = :new.granted_by_user_id)
                   );
-             commit;      
+             commit;
           end if;
     end loop;
-    close c1;      
+    close c1;
 end;
 /
 ALTER TRIGGER "CPE_USER_PROFILE_TRIG1" ENABLE;
@@ -2055,7 +2063,7 @@ ALTER TRIGGER "CPE_USER_PROFILE_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_RELATION_TRIG1" before insert on CPE_USER_RELATION for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -2064,7 +2072,7 @@ ALTER TRIGGER "CPE_USER_RELATION_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_TYPE_TRIG1" before insert on CPE_USER_TYPE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       if :new.is_active is null then select 'Y' into :new.is_active from dual ; end if;
 end;
 /
@@ -2073,7 +2081,7 @@ ALTER TRIGGER "CPE_USER_TYPE_TRIG1" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_SYS_ERROR_MESSAGE_TRIG1" before insert on CPE_SYS_ERROR_MESSAGE for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_SYS_ERROR_MESSAGE_TRIG1" ENABLE;
@@ -2173,23 +2181,23 @@ v_id number(16);
 pragma autonomous_transaction;
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
-      select SYSDATE into :new.CREATE_DATE from dual; 
+      select SYSDATE into :new.CREATE_DATE from dual;
       select to_char(sysdate,'Mon-rrrr') into :new.mon_rrrr from dual;
-      if ( :new.user_id is NULL AND :new.org_id is NULL ) OR
-         ( :new.user_id is not NULL AND :new.org_id is not NULL ) then
-         raise_application_error ( -20000, 'Error: Only one ID is needed' );
-      else 
-         if :new.user_id is not null then
-            :new.usage_type := 'USER';
-         end if; 
-         if :new.org_id is not null then
-            :new.usage_type := 'ORG';
-         end if; 
-      end if;
-      if ( :new.resource_id is NULL AND :new.resource_mgmt_id is NULL ) OR
-         ( :new.resource_id is not NULL AND :new.resource_mgmt_id is not NULL ) then
-         raise_application_error ( -20000, 'Error: Only one ID is needed' );
-      end if;
+      -- if ( :new.user_id is NULL AND :new.org_id is NULL ) OR
+      --    ( :new.user_id is not NULL AND :new.org_id is not NULL ) then
+      --    raise_application_error ( -20000, 'Error: Only one ID is needed' );
+      -- else
+      --    if :new.user_id is not null then
+      --       :new.usage_type := 'USER';
+      --    end if;
+      --    if :new.org_id is not null then
+      --       :new.usage_type := 'ORG';
+      --    end if;
+      -- end if;
+      -- if ( :new.resource_id is NULL AND :new.resource_mgmt_id is NULL ) OR
+      --    ( :new.resource_id is not NULL AND :new.resource_mgmt_id is not NULL ) then
+      --    raise_application_error ( -20000, 'Error: Only one ID is needed' );
+      -- end if;
 end;
 /
 ALTER TRIGGER "CPE_USAGE_LOG_TRIG1" ENABLE;
@@ -2269,37 +2277,37 @@ begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
       select SYSDATE into :new.UPDATE_DATE from dual;
       if (:old.is_active = 'N') THEN raise_application_error( -20028, 'Error : 20028'); end if;
-      if ( :new.is_active ='N' ) then 
+      if ( :new.is_active ='N' ) then
          update cpe_user_profile set is_active= 'N' where profile_id = :old.id and is_active='Y';
          commit;
       end if;
-      
+
       begin
          select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s1
          from cpe_profile_member a , cpe_profile b
          where a.is_active='Y' and b.id = a.profile_id and b.id = :old.id;
       exception
          when others then v_s1 := 0 ;
-      end;   
+      end;
       begin
          select nvl(b.ref_profile_id,0) into v_id
-         from cpe_resource_type b, cpe_profile a  
+         from cpe_resource_type b, cpe_profile a
          where b.is_active= 'Y' and a.id = :old.id and b.id = a.resource_type_id;
       exception
           when others then v_id := 0;
       end;
-      begin 
+      begin
         select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s2
         from cpe_profile_member a, cpe_profile b
-        where a.is_active='Y' and b.id = a.profile_id 
+        where a.is_active='Y' and b.id = a.profile_id
         and b.id = v_id;
       exception
-        when others then v_s2 := 0; 
-      end ;    
-      if v_s2 = 0 then 
-        select v_s2 into :new.profile_strength from dual; 
+        when others then v_s2 := 0;
+      end ;
+      if v_s2 = 0 then
+        select v_s2 into :new.profile_strength from dual;
       else
-        select ((v_s1 / v_s2) * 100) into :new.profile_strength from dual; 
+        select ((v_s1 / v_s2) * 100) into :new.profile_strength from dual;
       end if;
       select v_id into :new.profile_ref_id from dual;
 end;
@@ -2357,13 +2365,13 @@ v_status varchar2 (1); v_profile_id number(16);v_info_id number(16);v_id number(
 v_s1 number (8,3); v_s2 number (8,3);
 pragma autonomous_transaction;
 begin
-     if inserting then 
+     if inserting then
         v_profile_id := :new.profile_id;
      end if;
-     if deleting or updating then 
+     if deleting or updating then
         v_profile_id := :old.profile_id;
-     end if;    
-     
+     end if;
+
      begin
          select id into v_info_id from cpe_profile_info where profile_id = v_profile_id;
      exception
@@ -2391,7 +2399,7 @@ begin
             when others then raise_application_error( -20000, 'Error : 20000' || v_profile_id );
         end;
       end if;
-      
+
       begin
           select nvl(sum(case a.criticality_id when 6 then 1 when 7 then 2 when 8 then 3 else 0 end),0) into v_s1
           from cpe_profile_member a , cpe_profile b
@@ -2415,14 +2423,14 @@ begin
         when others then v_s2 := 0;
       end ;
       if v_s2 = 0 then
-        update cpe_profile set profile_strength = v_s2 , profile_ref_id = v_id 
+        update cpe_profile set profile_strength = v_s2 , profile_ref_id = v_id
                where id = v_profile_id;
         commit;
       else
-        update cpe_profile set profile_strength = ((v_s1 / v_s2) * 100) , profile_ref_id = v_id 
+        update cpe_profile set profile_strength = ((v_s1 / v_s2) * 100) , profile_ref_id = v_id
                where id = v_profile_id;
         commit;
-      end if;  
+      end if;
 end;
 /
 ALTER TRIGGER "CPE_PROFILE_MEMBER_TRIG4" ENABLE;
@@ -2464,26 +2472,27 @@ end;
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG3" ENABLE;
 /
+
 create or replace TRIGGER "CPE_RESOURCE_TRIG4" after update on CPE_RESOURCE for each row
 DECLARE
-v_id number(16);v_name varchar2(64);v_login varchar2(64);
+v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_id number(16);v_org_name varchar2(64);user_type_id number(16);
 cursor c1 is select id from cpe_user where is_active = 'Y'
              connect by prior parent_id = id start with id = :new.owner_id;
-cursor c2 is select id from cpe_organization where is_active = 'Y' 
+cursor c2 is select name from cpe_organization where is_active = 'Y'
              connect by prior parent_id = id
              start with id = ( select user_org_id from cpe_user where id = :new.owner_id and is_active = 'Y') ;
 begin
 --- not needed as we will allow then to reactivate resource
---    if (:old.is_active = 'N') THEN 
---       raise_application_error( -20028, 'Error : 20028'); 
---    end if; 
-    if (:old.is_active = 'Y' AND :new.is_active = 'N' ) THEN 
-       select login_id into v_name from cpe_user where id = :old.owner_id and is_active = 'Y';
+--    if (:old.is_active = 'N') THEN
+--       raise_application_error( -20028, 'Error : 20028');
+--    end if;
+    if (:old.is_active = 'Y' AND :new.is_active = 'N' ) THEN
+       select login_id, user_org_id, user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :old.owner_id and is_active = 'Y';
+	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by ,org_id,user_type_id,severity)
+          values ( :old.owner_id, :old.owner_id, :old.id , 'Resource deactivated',  ' Deactivated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,6) ;
        open c1;
        loop
           FETCH c1 into v_id; EXIT WHEN c1%notfound;
-          insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by )
-          values ( :old.owner_id, v_id, :old.id , 'del_resource', 'UN-Registered resource', -1 , v_name) ;
           insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by)
           values ( v_id , ( select id from cpe_user_message_type where event_type = 9 and is_active = 'Y' ),
                   'Hello ' || v_login || '  :  '|| v_name || ' UN-registered resource and your usage is reduced by 1',v_name);
@@ -2491,12 +2500,12 @@ begin
        close c1;
        open c2;
        loop
-          FETCH c2 into v_id; EXIT WHEN c2%notfound;
-          insert into cpe_usage_log ( event_trigger_by, org_id, resource_id, event_type, event_trigger, event_value, created_by )
-          values ( :old.owner_id, v_id, :old.id , 'del_resource', 'UN-Registered resource', -1 , v_name) ;
+          FETCH c2 into v_name; EXIT WHEN c2%notfound;
+          insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by)
+          values ( :new.owner_id, ( select id from cpe_user_message_type where event_type = 8 and is_active = 'Y'), 'Hello '|| v_name || ' deactivated resource '  || :NEW.name, v_name);
        end loop;
-       close c2;       
-       
+       close c2;
+
        update cpe_resource_mgmt set is_active='N',
              change_note = change_note || ' [ because resource ' || :old.name || ' was made inactive at ' || to_char(sysdate,'dd-Mon-rrrr hh24:mi:ss') || ' ] '
             where owner_id = :old.owner_id and resource_id = :old.id and is_active = 'Y';
@@ -2505,15 +2514,14 @@ begin
                'You scheduled profile application was cancelled because resource ' || :old.name || ' was made inactive at ' || to_char(sysdate,'dd-Mon-rrrr hh24:mi:ss'),
                'Profile applicayion cancelled as resource was inactivated' ,'System Generated Event');
 
-     end if;  
-    if (:old.is_active = 'N' AND :new.is_active = 'Y' ) THEN 
-       select login_id into v_name from cpe_user where id = :new.owner_id and is_active = 'Y';
+     end if;
+    if (:old.is_active = 'N' AND :new.is_active = 'Y' ) THEN
+       select login_id,user_org_id,user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
+	   insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,user_type_id,severity )
+          values ( :new.owner_id, :new.owner_id, :new.id , 'Resource activated', 'Activated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,6) ;
        open c1;
        loop
           FETCH c1 into v_id; EXIT WHEN c1%notfound;
-          insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by )
-          values ( :new.owner_id, v_id, :new.id , 'add_resource', 'Re-Activated resource', -1 , v_name) ;
-
          insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by)
          values ( v_id , ( select id from cpe_user_message_type where event_type = 8 and is_active = 'Y' ),
                   'Hello ' || v_login || '  :  '|| v_name || ' Re-Activated old resource and your usage is increased by 1',v_name);
@@ -2521,14 +2529,15 @@ begin
        close c1;
        open c2;
        loop
-          FETCH c2 into v_id; EXIT WHEN c2%notfound;
-          insert into cpe_usage_log ( event_trigger_by, org_id, resource_id, event_type, event_trigger, event_value, created_by )
-          values ( :new.owner_id, v_id, :new.id , 'add_resource', 'Re-Activated resource', -1 , v_name) ;
+          FETCH c2 into v_org_name; EXIT WHEN c2%notfound;
+          insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by)
+          values ( :new.owner_id, ( select id from cpe_user_message_type where event_type = 8 and is_active = 'Y'), 'Hello '|| v_name || ' updated resource '  || :NEW.name, v_name) ;
        end loop;
        close c2;
-     end if;  
+     end if;
 
 end;
+
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG4" ENABLE;
 /
@@ -2790,7 +2799,7 @@ ALTER TRIGGER "CPE_RULE_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RFGT_TRIG2" before update on CPE_RULE_FUNCTIONAL_GROUP_TYPE for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_RFGT_TRIG2" ENABLE;
@@ -2798,7 +2807,7 @@ ALTER TRIGGER "CPE_RFGT_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RULE_HEADER_TRIG2" before update on CPE_RULE_HEADER for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_RULE_HEADER_TRIG2" ENABLE;
@@ -2806,7 +2815,7 @@ ALTER TRIGGER "CPE_RULE_HEADER_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_RULE_PARAMETER_TRIG2" before update on CPE_RULE_PARAMETER for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_RULE_PARAMETER_TRIG2" ENABLE;
@@ -2814,7 +2823,7 @@ ALTER TRIGGER "CPE_RULE_PARAMETER_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_TRIG2" before update on CPE_USER for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_USER_TRIG2" ENABLE;
@@ -2822,7 +2831,7 @@ ALTER TRIGGER "CPE_USER_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_MESSAGES_TRIG2" before update on CPE_USER_MESSAGES for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_USER_MESSAGES_TRIG2" ENABLE;
@@ -2830,7 +2839,7 @@ ALTER TRIGGER "CPE_USER_MESSAGES_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_MESSAGE_TYPE_TRIG2" before update on CPE_USER_MESSAGE_TYPE for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_USER_MESSAGE_TYPE_TRIG2" ENABLE;
@@ -2838,7 +2847,7 @@ ALTER TRIGGER "CPE_USER_MESSAGE_TYPE_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_PREFERENCE_TRIG2" before update on CPE_USER_PREFERENCE for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_USER_PREFERENCE_TRIG2" ENABLE;
@@ -2852,7 +2861,7 @@ connect by prior id=parent_id start with id = :old.permitted_user_id order by 1 
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
       select SYSDATE into :new.UPDATE_DATE from dual;
-      if :new.is_active = 'N' then 
+      if :new.is_active = 'N' then
          open c1;
          loop
             fetch c1 into v_id,v_login; exit when c1%notfound;
@@ -2875,11 +2884,11 @@ begin
              commit;
           end if;
           end loop;
-          close c1;      
-      end if; 
+          close c1;
+      end if;
       insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,created_by)
             values ( :old.permitted_user_id , ( select id from cpe_user_message_type where event_type = 14 and is_active = 'Y'),
-                  'Hello ' || 
+                  'Hello ' ||
                   (select login_id from cpe_user where id = :old.permitted_user_id) || '  :  '||
                   ' Your access to profile '|| (select name from cpe_profile where id= :old.profile_id) ||
                   ' is revoked by parent'
@@ -2893,7 +2902,7 @@ ALTER TRIGGER "CPE_USER_PROFILE_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_RELATION_TRIG2" before update on CPE_USER_RELATION for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_USER_RELATION_TRIG2" ENABLE;
@@ -2901,7 +2910,7 @@ ALTER TRIGGER "CPE_USER_RELATION_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_USER_TYPE_TRIG2" before update on CPE_USER_TYPE for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_USER_TYPE_TRIG2" ENABLE;
@@ -2909,7 +2918,7 @@ ALTER TRIGGER "CPE_USER_TYPE_TRIG2" ENABLE;
 CREATE OR REPLACE TRIGGER "CPE_SYS_ERROR_MESSAGE_TRIG2" before update on CPE_SYS_ERROR_MESSAGE for each row
 begin
       if :new.updated_by is null then select user into :new.updated_by from dual ; end if;
-      select SYSDATE into :new.UPDATE_DATE from dual; 
+      select SYSDATE into :new.UPDATE_DATE from dual;
 end;
 /
 ALTER TRIGGER "CPE_SYS_ERROR_MESSAGE_TRIG2" ENABLE;
@@ -2924,7 +2933,7 @@ ALTER TRIGGER "LDAP_SERVER_CONFIG_TRIG2"  ENABLE;
 
 CREATE OR REPLACE TRIGGER "CPE_USAGE_LOG_TRIG2" before update or delete on CPE_USAGE_LOG for each row
 begin
-    raise_application_error( -20029, 'Error : 20029 : Can not update or delete this record'); 
+    raise_application_error( -20029, 'Error : 20029 : Can not update or delete this record');
 end;
 /
 ALTER TRIGGER "CPE_USAGE_LOG_TRIG2" ENABLE;
@@ -3045,27 +3054,27 @@ else
     end if;
 
     if :new.parent_id is not null then
-       if updating ('quota_resource') then 
+       if updating ('quota_resource') then
           IF (:new.quota_resource < 0  OR  :new.quota_resource > v_qr )
              THEN raise_application_error( -20005, 'Error : 20005');
           END IF;
           IF (:new.quota_resource < :new.usage_resource  OR  :new.quota_resource < :old.usage_resource )
              THEN raise_application_error( -20033, 'Error : 20033');
           END IF;
-       end if;   
-       
+       end if;
+
 --       IF ( (:new.quota_runs_per_month  > v_qrpm) OR ( :new.quota_runs_per_month < 0 AND v_qrpm < 99999999 )  )
-       if updating ('quota_runs_per_month') then 
+       if updating ('quota_runs_per_month') then
           IF ( ( :new.quota_runs_per_month < 0 AND v_qrpm < 99999999 )  )
             	THEN raise_application_error( -20006, 'Error : 20006');
           END IF;
        end if;
-       if updating ('quota_cost_per_month') then  
+       if updating ('quota_cost_per_month') then
 --       IF ( (:new.quota_cost_per_month  > v_qcpm) OR ( :new.quota_cost_per_month < 0 AND v_qcpm < 99999999 )  )
          IF ( ( :new.quota_cost_per_month < 0 AND v_qcpm < 99999999 )  )
             THEN raise_application_error( -20007, 'Error : 20007' || :new.id);
          END IF;
-       end if;  
+       end if;
     end if;
 
     if :new.parent_id is not null then
@@ -3399,16 +3408,16 @@ begin
    select USER_ORG_ID into v_id from CPE_USER where ID = :new.owner_id and is_active = 'Y' ;
 
    IF :new.parent_id <> v_id THEN
-	   begin 
+	   begin
 	     select ID into v_owner_id FROM CPE_ORGANIZATION where id = :new.parent_id and is_active = 'Y'
-	          connect by prior ID = PARENT_ID start with ID = v_id; 
-	     exception 
+	          connect by prior ID = PARENT_ID start with ID = v_id;
+	     exception
 	          when no_data_found then v_owner_id := -1;
-	    end;     
+	    end;
 	    IF ( :new.parent_id <> v_owner_id )
 	        THEN raise_application_error( -20008, 'Error : 20008');
 	    END IF;
-    END IF;    
+    END IF;
 end;
 /
 ALTER TRIGGER "CPE_ORGANIZATION_TRIG4" ENABLE;
@@ -3488,7 +3497,7 @@ if updating ('is_active') and :new.is_active = 'N' and :old.is_active = 'Y' then
                  where permitted_user_id = v_self_id and is_active = 'Y';
        exception
            when others then null;
-       end;    
+       end;
        insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,message_text,created_by)
               values ( v_parent_id ,( select id from cpe_user_message_type where event_type = 12),
                'You inherited profile '|| c_name || ' because old parent ' || v_self_name || ' was made inactive at ' || to_char(sysdate,'dd-Mon-rrrr hh24:mi:ss'),
@@ -3579,8 +3588,8 @@ if updating ('is_active') and :new.is_active = 'N' and :old.is_active = 'Y' then
 --- 0. lets take all resources , de-activate and pass on to my parent
     open c_cur for
          'select id,name from cpe_resource where is_active = :res_status
-          and owner_id in     
-              (select id from cpe_user where is_active = :status  
+          and owner_id in
+              (select id from cpe_user where is_active = :status
                connect by prior id = parent_id start with id= :id2)'
           USING 'Y','Y', :old.id  ;
     loop
@@ -3735,9 +3744,9 @@ pragma autonomous_transaction;
 begin
 
 select nvl(parent_id,-1) into c_id from cpe_organization where id = :old.id;
-if c_id < 0 then 
+if c_id < 0 then
     null;
-else     
+else
 
 select nvl(parent_id,-1) into c_id from cpe_organization
        where id = ( select parent_id from cpe_organization where id = :old.id);
@@ -3813,8 +3822,8 @@ ALTER TRIGGER "CPE_ORGANIZATION_TRIG5" ENABLE;
 
 create or replace TRIGGER "CPE_ORGANIZATION_TRIG9" before insert OR update on CPE_ORGANIZATION for each row
 begin
-     if updating('org_info') then 
-        XMLTYPE.schemavalidate(:new.org_info) ; 
+     if updating('org_info') then
+        XMLTYPE.schemavalidate(:new.org_info) ;
      end if;
 end;
 /
@@ -3822,11 +3831,11 @@ ALTER TRIGGER "CPE_ORGANIZATION_TRIG9" ENABLE;
 /
 create or replace TRIGGER "CPE_PROFILE_INFO_TRIG9" before insert OR update on CPE_PROFILE_INFO for each row
 begin
-     if updating('profile_info') then 
-        XMLTYPE.schemavalidate(:new.profile_info) ; 
+     if updating('profile_info') then
+        XMLTYPE.schemavalidate(:new.profile_info) ;
      end if;
-     if updating('profile_data') then 
-        XMLTYPE.schemavalidate(:new.profile_data) ; 
+     if updating('profile_data') then
+        XMLTYPE.schemavalidate(:new.profile_data) ;
      end if;
 end;
 /
@@ -3834,8 +3843,8 @@ ALTER TRIGGER "CPE_PROFILE_INFO_TRIG9" ENABLE;
 /
 create or replace TRIGGER "CPE_RESOURCE_TRIG9" before insert OR update on CPE_RESOURCE for each row
 begin
-     if updating('resource_info') then 
-        XMLTYPE.schemavalidate(:new.resource_info) ; 
+     if updating('resource_info') then
+        XMLTYPE.schemavalidate(:new.resource_info) ;
      end if;
 end;
 /
@@ -3843,8 +3852,8 @@ ALTER TRIGGER "CPE_RESOURCE_TRIG9" ENABLE;
 /
 create or replace TRIGGER "CPE_RESOURCE_LOG_TRIG9" before insert OR update on CPE_RESOURCE_LOG for each row
 begin
-     if updating('log_xml') then 
-        XMLTYPE.schemavalidate(:new.log_xml) ; 
+     if updating('log_xml') then
+        XMLTYPE.schemavalidate(:new.log_xml) ;
      end if;
 end;
 /
@@ -3857,23 +3866,23 @@ DECLARE
 pragma autonomous_transaction;
 v_id number(16);
 cursor c0 is select id from cpe_group_functional_type
-             where is_active='Y' 
+             where is_active='Y'
              and id not in (
                 select a.id from cpe_group_functional_type a , cpe_group_gft_member b
                 where b.group_id = a.id and a.is_active='Y' and b.is_active='Y'
                 group by a.id,a.name
                            );
 begin
-    if updating ('is_active') then 
+    if updating ('is_active') then
       if (:old.is_active = 'Y' AND :new.is_active = 'N' ) THEN
          begin
             update cpe_group_gft_member set is_active='N' where resource_id = :old.id and is_active = 'Y';
             commit;
          exception
             when others then NULL;
-         end;   
+         end;
       end if;
-    end if;  
+    end if;
     open c0;
     loop
         FETCH c0 into v_id; EXIT WHEN c0%notfound;
@@ -3890,6 +3899,46 @@ end;
 /
 ALTER TRIGGER "CPE_RESOURCE_TRIG7" ENABLE;
 /
-			   
+
+create or replace TRIGGER "CPE_RESOURCE_LOG_TRIG3" AFTER  INSERT or UPDATE on CPE_RESOURCE_LOG FOR EACH ROW
+DECLARE
+user_id number(16); org_id number(16); usage_type varchar2(64); event_type varchar2(256); event_trigger varchar2(256); user_type_id number(16); owner number(16);
+user_name varchar2(64); r_id number(16); r_name varchar2(64); r_type_id number(16); schedule_type varchar2(64); rem_type varchar2(64); r_type varchar2(64);
+BEGIN
+	SELECT CREATED_BY,RESOURCE_ID,RUN_REMEDIATE,owner_id INTO user_name,r_id,schedule_type,owner FROM CPE_RESOURCE_MGMT WHERE id=:NEW.RESOURCE_MGMT_ID;
+	SELECT RESOURCE_TYPE_ID,NAME INTO r_type_id,r_name FROM CPE_RESOURCE WHERE id = r_id;
+	SELECT level3 INTO r_type from CPE_RESOURCE_TYPE WHERE id=r_type_id;
+	IF (schedule_type = 'N') THEN
+		rem_type := 'scanning';
+	ELSE
+		rem_type := 'remediation';
+	END IF;
+	IF user_name = 'System Generated Schedule' THEN
+		SELECT user_org_id,user_view_type,user_type_id INTO org_id,usage_type,user_type_id  FROM CPE_USER WHERE ID=owner;
+		user_id := owner;
+		event_trigger := 'System generated scheduled ' || rem_type || ' got  ' || :NEW.OVERALL_STATUS || ' due to ' || :NEW.overall_info;
+	ELSE
+		SELECT id,user_org_id,user_view_type,user_type_id INTO user_id,org_id,usage_type,user_type_id  FROM CPE_USER WHERE LOGIN_ID=user_name;
+		event_trigger := 'Scheduled ' || rem_type || ' got  ' || :NEW.OVERALL_STATUS || ' due to ' || :NEW.overall_info;
+	END IF;
+
+	IF :NEW.OVERALL_STATUS = 'FAILED' OR :NEW.OVERALL_STATUS = 'ABORTED' OR :NEW.OVERALL_STATUS = 'SKIPPED' THEN
+		insert into cpe_usage_log ( user_id, org_id, usage_type, event_type, event_trigger, event_value, mon_rrrr, created_by,
+		create_date,user_type_id,resource_id,resource_mgmt_id,severity)
+          values (user_id, org_id, usage_type, 'Scheduled scan/remediation status', event_trigger, 1, (select to_char(sysdate,'Mon-rrrr') from dual),
+         user_name, (select SYSDATE from dual),user_type_id,r_id,:NEW.RESOURCE_MGMT_ID,6);
+	END IF;
+	EXCEPTION
+		WHEN NO_DATA_FOUND THEN
+        	raise_application_error( -20000, 'Error : Data not found');
+END;
+
+/
+ALTER TRIGGER "CPE_RESOURCE_LOG_TRIG3" ENABLE;
+/
+
+/
+ALTER TRIGGER "CPE_RESOURCE_LOG_TRIG3" ENABLE;
+/
 PROMPT all done with DDL portion
 PROMPT Good bye.
