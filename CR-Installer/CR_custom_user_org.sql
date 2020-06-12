@@ -76,4 +76,7 @@ values
 (  XMLTYPE('<Info><MyIP> &5 </MyIP></Info>'),
   (select id from cpe_user where parent_id is null)
 ) ;
+
+INSERT INTO CPE_APP_CLUSTER (APPLIANCE_NAME, GUID, IP, SOURCE, CREATED_BY, IS_ACTIVE)
+VALUES('&6', '&7', '&5', 'local','&1','Y');
 commit;
