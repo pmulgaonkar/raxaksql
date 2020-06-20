@@ -1652,7 +1652,7 @@ ALTER TRIGGER "CPE_RESOURCE_TRIG1" ENABLE;
 
 create or replace TRIGGER "CPE_RESOURCE_TRIG2" after insert on CPE_RESOURCE for each row
 DECLARE
-v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_id number(16);v_org_name varchar2(64); user_type_id number(16);
+v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_name varchar2(64);
 cursor c1 is select id,login_id from cpe_user
              where is_active = 'Y'
              connect by prior parent_id = id start with id = :new.owner_id;
@@ -1661,7 +1661,7 @@ cursor c2 is select name from cpe_organization
              connect by prior parent_id = id
              start with id = ( select user_org_id from cpe_user where id = :new.owner_id and is_active = 'Y' ) ;
 begin
-    select login_id,user_org_id,USER_TYPE_ID into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
+    select login_id into v_name from cpe_user where id = :new.owner_id and is_active = 'Y';
 	--insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,USER_TYPE_ID,severity )
          --values ( :new.owner_id, :new.owner_id, :new.id , 'New resource added', 'Registered a new resource: '  || :new.name , 1 , v_name,v_org_id,user_type_id,6) ;
     open c1;
@@ -2475,7 +2475,7 @@ ALTER TRIGGER "CPE_RESOURCE_TRIG3" ENABLE;
 
 create or replace TRIGGER "CPE_RESOURCE_TRIG4" after update on CPE_RESOURCE for each row
 DECLARE
-v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_id number(16);v_org_name varchar2(64);user_type_id number(16);
+v_id number(16);v_name varchar2(64);v_login varchar2(64);v_org_name varchar2(64);
 cursor c1 is select id from cpe_user where is_active = 'Y'
              connect by prior parent_id = id start with id = :new.owner_id;
 cursor c2 is select name from cpe_organization where is_active = 'Y'
@@ -2487,7 +2487,7 @@ begin
 --       raise_application_error( -20028, 'Error : 20028');
 --    end if;
     if (:old.is_active = 'Y' AND :new.is_active = 'N' ) THEN
-       select login_id, user_org_id, user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :old.owner_id and is_active = 'Y';
+       select login_id into v_name from cpe_user where id = :old.owner_id and is_active = 'Y';
 	   --insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by ,org_id,user_type_id,severity)
           --values ( :old.owner_id, :old.owner_id, :old.id , 'Resource deactivated',  ' Deactivated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,6) ;
        open c1;
@@ -2516,7 +2516,7 @@ begin
 
      end if;
     if (:old.is_active = 'N' AND :new.is_active = 'Y' ) THEN
-       select login_id,user_org_id,user_type_id into v_name,v_org_id,user_type_id from cpe_user where id = :new.owner_id and is_active = 'Y';
+       select login_id into v_name from cpe_user where id = :new.owner_id and is_active = 'Y';
 	   --insert into cpe_usage_log ( event_trigger_by, user_id, resource_id, event_type, event_trigger, event_value, created_by,org_id,user_type_id,severity )
           --values ( :new.owner_id, :new.owner_id, :new.id , 'Resource activated', 'Activated resource ' || :NEW.name, -1 , v_name,v_org_id,user_type_id,6) ;
        open c1;
