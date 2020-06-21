@@ -2512,7 +2512,7 @@ begin
        insert into cpe_user_messages ( target_user_id, event_type_id, trigger_event,message_text,created_by)
               values ( :old.owner_id ,( select id from cpe_user_message_type where event_type = 9),
                'You scheduled profile application was cancelled because resource ' || :old.name || ' was made inactive at ' || to_char(sysdate,'dd-Mon-rrrr hh24:mi:ss'),
-               'Profile applicayion cancelled as resource was inactivated' ,'System Generated Event');
+               'Profile application cancelled as resource was inactivated' ,'System Generated Event');
 
      end if;
     if (:old.is_active = 'N' AND :new.is_active = 'Y' ) THEN
