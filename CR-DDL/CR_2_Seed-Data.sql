@@ -284,7 +284,7 @@ commit;
 prompt SYSTEM ERROR MESSAGES
 
 INSERT INTO "CPE_SYS_ERROR_MESSAGE" (ERROR_NUMBER, ERROR_TEXT , CREATED_BY ) 
-   VALUES (-20001, 'Failure:20001: General un-trapped error, call us via telepathy','Seed_Data');
+   VALUES (-20001, 'Failure:20001: General un-trapped error, Contact CloudRaxak','Seed_Data');
 INSERT INTO "CPE_SYS_ERROR_MESSAGE" (ERROR_NUMBER, ERROR_TEXT , CREATED_BY ) 
    VALUES (-20002, 'Failure:20002: Organization Owner not found', 'Seed_Data');
 INSERT INTO "CPE_SYS_ERROR_MESSAGE" (ERROR_NUMBER, ERROR_TEXT , CREATED_BY ) 
