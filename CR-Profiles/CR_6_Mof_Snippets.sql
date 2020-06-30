@@ -21712,8 +21712,6 @@ ResourceID = "[DSCRegistry]V-6116";
   v_total := v_total + 1;
 ---
 
---Check values and create MOF for rules V-6117 & V-6118 & V-6119
---Check values and create MOF for rules V-6120 & V-6121
 
 select 'instance of DSCRegistry as $DSCRegistry353ref
 {
