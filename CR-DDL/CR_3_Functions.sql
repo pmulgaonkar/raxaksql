@@ -1290,6 +1290,27 @@ and m.id = (select max(ID) from cpe_resource_mgmt where resource_id = r.id
 and p.id = m.profile_id and u.id = r.owner_id and o.id = u.user_org_id and t.id = r.resource_type_id and v.id = r.resource_version_id and s.id = r.updated_by;
 /
 
+create or replace view cpe_resource_profile_report_v AS
+select  a.id, a.id resource_id, a.name  resource_name , decode(a.is_active,'Y','Active','In-active') Status ,
+    (case nvl(b.overall_health,-1) when -1 then ' Last Run Unsuccessful' 
+    else cast(lpad(round(b.overall_health),3,0) as varchar(7)) end) health ,
+    c.id Profile_id ,c.name Profile_name ,
+    b.actual_end_time apply_time, b.ID log_id , A.owner_id owner_id , d.id resource_mgmt_id,a.is_active is_active
+from cpe_resource a , cpe_resource_log b,cpe_profile c, cpe_resource_mgmt d 
+WHERE 
+     d.resource_id(+) = a.id 
+and b.resource_mgmt_id = d.id 
+and b.id = (select max(id) from cpe_resource_log where resource_mgmt_id = d.id )
+and d.id IN 
+( select ID from ( select ID,profile_id,resource_id,
+                   row_number() over (partition by resource_id,profile_id order by profile_id,id ASC) R
+                   from cpe_resource_mgmt where profile_id NOT IN 
+                   (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User')
+                 ) where R = 1 
+)
+and c.id = d.profile_id;
+/
+
 CREATE OR REPLACE PACKAGE PROFILE_DIFF AS
     TYPE diff_record IS RECORD(
        id1 number, pid1 number, str1 VARCHAR2(2048), 
