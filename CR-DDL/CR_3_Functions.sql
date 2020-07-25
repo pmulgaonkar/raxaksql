@@ -1168,71 +1168,126 @@ end verify_profile_run ;
 /
 
 
-CREATE OR REPLACE FORCE VIEW "RAXAK3"."CPE_RESOURCE_HEALTH_V" ("ID", "RESOURCE_ID", "RESOURCE_NAME", "STATUS", "HEALTH", "PROFILE_ID", "PROFILE_NAME", "APPLY_TIME", "LOG_ID", "OWNER_ID", "RESOURCE_MGMT_ID", "IS_ACTIVE") AS 
-  SELECT  t1.id, t1.id resource_id , t1.name  resource_name , decode(t1.is_active,'Y','Active','In-active') Status ,
-    'No Profile Applied as yet' health , 
-    NULL Profile_id, NULL Profile_name, NULL apply_time,NULL log_id, t1.owner_id owner_id, NULL resource_mgmt_id,t1.is_active is_active
-FROM cpe_resource t1 
-LEFT JOIN cpe_resource_mgmt t2 ON t2.resource_id = t1.id WHERE t2.id IS NULL 
+CREATE OR REPLACE FORCE VIEW "RAXAK3"."CPE_RESOURCE_HEALTH_V" ("ID", "RESOURCE_ID", "RESOURCE_NAME", "RESOURCE_STATUS", "HEALTH",
+"OS_NAME","OS_VERSION","OS_ARCHITECTURE","USERNAME","IP_ADDR","SUCCESS_COUNT","FAILED_COUNT","SKIPPED_COUNT","TOTAL_COUNT",
+"PROFILE_ID", "PROFILE_NAME", "APPLY_TIME", "LOG_ID", "OVERALL_INFO", "RESOURCE_MGMT_ID",
+"OWNER", "OWNER_LOGIN", "ORGID", "ORGNAME", "IS_ACTIVE", "RESOURCE_TYPE", "RESOURCE_VERSION", 
+"CREATE_DATE", "STATUS", "STATUS_DATE", "UPDATE_DATE", "UPDATED_BY" ,"UPDATED_USER") AS 
+SELECT  r.id, r.id resource_id, r.name  resource_name, decode(r.is_active,'Y','Active','In-active') Resource_Status,
+    'No Profile Applied as yet' health, ri.*, 0 success_count, 0 failed_count, 0 skipped_count, 0 total_count,
+    NULL Profile_id, NULL Profile_name, NULL apply_time, NULL log_id, NULL overall_info, NULL resource_mgmt_id,
+    r.owner_id owner, u.login_id owner_login, u.user_org_id orgid, o.name orgname, r.is_active is_active,
+    t.level3 resource_type, v.resource_version resource_version, r.create_date, r.Status, r.status_date,
+    r.update_date, r.updated_by, s.login_id updated_user
+FROM cpe_resource r, cpe_user u, cpe_organization o, cpe_resource_type t,
+     cpe_resource_version v, cpe_user s,
+     XMLTABLE('/ResourceInfo/Info' PASSING r.resource_info
+      COLUMNS
+          os_name PATH 'os_name',
+          os_version PATH 'os_version',
+          os_architecture PATH 'os_architecture',
+          username PATH 'username',
+          ip_addr PATH 'ip_addr') ri
+WHERE not exists (select null from cpe_resource_mgmt m where m.resource_id = r.id) and u.id = r.owner_id and o.id = u.user_org_id and t.id = r.resource_type_id and v.id = r.resource_version_id and s.id = r.updated_by
 UNION ALL
-select  a.id, a.id resource_id, a.name  resource_name , decode(a.is_active,'Y','Active','In-active') Status ,
-    (case nvl(b.overall_health,-1) when -1 then 
-        ( case b.overall_status when 'FAILED' then 'Last Run Unsuccessful'
-                                 when 'COMPLETE' then 'Last Run Unsuccessful'
-                                 when 'ABORTED' then 'Last Run Unsuccessful'
-                                 when 'SKIPPED' then 'Last Run Unsuccessful'
-                                 else 'Profile Run In-Progress'
-          end                       
-        )                       
-    else cast(lpad(round(b.overall_health),3,0) as varchar(7))  end) health ,
-    c.id Profile_id ,c.name Profile_name ,
-    b.actual_end_time apply_time, b.ID log_id , A.owner_id owner_id , d.id resource_mgmt_id,a.is_active is_active
-from cpe_resource a , cpe_resource_log b,cpe_profile c, cpe_resource_mgmt d 
-WHERE 
-     d.resource_id(+) = a.id 
-and b.resource_mgmt_id = d.id 
-and b.id = (select max(id) from cpe_resource_log 
+select  r.id, r.id resource_id, r.name  resource_name, decode(r.is_active,'Y','Active','In-active') Resource_Status,
+    (case nvl(l.overall_health,-1) when -1 then
+        ( case l.overall_status when 'FAILED' then 'Last Run Unsuccessful'
+                                when 'COMPLETE' then 'Last Run Unsuccessful'
+                                when 'ABORTED' then 'Last Run Unsuccessful'
+                                when 'SKIPPED' then 'Last Run Unsuccessful'
+                                else 'Profile Run In-Progress'
+          end
+        )
+    else cast(lpad(round(l.overall_health),3,0) as varchar(7))  end) health, ri.*, 0 success_count, 0 failed_count, 0 skipped_count, 0 total_count,
+    p.id Profile_id, p.name Profile_name, l.actual_end_time apply_time, l.ID log_id, l.overall_info overall_info, m.id resource_mgmt_id,
+    r.owner_id owner, u.login_id owner_login, u.user_org_id orgid, o.name orgname, r.is_active is_active,
+    t.level3 resource_type, v.resource_version resource_version, r.create_date, r.Status, r.status_date,
+    r.update_date, r.updated_by, s.login_id updated_user
+from cpe_resource r, cpe_resource_log l, cpe_profile p, cpe_resource_mgmt m, cpe_user u, cpe_organization o, cpe_resource_type t,
+     cpe_resource_version v, cpe_user s,
+     XMLTABLE('/ResourceInfo/Info' PASSING r.resource_info
+      COLUMNS
+          os_name PATH 'os_name',
+          os_version PATH 'os_version',
+          os_architecture PATH 'os_architecture',
+          username PATH 'username',
+          ip_addr PATH 'ip_addr') ri
+WHERE
+     m.resource_id = r.id
+and l.resource_mgmt_id = m.id
+and l.log_xml is Null
+and l.id = (select max(id) from cpe_resource_log
             where resource_mgmt_id IN
-            (  (select ID from cpe_resource_mgmt where resource_id = a.id 
-            and profile_id NOT IN 
-             (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User'))) 
+            (  (select ID from cpe_resource_mgmt where resource_id = r.id
+            and profile_id NOT IN
+             (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User')))
             )
-and c.id = d.profile_id
+and p.id = m.profile_id and u.id = r.owner_id and o.id = u.user_org_id and t.id = r.resource_type_id and v.id = r.resource_version_id and s.id = r.updated_by
 UNION ALL
-select  a.id, a.id resource_id , a.name  resource_name , decode(a.is_active,'Y','Active','In-active') Status ,
-    'Profile Applied but Not Run as yet' health ,
-    c.id Profile_id ,c.name Profile_name ,
-    NULL apply_time, NULL log_id , a.owner_id owner_id ,d.id resource_mgmt_id,a.is_active is_active
-from cpe_resource a,cpe_profile c, cpe_resource_mgmt d 
-where 
-    d.resource_id = a.id 
-and a.id = verify_profile_run(a.id)        
-and d.id NOT IN ( select distinct resource_mgmt_id from cpe_resource_log) 
-and d.id = (select max(ID) from cpe_resource_mgmt where resource_id = a.id 
-            and profile_id NOT IN 
-            (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User')) 
-and c.id = d.profile_id;
-/
-
-create or replace view cpe_resource_profile_report_v AS
-select  a.id, a.id resource_id, a.name  resource_name , decode(a.is_active,'Y','Active','In-active') Status ,
-    (case nvl(b.overall_health,-1) when -1 then ' Last Run Unsuccessful' 
-    else cast(lpad(round(b.overall_health),3,0) as varchar(7)) end) health ,
-    c.id Profile_id ,c.name Profile_name ,
-    b.actual_end_time apply_time, b.ID log_id , A.owner_id owner_id , d.id resource_mgmt_id,a.is_active is_active
-from cpe_resource a , cpe_resource_log b,cpe_profile c, cpe_resource_mgmt d 
-WHERE 
-     d.resource_id(+) = a.id 
-and b.resource_mgmt_id = d.id 
-and b.id = (select max(id) from cpe_resource_log where resource_mgmt_id = d.id )
-and d.id IN 
-( select ID from ( select ID,profile_id,resource_id,
-                   row_number() over (partition by resource_id,profile_id order by profile_id,id ASC) R
-                   from cpe_resource_mgmt where profile_id NOT IN 
-                   (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User')
-                 ) where R = 1 
-)
-and c.id = d.profile_id;
+select  r.id, r.id resource_id, r.name  resource_name, decode(r.is_active,'Y','Active','In-active') Resource_Status,
+    (case nvl(l.overall_health,-1) when -1 then
+        ( case l.overall_status when 'FAILED' then 'Last Run Unsuccessful'
+                                when 'COMPLETE' then 'Last Run Unsuccessful'
+                                when 'ABORTED' then 'Last Run Unsuccessful'
+                                when 'SKIPPED' then 'Last Run Unsuccessful'
+                                else 'Profile Run In-Progress'
+          end
+        )
+    else cast(lpad(round(l.overall_health),3,0) as varchar(7))  end) health, ri.*, rs.*,
+    p.id Profile_id, p.name Profile_name, l.actual_end_time apply_time, l.ID log_id, l.overall_info overall_info, m.id resource_mgmt_id,
+    r.owner_id owner, u.login_id owner_login, u.user_org_id orgid, o.name orgname, r.is_active is_active,
+    t.level3 resource_type, v.resource_version resource_version, r.create_date, r.Status, r.status_date,
+    r.update_date, r.updated_by, s.login_id updated_user
+from cpe_resource r, cpe_resource_log l, cpe_profile p, cpe_resource_mgmt m, cpe_user u, cpe_organization o, cpe_resource_type t,
+     cpe_resource_version v, cpe_user s,
+     XMLTABLE('/ResourceInfo/Info' PASSING r.resource_info
+      COLUMNS
+          os_name PATH 'os_name',
+          os_version PATH 'os_version',
+          os_architecture PATH 'os_architecture',
+          username PATH 'username',
+          ip_addr PATH 'ip_addr') ri,
+     XMLTABLE ('/ResourceLog/Info' PASSING l.log_xml
+      COLUMNS 
+          success_count NUMBER PATH 'success_rules_count',
+          failed_count NUMBER PATH 'failure_rules_count',
+          skipped_count NUMBER PATH 'skipped_rules_count',
+          total_count NUMBER PATH 'total_rules') rs
+WHERE
+     m.resource_id = r.id
+and l.resource_mgmt_id = m.id
+and l.id = (select max(id) from cpe_resource_log
+            where resource_mgmt_id IN
+            (  (select ID from cpe_resource_mgmt where resource_id = r.id
+            and profile_id NOT IN
+             (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User')))
+            )
+and p.id = m.profile_id and u.id = r.owner_id and o.id = u.user_org_id and t.id = r.resource_type_id and v.id = r.resource_version_id and s.id = r.updated_by
+UNION ALL
+select  r.id, r.id resource_id, r.name  resource_name, decode(r.is_active,'Y','Active','In-active') Resource_Status, 
+   'Profile Applied but Not Run as yet' health, ri.*, 0 success_count, 0 failed_count, 0 skipped_count, 0 total_count,
+    p.id Profile_id, p.name Profile_name, NULL apply_time, NULL log_id, NULL overall_info, m.id resource_mgmt_id,
+    r.owner_id owner, u.login_id owner_login, u.user_org_id orgid, o.name orgname, r.is_active is_active,
+    t.level3 resource_type, v.resource_version resource_version, r.create_date, r.Status, r.status_date, 
+    r.update_date, r.updated_by, s.login_id updated_user
+from cpe_resource r, cpe_profile p, cpe_resource_mgmt m, cpe_user u, cpe_organization o, cpe_resource_type t,
+     cpe_resource_version v, cpe_user s,
+     XMLTABLE('/ResourceInfo/Info' PASSING r.resource_info
+      COLUMNS
+          os_name PATH 'os_name',
+          os_version PATH 'os_version',
+          os_architecture PATH 'os_architecture',
+          username PATH 'username',
+          ip_addr PATH 'ip_addr') ri
+where
+    m.resource_id = r.id
+and r.id = verify_profile_run(r.id)
+and m.id NOT IN ( select distinct resource_mgmt_id from cpe_resource_log)
+and m.id = (select max(ID) from cpe_resource_mgmt where resource_id = r.id
+            and profile_id NOT IN
+            (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User'))
+and p.id = m.profile_id and u.id = r.owner_id and o.id = u.user_org_id and t.id = r.resource_type_id and v.id = r.resource_version_id and s.id = r.updated_by;
 /
 
 CREATE OR REPLACE PACKAGE PROFILE_DIFF AS
