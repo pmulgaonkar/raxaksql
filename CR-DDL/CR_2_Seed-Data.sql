@@ -83,6 +83,8 @@ insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by )
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 6.9' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 6.10' , 'Seed_Data');
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 7.0' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by )
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 7.1' , 'Seed_Data');
@@ -94,6 +96,12 @@ insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by )
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 7.4' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 7.5' , 'Seed_Data');
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 7.6' , 'Seed_Data');
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 7.7' , 'Seed_Data');
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'redhat 7.8' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 6.4' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by )
@@ -120,6 +128,12 @@ insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by )
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 7.4' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 7.5' , 'Seed_Data');       
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 7.6' , 'Seed_Data');
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 7.7' , 'Seed_Data');
+insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
+       values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'centos 7.8' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
        values (  ( select id from CPE_RESOURCE_TYPE where level3 = 'Linux-based OS'), 'debian 8.0' , 'Seed_Data');
 insert into CPE_RESOURCE_VERSION (resource_type, RESOURCE_VERSION , created_by ) 
@@ -270,7 +284,7 @@ commit;
 prompt SYSTEM ERROR MESSAGES
 
 INSERT INTO "CPE_SYS_ERROR_MESSAGE" (ERROR_NUMBER, ERROR_TEXT , CREATED_BY ) 
-   VALUES (-20001, 'Failure:20001: General un-trapped error, call us via telepathy','Seed_Data');
+   VALUES (-20001, 'Failure:20001: General un-trapped error, Contact CloudRaxak','Seed_Data');
 INSERT INTO "CPE_SYS_ERROR_MESSAGE" (ERROR_NUMBER, ERROR_TEXT , CREATED_BY ) 
    VALUES (-20002, 'Failure:20002: Organization Owner not found', 'Seed_Data');
 INSERT INTO "CPE_SYS_ERROR_MESSAGE" (ERROR_NUMBER, ERROR_TEXT , CREATED_BY ) 

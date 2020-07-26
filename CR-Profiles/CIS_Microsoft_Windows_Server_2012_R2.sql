@@ -1481,7 +1481,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Firewall state" to "On (recommended)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Altenative method though group policy: Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Firewall state" to "On (recommended)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1503,7 +1503,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Inbound connections" to "Block (default)"             ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
@@ -1528,7 +1528,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> State, "Outbound connections" to "Allow (default)" ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
@@ -1549,13 +1549,13 @@ Registry Hive: HKEY_LOCAL_MACHINE
 Registry Path: \Software\Policies\Microsoft\WindowsFirewall\DomainProfile\ 
 Value Name: DisableNotifications 
 Type: REG_DWORD 
-Value: 0 
+Value: 1 
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
-Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "Yes (default)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Domain Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "No".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1564,7 +1564,7 @@ Registry Path: \Software\Policies\Microsoft\WindowsFirewall\DomainProfile\
 Value Name: DisableNotifications
 
 Type: REG_DWORD
-Value: 0','Customized rule by Cloud Raxak') from dual;
+Value: 1','Customized rule by Cloud Raxak') from dual;
 
 
 --9.2 Private Profile (Firewall)
@@ -1578,7 +1578,7 @@ Value Name: EnableFirewall
 Type: REG_DWORD 
 Value: 1 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Private Profile Tab -> State, "Firewall state" to "On (recommended)"
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1602,7 +1602,7 @@ Type: REG_DWORD
 Value: 1 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Private Profile Tab -> State, "Inbound connections" to "Block (default)".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
@@ -1626,7 +1626,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Private Profile Tab -> State, "Outbound connections" to "Allow (default)".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1649,13 +1649,13 @@ Registry Hive: HKEY_LOCAL_MACHINE
 Registry Path: \Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\ 
 Value Name: DisableNotifications 
 Type: REG_DWORD 
-Value: 0 
+Value: 1 
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
-Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Private Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "Yes (default)" ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties (this link will be in the right pane) -> Private Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "No" ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1664,7 +1664,7 @@ Registry Path: \Software\Policies\Microsoft\WindowsFirewall\PrivateProfile\
 Value Name: DisableNotifications
 
 Type: REG_DWORD 
-Value: 0','Customized rule by Cloud Raxak') from dual;
+Value: 1','Customized rule by Cloud Raxak') from dual;
 
 
 --9.3 Public Profile (Firewall)
@@ -1680,7 +1680,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> State,"Firewall state" to ON.
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1705,7 +1705,7 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> State, "Inbound connections" to "Block (default)".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1730,7 +1730,7 @@ Type: REG_DWORD
 Value: 0 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Public Profile Tab -> State, "Outbound connections" to "Allow (default)".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1757,9 +1757,9 @@ Value: 1
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
-Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "Yes".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> select Public Profile Tab -> Settings (select Customize) -> Firewall settings, "Display a notification" to "No".' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
@@ -1782,7 +1782,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force" 
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Public Profile Tab -> Settings (select Customize) -> Rule merging, "Apply local firewall rules:" to "No".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -1809,7 +1809,7 @@ Value: 0
 
 If you have added the registry path if it did not exist previously, restart the firewall service by running "Get-Service MpsSvc | Restart-Service -Force"
 
-Altenative method though goup policy: 
+Altenative method though group policy: 
 
 Configure the policy value for Computer Configuration -> Windows Firewall with Advanced Security -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Public Profile Tab -> Settings (select Customize) -> Rule merging, "Apply local connection security rules:" to "No".
 ' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
@@ -2588,7 +2588,7 @@ Type: REG_DWORD
 Value: 1 ','Customized rule by Cloud Raxak') from dual;
 
 --CIS 18.8.22.1.9 (L2)
-select add_rule_data ('default','V-15676','SV-32414r1_rule','default','low','The Order Prints Online wizard will be turned off.','This check verifies that the Order Prints Online task is not available in Windows Explorer.','F-15543r1_fix','Configure the policy value for Computer Configuration -> Administrative Templates -> System -gt; Internet Communication Management -> Internet Communication settings Turn off the Order Prints picture task to Enabled.' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','5.219','http://oval.mitre.org/XMLSchema/oval-definitions-5','If the following registry value doesnt exist or is not configured as specified, this is a finding:
+select add_rule_data ('default','V-15676','SV-32414r1_rule','default','low','The Order Prints Online wizard will be turned off.','This check verifies that the Order Prints Online task is not available in Windows Explorer.','F-15543r1_fix','Configure the policy value for Computer Configuration -> Administrative Templates -> System -> Internet Communication Management -> Internet Communication settings Turn off the Order Prints picture task to Enabled.' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','5.219','http://oval.mitre.org/XMLSchema/oval-definitions-5','If the following registry value doesnt exist or is not configured as specified, this is a finding:
 
 Registry Hive: HKEY_LOCAL_MACHINE
 Subkey: \Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\
@@ -2602,15 +2602,8 @@ Value: 1 ','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-56543','SV-50462r1_rule','default','high','The system configuration for "Publish to Web" task for files and folders must be turned off.
 ','This rule defines whether to make the tasks for publishing files, folders and selected items to web available from File and Folder Tasks in Window folders. For all profiles, the recommended state for this setting is Enabled.
 ','F-56000','
-Configure the following registry value:
-
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path: SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
-
-Value Name: NoPublishingWizard
-
-Type: REG_DWORD
-Value: 1' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
+To establish the recommended configuration via GP, set the following UI path to Enabled:
+Computer Configuration\Policies\Administrative Templates\System\Internet Communication Management\Internet Communication settings\Turn off the Publish to Web task for files and folders.' , 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','Windows 2012','','
 If the following registry value does not exist or is not configured as specified, this is a finding: 
 Registry Hive: HKEY_LOCAL_MACHINE
 Registry Path: SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
@@ -3149,7 +3142,7 @@ Value: 0x00000000 (0)',
 
 --18.9.76.3 MAPS
 --CIS 18.9.76.3.2 (L2)
-select add_rule_data ('default','V-15713','SV-53134r2_rule','default','medium','Microsoft Active Protection Service membership must be disabled.','Some features may communicate with the vendor, sending system information or downloading data or components for the feature.  Turning off this feature will prevent potentially sensitive information from being sent outside the enterprise and uncontrolled updates to the system.  This setting disables Microsoft Active Protection Service membership and reporting.','F-62313r2_fix','Windows 2012 R2:
+select add_rule_data ('default','V-15713','SV-53134r2_rule','default','medium','Microsoft Active Protection Service membership must be disabled.','Some features may communicate with the vendor, sending system information or downloading data or components for the feature.  Turning off this feature will prevent potentially sensitive information from being sent outside the enterprise and uncontrolled updates to the system.  This setting disables Microsoft Active Protection Service membership and reporting.','F-62313r2_fix','Windows 2012 R2 & Windows 2016:
 Configure the policy value for Computer Configuration -> Administrative Templates -> Windows Components -> Windows Defender -> MAPS -> "Join Microsoft MAPS" to "Disabled".
 
 Windows 2012:
@@ -3300,7 +3293,7 @@ Value: 1','Customized rule by Cloud Raxak') from dual;
 select add_rule_data ('default','V-6001','sv-52850r1_cis_rule','default','medium','The lockout duration must be configured to require an administrator to unlock an account.',
 'The account lockout feature, when enabled, prevents brute-force password attacks on the system.  This parameter specifies the period of time that an account will remain locked after the specified number of failed logon attempts.  A value of 0 will require an administrator to unlock the account.',
 'F-45776r1_cis_fix',
-'Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Account Lockout Policy -> "Account lockout duration" to "15 or more" minutes, "Account is locked out until administrator unlocks it".',
+'Configure the policy value for Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Account Lockout Policy -> "Account lockout duration" to "15 or more" minutes.',
 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000001',
 'C-47167r2_cis_chk',
 'Verify the effective setting in Local Group Policy Editor.
@@ -3770,11 +3763,11 @@ select add_rule_data ('default','V-6027','sv-52949r1_cis_rule','default','medium
 This user right supersedes the Log on as a service user right if an account is subject to both policies.
 The recommended state for this setting is to include: "Guests"',
 'F-55776r1_cis_fix',
-'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.',
-'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000001',
-'C-47166r2_cis_chk',
 'To establish the recommended configuration via GP, set the following UI path to include: "Guests":
 Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignment -> Deny log on as a service',
+'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000001',
+'C-47166r2_cis_chk',
+'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.',
 'Customized rule by Cloud Raxak') from dual;
 
 --CIS 2.3.1.2 (L1)
@@ -4283,7 +4276,7 @@ Computer Configuration -> Policies -> Administrative Templates -> System -> Wind
 This group policy setting is backed by the following registry location:
 Path: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\W32Time\TimeProviders\NtpServer 
 Registry: Enabled 
-Valu: 0',
+Value: 0',
 'Customized rule by Cloud Raxak') from dual;
 
 
@@ -4423,7 +4416,7 @@ Computer Configuration -> Policies -> Administrative Templates -> Windows Compon
 This group policy setting is backed by the following registry location:
 Path: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting 
 Registry: DisableGenericRePorts 
-Value: 0',
+Value: 1',
 'Customized rule by Cloud Raxak') from dual;
 
 
@@ -4583,7 +4576,7 @@ The recommended state for this setting is: Enabled.
 This feature is designed to block exploits that use the Structured Exception Handler (SEH) overwrite technique. This protection mechanism is provided at run-time. 
 Therefore, it helps protect applications regardless of whether they have been compiled with the latest improvements, such as the /SAFESEH option.',
 'F-55796r1_cis_fix',
-'To establish the recommended configuration via GP, set the following UI path to Disabled:
+'To establish the recommended configuration via GP, set the following UI path to Enabled:
 Computer Configuration\Policies\Administrative Templates\MS Security Guide\Enable Structured Exception Handling Overwrite Protection (SEHOP)
 Note: This Group Policy path does not exist by default. An additional Group Policy template (SecGuide.admx/adml) is required - it is available from Microsoft at https://blogs.technet.microsoft.com/secguide/2017/08/30/security-baseline-for-windows-10-creators-update-v1703-final/',
 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-000025',
@@ -4701,7 +4694,7 @@ Computer Configuration\Policies\Administrative Templates\Windows Components\Sear
 'C-47222r2_cis_chk',
 'Navigate to the UI Path articulated in the Fix description section and confirm it is set as prescribed. 
 This group policy setting is backed by the following registry location:
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search: ConnectedSearchPrivacy : 0',
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search: ConnectedSearchPrivacy : 3',
 'Customized rule by Cloud Raxak') from dual;
 
 --CIS 18.9.80.1.1 (L1)
@@ -4828,3 +4821,78 @@ Note #2: In older Microsoft Windows Administrative Templates, this setting was i
 This group policy setting is backed by the following registry location:
 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU: NoAutoRebootWithLoggedOnUsers : 0',
 'Customized rule by Cloud Raxak') from dual;
+
+--CIS 2.2.4 (L1)
+select add_rule_data ('default','V-6099','sv-6099_cis_rule','default','medium','Ensure Add workstations to domain is set to Administrators (DC only)','This policy setting specifies which users can add computer workstations to the domain. For this policy setting to take effect, it must be assigned to the user as part of the Default Domain Controller Policy for the domain. A user who has been assigned this right can add up to 10 workstations to the domain. Users who have been assigned the Create Computer Objects permission for an OU or the Computers container in Active Directory can add an unlimited number of computers to the domain, regardless of whether or not they have been assigned the Add workstations to domain user right.','F-6099_cis_fix','To establish the recommended configuration via GP, set the following UI path to Administrators: Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Add workstations to domain','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6099','C-6099_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.','Customized rule by Cloud Raxak') from dual;
+
+--CIS 2.2.29 (L1)
+select add_rule_data ('default','V-6100','sv-6100_cis_rule','default','medium','Ensure Log on as a batch job is set to Administrators (DC Only)','This policy setting allows accounts to log on using the task scheduler service. Because the task scheduler is often used for administrative purposes, it may be needed in enterprise environments. However, its use should be restricted in high security environments to prevent misuse of system resources or to prevent attackers from using the right to launch malicious code after gaining user level access to a computer. The recommended state for this setting is: Administrators.','F-6100_cis_fix','To establish the recommended configuration via GP, set the following UI path to Administrators: Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Log on as a batch job','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6100','C-6100_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.','Customized rule by Cloud Raxak') from dual;
+
+--CIS 2.2.39 (L1)
+select add_rule_data ('default','V-6101','sv-6101_cis_rule','default','medium','Ensure Synchronize directory service data is set to No One (DC only)','This security setting determines which users and groups have the authority to synchronize all directory service data. This is also known as Active Directory synchronization. The recommended state for this setting is: No One. The Synchronize directory service data user right affects Domain Controllers; only Domain Controllers should be able to synchronize directory service data. Domain Controllers have this user right inherently, because the synchronization process runs in the context of the System account on Domain Controllers. Attackers who have this user right can view all information stored within the directory. They could then use some of that information to facilitate additional attacks or expose sensitive data, such as direct telephone numbers or physical addresses.','F-6101_cis_fix','To establish the recommended configuration via GP, set the following UI path to No One: Computer Configuration\Policies\Windows Settings\Security Settings\LocalPolicies\User Rights Assignment\Synchronize directory service data','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6101','C-6101_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.','Customized rule by Cloud Raxak') from dual;
+
+--CIS 2.3.5.1 (L1)
+select add_rule_data ('default','V-6102','sv-6102_cis_rule','default','medium','Ensure Domain controller: Allow server operators to schedule tasks is set to Disabled (DC only)','This policy setting determines whether members of the Server Operators group are allowed to submit jobs by means of the AT schedule facility. The impact of this policy setting configuration should be small for most organizations. Users, including those in the Server Operators group, will still be able to create jobs by means of the Task Scheduler Wizard, but those jobs will run in the context of the account with which the user authenticates when they set up the job.','F-6102_cis_fix','To establish the recommended configuration via GP, set the following UI path to Disabled: Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options\Domain controller: Allow server operators to schedule tasks','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6102','C-6102_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa:SubmitControl: 0','Customized rule by Cloud Raxak') from dual;
+
+--CIS 2.3.5.2 (L1)
+select add_rule_data ('default','V-6103','sv-6103_cis_rule','default','medium','Domain controller: LDAP server signing requirements is set to Require signing (DC only)', 'This policy setting determines whether the Lightweight Directory Access Protocol (LDAP) server requires LDAP clients to negotiate data signing. The recommended state for this setting is: Require signing. Note: Domain member computers must have Network security: LDAP signing requirements (Rule 2.3.11.8) set to Negotiate signing or higher. If not, they will fail to authenticate once the above Require signing value is configured on the Domain Controllers. Fortunately, Negotiate signing is the default in the client configuration. Before enabling this setting, you should first ensure that there are no clients (including server-based applications) that are configured to authenticate with Active Directory via unsigned LDAP, because changing this setting will break those applications. Such applications should first be reconfigured to use signed LDAP, Secure LDAP (LDAPS), or IPsec-protected connections.', 'F-6103_cis_fix','To establish the recommended configuration via GP, set the following UI path to Require signing: Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options\Domain controller: LDAP server signing requirements','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6103','C-6103_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters:LDAPServerIntegrity: 2','Customized rule by Cloud Raxak') from dual;
+
+--CIS 2.3.5.3 (L1)
+select add_rule_data ('default','V-6104','sv-6104_cis_rule','default','medium','Ensure Domain controller: Refuse machine account password changes is set to Disabled (DC only)','This security setting determines whether Domain Controllers will refuse requests from member computers to change computer account passwords. The recommended state for this setting is: Disabled. If you enable this policy setting on all Domain Controllers in a domain, domain members will not be able to change their computer account passwords, and those passwords will be more susceptible to attack.','F-6104_cis_fix','To establish the recommended configuration via GP, set the following UI path to Disabled: Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options\Domain controller: Refuse machine account password changes','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6104','C-6104_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location:HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters:RefusePasswordChange: 0','Customized rule by Cloud Raxak') from dual;
+
+--CIS 17.2.3 (L1)
+select add_rule_data ('default','V-6105','sv-6105_cis_rule','default','medium','Ensure Audit Distribution Group Management is set to Success and Failure (DC only)', 'This subcategory reports each event of distribution group management, such as when a distribution group is created, changed, or deleted or when a member is added to or removed from a distribution group. If you enable this Audit policy setting, administrators can track events to detect malicious, accidental, and authorized creation of group accounts.','F-6105_cis_fix','To establish the recommended configuration via GP, set the following UI path to Success and Failure: Computer Configuration\Policies\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\Account Management\Audit Distribution Group Management','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6105','C-6105_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.','Customized rule by Cloud Raxak') from dual;
+
+--CIS 17.4.1 (L1)
+select add_rule_data ('default','V-6106','sv-6106_cis_rule','default','medium','Ensure Audit Directory Service Access is set to Success and Failure (DC only)','This subcategory reports when an AD DS object is accessed. Only objects with SACLs cause audit events to be generated, and only when they are accessed in a manner that matches their SACL. These events are similar to the directory service access events in previous versions of Windows Server. This subcategory applies only to Domain Controllers.','F-6106_cis_fix','To establish the recommended configuration via GP, set the following UI path to Success and Failure: Computer Configuration\Policies\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\DS Access\Audit Directory Service Access','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6106','C-6106_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.','Customized rule by Cloud Raxak') from dual;
+
+--CIS 17.4.2 (L1)
+select add_rule_data ('default','V-6107','sv-6107_cis_rule','default','medium','Ensure Audit Directory Service Changes is set to Success and Failure (DC only)','This subcategory reports changes to objects in Active Directory Domain Services (AD DS). The types of changes that are reported are create, modify, move, and undelete operations that are performed on an object. DS Change auditing, where appropriate, indicates the old and new values of the changed properties of the objects that were changed. Only objects with SACLs cause audit events to be generated, and only when they are accessed in a manner that matches their SACL. Some objects and properties do not cause audit events to be generated due to settings on the object class in the schema. This subcategory applies only to Domain Controllers.','F-6107_cis_fix','To establish the recommended configuration via GP, set the following UI path to Success and Failure. Computer Configuration\Policies\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\DS Access\Audit Directory Service Changes','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6107','C-6107_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed.','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.2.1 (L1)
+select add_rule_data ('default','V-6108','sv-6108_cis_rule','default','medium','Ensure LAPS AdmPwd GPO Extension / CSE is installed (MS only)','Local Administrator Password Solution (LAPS) tool, which is free and supported software that allows an organization to automatically set randomized and unique local Administrator account passwords on domain-attached workstations and Member Servers. The passwords are stored in a confidential attribute of the domain computer account and can be retrieved from Active Directory by approved Sysadmins when needed. The LAPS tool requires a small Active Directory Schema update in order to implement, as well as installation of a Group Policy Client Side Extension (CSE) on targeted computers. Please see the LAPS documentation for details.','F-6108_cis_fix','In order to utilize LAPS, a minor Active Directory Schema update is required, and a Group Policy Client Side Extension (CSE) must be installed on each managed computer. When LAPS is installed, the file AdmPwd.dll must be present in the following location and registered in Windows (the LAPS AdmPwd GPO Extension / CSE installation does this for you): C:\Program Files\LAPS\CSE\AdmPwd.dll','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6108','C-6108_cis_chk','The LAPS AdmPwd GPO Extension / CSE can be verified to be installed by the presence of the following registry value: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Winlogon\GPExtensions\{D76B9641-3288-4f75-942D087DE603E3EA}:DllName:','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.2.2 (L1)
+select add_rule_data ('default','V-6109','sv-6109_cis_rule','default','medium','Ensure Do not allow password expiration time longer than required by policy is set to Enabled','Local Administrator Password Solution (LAPS) tool, which is free and supported software that allows an organization to automatically set randomized and unique local Administrator account passwords on domain-attached workstations and Member Servers. The passwords are stored in a confidential attribute of the domain computer account and can be retrieved from Active Directory by approved Sysadmins when needed. The LAPS tool requires a small Active Directory Schema update in order to implement, as well as installation of a Group Policy Client Side Extension (CSE) on targeted computers. Please see the LAPS documentation for details.','F-6109_cis_fix', 'To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\LAPS\Do not allow password expiration time longer than required by policy','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6109','C-6109_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd:PwdExpirationProtectionEnabled: ','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.2.3 (L1)
+select add_rule_data ('default','V-6110','sv-6110_cis_rule','default','medium','Ensure Enable Local Admin Password Management is set to Enabled (MS only)','Local Administrator Password Solution (LAPS) tool, which is free and supported software that allows an organization to automatically set randomized and unique local Administrator account passwords on domain-attached workstations and Member Servers. The passwords are stored in a confidential attribute of the domain computer account and can be retrieved from Active Directory by approved Sysadmins when needed. The LAPS tool requires a small Active Directory Schema update in order to implement, as well as installation of a Group Policy Client Side Extension (CSE) on targeted computers. Please see the LAPS documentation for details.','F-6110_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\LAPS\Enable Local Admin Password Management','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6110','C-6110_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd:AdmPwdEnabled: ','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.2.4 (L1)
+select add_rule_data ('default','V-6111','sv-6111_cis_rule','default','medium','Ensure Password Settings: Password Complexity is set to Enabled: Large letters + small letters + numbers + special characters (MS only)','Local Administrator Password Solution (LAPS) tool, which is free and supported software that allows an organization to automatically set randomized and unique local Administrator account passwords on domain-attached workstations and Member Servers. The passwords are stored in a confidential attribute of the domain computer account and can be retrieved from Active Directory by approved Sysadmins when needed. The LAPS tool requires a small Active Directory Schema update in order to implement, as well as installation of a Group Policy Client Side Extension (CSE) on targeted computers. Please see the LAPS documentation for details.','F-6111_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled, and configure the Password Complexity option to Large letters + small letters + numbers + special characters: Computer Configuration\Policies\Administrative Templates\LAPS\Password Settings','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6111','C-6111_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd:PasswordComplexity','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.2.5 (L1)
+select add_rule_data ('default','V-6112','sv-6112_cis_rule','default','medium','Ensure Password Settings: Password Length is set to Enabled: 15 or more (MS only)','Local Administrator Password Solution (LAPS) tool, which is free and supported software that allows an organization to automatically set randomized and unique local Administrator account passwords on domain-attached workstations and Member Servers. The passwords are stored in a confidential attribute of the domain computer account and can be retrieved from Active Directory by approved Sysadmins when needed. The LAPS tool requires a small Active Directory Schema update in order to implement, as well as installation of a Group Policy Client Side Extension (CSE) on targeted computers. Please see the LAPS documentation for details.','F-6112_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled, and configure the Password Length option to 15 or more: Computer Configuration\Policies\Administrative Templates\LAPS\Password Settings','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6112','C-6112_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd:PasswordLength','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.2.6 (L1)
+select add_rule_data ('default','V-6113','sv-6113_cis_rule','default','medium','Ensure Password Settings: Password Age (Days) is set to Enabled: 30 or fewer (MS only)','Local Administrator Password Solution (LAPS) tool, which is free and supported software that allows an organization to automatically set randomized and unique local Administrator account passwords on domain-attached workstations and Member Servers. The passwords are stored in a confidential attribute of the domain computer account and can be retrieved from Active Directory by approved Sysadmins when needed. The LAPS tool requires a small Active Directory Schema update in order to implement, as well as installation of a Group Policy Client Side Extension (CSE) on targeted computers. Please see the LAPS documentation for details.','F-6113_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled, and configure the Password Age (Days) option to 30 or fewer: Computer Configuration\Policies\Administrative Templates\LAPS\Password Settings','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6113','C-6113_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft Services\AdmPwd:PasswordAgeDays','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.1 (L1)
+select add_rule_data ('default','V-6114','sv-6114_cis_rule','default','medium','Ensure EMET 5.52 or higher is installed','The Enhanced Mitigation Experience Toolkit (EMET) is free and supported security software developed by Microsoft that allows an enterprise to apply exploit mitigations to applications that run on Windows. Many of these mitigations were later coded directly into Windows 10 and Server 2016.','F-6114_cis_fix','Install EMET 5.52 or higher.','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6114','C-6114_cis_chk','Navigate to Control Panel\Program\Programs and Features and confirm "EMET 5.52" or higher is listed in the Name column.','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.2  (L1)
+select add_rule_data ('default','V-6115','sv-6115_cis_rule','default','medium','Ensure Default Action and Mitigation Settings is set to Enabled (plus subsettings)','This setting configures the default action after detection and advanced ROP mitigation. These advanced mitigations for ROP mitigations apply to all configured software in EMET: Deep Hooks protects critical APIs and the subsequent lower level APIs used by the top level critical API. Anti Detours renders ineffective exploits that evade hooks by executing a copy of the hooked function prologue and then jump to the function past the prologue. Banned Functions will block calls to ntdll!LdrHotPatchRoutine to mitigate potential exploits abusing the API.','F-6115_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\Default Action and Mitigation Settings. The recommended state for this setting is: Default Action and Mitigation Settings - Enabled. Deep Hooks - Enabled. Anti Detours - Enabled. Banned Functions - Enabled. Exploit Action -User Configured','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6115','C-6115_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\SysSettings:AntiDetours: 1. HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\SysSettings:BannedFunctions: 1. HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\SysSettings:DeepHooks: 1. HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\SysSettings:ExploitAction: 2','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.3(L1)
+select add_rule_data ('default','V-6116','sv-6116_cis_rule','default','medium','Ensure Default Protections for Internet Explorer is set to Enabled (Scored)','This setting determines if recommended EMET mitigations are applied to Internet Explorer. The recommended state for this setting is: Enabled. Applying EMET mitigations to Internet Explorer will help reduce the reliability of exploits that target it.','F-6116_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\Default Protections for Internet Explorer','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6116','C-6116_cis_chk', 'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\Defaults: *\Internet Explorer\iexplore.exe: +EAF+ eaf_modules:mshtml.dll;flash*.ocx;jscript*.dll;vbscript.dll;vgx.dll +ASR asr_modules:npjpi*.dll;jp2iexp.dll;vgx.dll;msxml4*.dll;wshom.ocx;scrrun.dll;vbscript.dll asr_zones:1;2','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.4 (L1)
+--select add_rule_data ('default','V-6117','sv-6117_cis_rule','default','medium','Ensure Default Protections for Popular Software is set to Enabled','This setting determines if recommended EMET mitigations are applied to the following popular software: 7-Zip, Adobe Photoshop, Foxit Reader, Google Chrome, Google Talk, iTunes, Microsoft Live Writer, Microsoft Lync Communicator, Microsoft Photo Gallery, Microsoft SkyDrive, mIRC, Mozilla Firefox, Mozilla Thunderbird, Opera, Pidgin, QuickTime Player, RealPlayer, Safari, Skype, VideoLAN VLC, Winamp, Windows Live Mail, Windows Media Player, WinRAR, WinZip. The recommended state for this setting is: Enabled.','F-6117_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\Default Protections for Popular Software','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6117','C-6117_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by many registry values (for the various popular software that EMET supports) under the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\Defaults','Customized rule by Cloud Raxak') from dual;
+--select add_rule_data ('default','V-6118','sv-6118_cis_rule','default','medium','Ensure Default Protections for Popular Software is set to Enabled','This setting determines if recommended EMET mitigations are applied to the following popular software: 7-Zip, Adobe Photoshop, Foxit Reader, Google Chrome, Google Talk, iTunes, Microsoft Live Writer, Microsoft Lync Communicator, Microsoft Photo Gallery, Microsoft SkyDrive, mIRC, Mozilla Firefox, Mozilla Thunderbird, Opera, Pidgin, QuickTime Player, RealPlayer, Safari, Skype, VideoLAN VLC, Winamp, Windows Live Mail, Windows Media Player, WinRAR, WinZip. The recommended state for this setting is: Enabled.','F-6118_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\Default Protections for Popular Software','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6118','C-6118_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by many registry values (for the various popular software that EMET supports) under the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\Defaults','Customized rule by Cloud Raxak') from dual;
+--select add_rule_data ('default','V-6119','sv-6119_cis_rule','default','medium','Ensure Default Protections for Popular Software is set to Enabled','This setting determines if recommended EMET mitigations are applied to the following popular software: 7-Zip, Adobe Photoshop, Foxit Reader, Google Chrome, Google Talk, iTunes, Microsoft Live Writer, Microsoft Lync Communicator, Microsoft Photo Gallery, Microsoft SkyDrive, mIRC, Mozilla Firefox, Mozilla Thunderbird, Opera, Pidgin, QuickTime Player, RealPlayer, Safari, Skype, VideoLAN VLC, Winamp, Windows Live Mail, Windows Media Player, WinRAR, WinZip. The recommended state for this setting is: Enabled.','F-6119_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\Default Protections for Popular Software','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6119','C-6119_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by many registry values (for the various popular software that EMET supports) under the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\Defaults','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.5 (L1)
+--select add_rule_data ('default','V-6120','sv-6120_cis_rule','default','medium','Ensure Default Protections for Recommended Software is set to 'Enabled', 'This setting determines if recommended EMET mitigations are applied to the following software: Adobe Acrobat, Adobe Acrobat Reader, Microsoft Office suite applications, Oracle Java, WordPad. The recommended state for this setting is: Enabled.','F-6120_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\Default Protections for Recommended Software','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6120','C-6120_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by many registry values (for the various recommended software that EMET supports) under the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\Defaults','Customized rule by Cloud Raxak') from dual;
+--select add_rule_data ('default','V-6121','sv-6121_cis_rule','default','medium','Ensure Default Protections for Recommended Software is set to 'Enabled', 'This setting determines if recommended EMET mitigations are applied to the following software: Adobe Acrobat, Adobe Acrobat Reader, Microsoft Office suite applications, Oracle Java, WordPad. The recommended state for this setting is: Enabled.','F-6121_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\Default Protections for Recommended Software','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6121','C-6121_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by many registry values (for the various recommended software that EMET supports) under the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\Defaults','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.6 (L1)
+select add_rule_data ('default','V-6122','sv-6122_cis_rule','default','medium','Ensure System ASLR is set to Enabled: Application OptIn', 'This setting determines how applications become enrolled in Address Space Layout Randomization (ASLR). The recommended state for this setting is: Enabled: Application Opt-In.','F-6122_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Application Opt-In: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\System ASLR','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6122','C-6122_cis_chk','Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\SysSettings:ASLR: 3','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.7 (L1)
+select add_rule_data ('default','V-6123','sv-6123_cis_rule','default','medium', 'Ensure System DEP is set to Enabled: Application OptOut','This setting determines how applications become enrolled in Data Execution Protection (DEP). The recommended state for this setting is: Enabled: Application Opt-Out. DEP marks pages of application memory as non-executable, which reduces a given exploits ability to run attacker-controlled code.', 'F-6123_cis_fix', 'To establish the recommended configuration via GP, set the following UI path to Enabled: Application Opt-Out: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\System DEP', 'CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6123', 'C-6123_cis_chk', 'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\SysSettings:DEP: 2','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.24.8 (L1)
+select add_rule_data ('default','V-6124','sv-6124_cis_rule','default','medium','Ensure System SEHOP is set to Enabled: Application OptOut','This setting determines how applications become enrolled in Structured Exception Handler Overwrite Protection (SEHOP). When a software component suffers from a memory corruption vulnerability, an exploit may be able to overwrite memory that contains data structures that control how the software handles exceptions. By corrupting these structures in a controlled manner, an exploit may be able to execute arbitrary code. SEHOP verifies the integrity of those structures before they are used to handle exceptions, which reduces. The recommended state for this setting is: Enabled: Application Opt-Out.', 'F-6124_cis_fix', 'To establish the recommended configuration via GP, set the following UI path to Enabled: Application Opt-Out: Computer Configuration\Policies\Administrative Templates\Windows Components\EMET\System SEHOP','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6124','C-6124_cis_chk', 'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\EMET\SysSettings:SEHOP: 2','Customized rule by Cloud Raxak') from dual;
+
+--CIS 18.9.65.1  (L1)
+select add_rule_data ('default','V-6125','sv-6125_cis_rule','default','medium','Ensure Turn off KMS Client Online AVS Validation is set to Enabled', 'The Key Management Service (KMS) is a Microsoft license activation method that entails setting up a local server to store the software licenses. The KMS server itself needs to connect to Microsoft to activate the KMS service, but subsequent on-network clients can activate Microsoft Windows OS and/or their Microsoft Office via the KMS server instead of connecting directly to Microsoft. This policy setting lets you opt-out of sending KMS client activation data to Microsoft automatically. The recommended state for this setting is: Enabled','F-6125_cis_fix','To establish the recommended configuration via GP, set the following UI path to Enabled: Computer Configuration\Policies\Administrative Templates\Windows Components\Software Protection Platform\Turn off KMS Client Online AVS Validation','CIS Microsoft Windows Server 2012 R2','Profile Customized by CloudRaxak','WN12-CIS-6125','C-6125_cis_chk', 'Navigate to the UI Path articulated in the Remediation section and confirm it is set as prescribed. This group policy setting is backed by the following registry location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform:NoGenTicket: 1','Customized rule by Cloud Raxak') from dual;

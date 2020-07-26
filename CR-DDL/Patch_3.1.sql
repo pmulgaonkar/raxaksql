@@ -1405,7 +1405,9 @@ if ( updating ) then
                v_found := 1;
                begin
                    select v_id into :new.parent_id from dual;
-                   select v_expiry into :new.user_expiry_date from dual;
+                   if :new.user_expiry_date > v_expiry then
+                       select v_expiry into :new.user_expiry_date from dual;
+                   end if;
                 exception
                    when others then raise_application_error ( -20001, 'Error : 20001 : Error updating new parent');
                 end;

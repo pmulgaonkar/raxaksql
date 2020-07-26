@@ -10318,8 +10318,8 @@ ResourceID = "[GPRegistry]V-56335";
 '";
  ValueType = "DWord";
  ModuleName = "xGPRegistry";
- ValueData = "0";
- Property = "Domain:InboundUserNotification:Enable";
+ ValueData = "1";
+ Property = "Domain:InboundUserNotification:Disable";
  PolicyName = "Display a notification";
  ModuleVersion = "1.0";
  ValueName = "DisableNotifications";
@@ -10559,8 +10559,8 @@ ResourceID = "[GPRegistry]V-56342";
 '";
  ValueType = "DWord";
  ModuleName = "xGPRegistry";
- ValueData = "0";
- Property = "Private:InboundUserNotification:Enable";
+ ValueData = "1";
+ Property = "Private:InboundUserNotification:Disable";
  PolicyName = "Display a notification";
  ModuleVersion = "1.0";
  ValueName = "DisableNotifications";
@@ -10801,7 +10801,7 @@ ResourceID = "[GPRegistry]V-56349";
  ValueType = "DWord";
  ModuleName = "xGPRegistry";
  ValueData = "1";
- Property = "Public:InboundUserNotification:Enable";
+ Property = "Public:InboundUserNotification:Disable";
  PolicyName = "Display a notification";
  ModuleVersion = "1.0";
  ValueName = "DisableNotifications";
@@ -19629,7 +19629,7 @@ ResourceID = "[DSCRegistry]V-6029";
 select 'instance of GPRegistry as $GPRegistry57ref
 {
 ResourceID = "[GPRegistry]V-6030";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19665,7 +19665,7 @@ ResourceID = "[GPRegistry]V-6030";
 select 'instance of GPRegistry as $GPRegistry58ref
 {
 ResourceID = "[GPRegistry]V-6031";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19701,7 +19701,7 @@ ResourceID = "[GPRegistry]V-6031";
 select 'instance of GPRegistry as $GPRegistry59ref
 {
 ResourceID = "[GPRegistry]V-6032";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19737,7 +19737,7 @@ ResourceID = "[GPRegistry]V-6032";
 select 'instance of GPRegistry as $GPRegistry60ref
 {
 ResourceID = "[GPRegistry]V-6033";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19773,7 +19773,7 @@ ResourceID = "[GPRegistry]V-6033";
 select 'instance of GPRegistry as $GPRegistry61ref
 {
 ResourceID = "[GPRegistry]V-6034";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19809,7 +19809,7 @@ ResourceID = "[GPRegistry]V-6034";
 select 'instance of GPRegistry as $GPRegistry62ref
 {
 ResourceID = "[GPRegistry]V-6035";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19845,7 +19845,7 @@ ResourceID = "[GPRegistry]V-6035";
 select 'instance of GPRegistry as $GPRegistry63ref
 {
 ResourceID = "[GPRegistry]V-6036";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19881,7 +19881,7 @@ ResourceID = "[GPRegistry]V-6036";
 select 'instance of GPRegistry as $GPRegistry64ref
 {
 ResourceID = "[GPRegistry]V-6037";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19917,7 +19917,7 @@ ResourceID = "[GPRegistry]V-6037";
 select 'instance of GPRegistry as $GPRegistry65ref
 {
 ResourceID = "[GPRegistry]V-6038";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19953,7 +19953,7 @@ ResourceID = "[GPRegistry]V-6038";
 select 'instance of GPRegistry as $GPRegistry66ref
 {
 ResourceID = "[GPRegistry]V-6039";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -19989,7 +19989,7 @@ ResourceID = "[GPRegistry]V-6039";
 select 'instance of GPRegistry as $GPRegistry67ref
 {
 ResourceID = "[GPRegistry]V-6040";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -20025,7 +20025,7 @@ ResourceID = "[GPRegistry]V-6040";
 select 'instance of GPRegistry as $GPRegistry68ref
 {
 ResourceID = "[GPRegistry]V-6041";
- Manual = "True";
+ Manual = "False";
  Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
  Category = "Firewall";
  RuleStatus = "Default";
@@ -20180,7 +20180,7 @@ ResourceID = "[DSCRegistry]V-6058";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "1";
+ ValueData = "0";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -20440,7 +20440,7 @@ ResourceID = "[DSCRegistry]V-6066";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "1";
+ ValueData = "0";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -20540,7 +20540,7 @@ ResourceID = "[DSCRegistry]V-6069";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "1";
+ ValueData = "0";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -20646,7 +20646,7 @@ ResourceID = "[GPRegistry]V-6079-2";
 ---
 
 --CIS 18.9.39.1.1 (L2)
-select 'instance of DSCRegistry as $DSCRegistry342ref
+select 'instance of DSCRegistry as $DSCRegistry340ref
 {
 ResourceID = "[DSCRegistry]V-6080";
  ValueName = "DisableWindowsLocationProvider";
@@ -20736,7 +20736,7 @@ ResourceID = "[DSCRegistry]V-6085";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "1";
+ ValueData = "0";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -20802,7 +20802,7 @@ ResourceID = "[DSCRegistry]V-6087";
 '";
  ValueType = "Dword";
  ModuleName = "xDSCRegistry";
- ValueData = "0";
+ ValueData = "1";
  ModuleVersion = "1.0";
 
 };' into v_str from dual ;
@@ -21337,14 +21337,42 @@ ResourceID = "[CustomRegistry]V-6083";
 --CIS 18.9.80.1.1 (L1)
 select 'instance of CustomRegistry as $CustomRegistry69ref
 {
-ResourceID = "[CustomRegistry]V-6091";
+ResourceID = "[CustomRegistry]V-6091-1";
  Desired = "1";
  ValueName = "EnableSmartScreen";
+ Manual = "True";
  ValueType = "Dword";
  RuleStatus = "Default";
- Manual = "True";
  SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::6091::5::CustomRegistry";
- RuleNumber = "V-6091";
+ RuleNumber = "V-6091-1";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6091' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6091')) || 
+'";
+ ModuleName = "xCustomRegistry";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ModuleVersion = "1.0";
+
+};
+
+instance of CustomRegistry as $CustomRegistry77ref
+{
+ResourceID = "[CustomRegistry]V-6091-2";
+ Desired = "Warn and prevent bypass";
+ ValueName = "ShellSmartScreenLevel";
+  Manual = "True";
+ ValueType = "String";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::6091-2::5::CustomRegistry";
+ RuleNumber = "V-6091-2";
  Severity = "'||
  (select CRITICALITY_ID from cpe_rule_header where id IN 
                    (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
@@ -21534,6 +21562,1646 @@ ResourceID = "[CustomRegistry]V-6098";
   v_total := v_total + 1;
 ---
 
+---CIS 2012 R2 and 2016 New Rules 
+
+select 'instance of DSCRegistry as $DSCRegistry348ref
+{
+ResourceID = "[DSCRegistry]V-6115-1";
+ ValueName = "AntiDetours";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\EMET\\SysSettings";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::20::9::DSCRegistry";
+ RuleNumber = "V-6115-1";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};
+
+instance of DSCRegistry as $DSCRegistry349ref
+{
+ResourceID = "[DSCRegistry]V-6115-2";
+ ValueName = "BannedFunctions";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\EMET\\SysSettings";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::32::9::DSCRegistry";
+ RuleNumber = "V-6115-2";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};
+
+instance of DSCRegistry as $DSCRegistry350ref
+{
+ResourceID = "[DSCRegistry]V-6115-3";
+ ValueName = "DeepHooks";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\EMET\\SysSettings";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::43::9::DSCRegistry";
+ RuleNumber = "V-6115-3";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};
+
+instance of DSCRegistry as $DSCRegistry351ref
+{
+ResourceID = "[DSCRegistry]V-6115-4";
+ ValueName = "ExploitAction";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\EMET\\SysSettings";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::54::9::DSCRegistry";
+ RuleNumber = "V-6115-4";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6115')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "2";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6115' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry352ref
+{
+ResourceID = "[DSCRegistry]V-6116";
+ ValueName = "*\\Internet Explorer\\iexplore.exe";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\EMET\\Defaults";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::109::3::DSCRegistry";
+ RuleNumber = "V-6116";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6116' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6116')) || 
+'";
+ ValueType = "String";
+ ModuleName = "xDSCRegistry";
+ ValueData = "+EAF+ eaf_modules:mshtml.dll;flash*.ocx;jscript*.dll;vbscript.dll;vgx.dll +ASR asr_modules:npjpi*.dll;jp2iexp.dll;vgx.dll;msxml4*.dll;wshom.ocx;scrrun.dll;vbscript.dll asr_zones:1;2";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6116' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+
+select 'instance of DSCRegistry as $DSCRegistry353ref
+{
+ResourceID = "[DSCRegistry]V-6122";
+ ValueName = "ASLR";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\EMET\\SysSettings";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::109::3::DSCRegistry";
+ RuleNumber = "V-6122";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6122' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6122')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "3";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6122' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry354ref
+{
+ResourceID = "[DSCRegistry]V-6123";
+ ValueName = "DEP";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\EMET\\SysSettings";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::109::3::DSCRegistry";
+ RuleNumber = "V-6123";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6123' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6123')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "2";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6123' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry355ref
+{
+ResourceID = "[DSCRegistry]V-6124";
+ ValueName = "SEHOP";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\EMET\\SysSettings";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::109::3::DSCRegistry";
+ RuleNumber = "V-6124";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6124' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6124')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "2";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6124' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+   select 'instance of Privilege as $Privilege100ref
+{
+ResourceID = "[Privilege]V-6099";
+ RuleStatus = "Default";
+ ModuleVersion = "1.0";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2272::9::Privilege";
+ RuleNumber = "V-6099";
+ Members = {
+    "BUILTIN\\Administrators"    
+};
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6099' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6099')) || 
+'";
+ ModuleName = "xPrivilege";
+ Privilege = "SeMachineAccountPrivilege";
+ Operation = "Add-Allow Only";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6099' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+   select 'instance of Privilege as $Privilege101ref
+{
+ResourceID = "[Privilege]V-6100";
+ RuleStatus = "Default";
+ Members = {
+    "BUILTIN\\Administrators"
+};
+ ModuleVersion = "1.0";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2272::9::Privilege";
+ RuleNumber = "V-6100";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6100' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6100')) || 
+'";
+ ModuleName = "xPrivilege";
+ Privilege = "SeBatchLogonRight";
+ Operation = "Add-Allow Only";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6100' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+   select 'instance of Privilege as $Privilege102ref
+{
+ResourceID = "[Privilege]V-6101";
+ RuleStatus = "Default";
+ ModuleVersion = "1.0";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2272::9::Privilege";
+ RuleNumber = "V-6101";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6101' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6101')) || 
+'";
+ ModuleName = "xPrivilege";
+ Privilege = "SeSyncAgentPrivilege";
+ Operation = "Remove All";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6101' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry400ref
+{
+ResourceID = "[DSCRegistry]V-6102";
+ ValueName = "SubmitControl";
+ Key = "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Lsa";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6102";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6102' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6102')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6102' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of CustomRegistry as $CustomRegistry401ref
+{
+ResourceID = "[CustomRegistry]V-6103";
+ Desired = "2";
+ ValueName = "LDAPServerIntegrity";
+ ValueType = "Dword";
+ RuleStatus = "Default";
+ Manual = "True";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::6098::5::CustomRegistry";
+ RuleNumber = "V-6103";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6103' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6103')) || 
+'";
+ ModuleName = "xCustomRegistry";
+ Key = "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\NTDS\\Parameters";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6103' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry343ref
+{
+ResourceID = "[DSCRegistry]V-6104";
+ ValueName = "RefusePasswordChange";
+ Key = "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Netlogon\\Parameters";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6104";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6104' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6104')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6104' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry380ref
+{
+ResourceID = "[DSCRegistry]V-6146";
+ ValueName = "restrictremotesam";
+ Key = "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Lsa";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6146";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6146' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6146')) || 
+'";
+ ValueType = "String";
+ ModuleName = "xDSCRegistry";
+ ValueData = "O:BAG:BAD:(A;;RC;;;BA)" ;
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6146' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of AuditPol as $AuditPol403ref
+{
+ResourceID = "[AuditPol]V-6105";
+ RuleStatus = "Default";
+ AuditPolicy = "Distribution Group Management";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2633::9::AuditPol";
+ RuleNumber = "V-6105";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6105' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6105')) || 
+'";
+ Desired = "Success and Failure";
+ ModuleName = "xAuditPol";
+ ModuleVersion = "1.1";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6105' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of AuditPol as $AuditPol375ref
+{
+ResourceID = "[AuditPol]V-6143";
+ RuleStatus = "Default";
+ AuditPolicy = "Plug and Play Events";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2633::9::AuditPol";
+ RuleNumber = "V-6143";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6143' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6143')) || 
+'";
+ Desired = "Success";
+ ModuleName = "xAuditPol";
+ ModuleVersion = "1.1";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6143' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of AuditPol as $AuditPol404ref
+{
+ResourceID = "[AuditPol]V-6106";
+ RuleStatus = "Default";
+ AuditPolicy = "Directory Service Access";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2633::9::AuditPol";
+ RuleNumber = "V-6106";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6106' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6106')) || 
+'";
+ Desired = "Success and Failure";
+ ModuleName = "xAuditPol";
+ ModuleVersion = "1.1";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6106' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of AuditPol as $AuditPol405ref
+{
+ResourceID = "[AuditPol]V-6107";
+ RuleStatus = "Default";
+ AuditPolicy = "Directory Service Changes";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2633::9::AuditPol";
+ RuleNumber = "V-6107";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6107' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6107')) || 
+'";
+ Desired = "Success and Failure";
+ ModuleName = "xAuditPol";
+ ModuleVersion = "1.1";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6107' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of AuditPol as $AuditPol376ref
+{
+ResourceID = "[AuditPol]V-6144";
+ RuleStatus = "Default";
+ AuditPolicy = "Group Membership";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2633::9::AuditPol";
+ RuleNumber = "V-6144";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6144' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6144')) || 
+'";
+ Desired = "Success";
+ ModuleName = "xAuditPol";
+ ModuleVersion = "1.1";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6144' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry357ref
+{
+ResourceID = "[DSCRegistry]V-6126";
+ ValueName = "AllowInputPersonalization";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\InputPersonalization";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::20::9::DSCRegistry";
+ RuleNumber = "V-6126";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6126' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6126')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6126' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry344ref
+{
+ResourceID = "[DSCRegistry]V-6108";
+ ValueName = "DllName";
+ Key = "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\GPExtensions\\{D76B9641-3288-4f75-942D-087DE603E3EA}";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6108";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6108' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6108')) || 
+'";
+ ValueType = "String";
+ ModuleName = "xDSCRegistry";
+ ValueData = "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6108' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry345ref
+{
+ResourceID = "[DSCRegistry]V-6109";
+ ValueName = "PwdExpirationProtectionEnabled";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft Services\\AdmPwd";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6109";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6109' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6109')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6109' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry346ref
+{
+ResourceID = "[DSCRegistry]V-6110";
+ ValueName = "AdmPwdEnabled";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft Services\\AdmPwd";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6110";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6110' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6110')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6110' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry347ref
+{
+ResourceID = "[DSCRegistry]V-6111";
+ ValueName = "PasswordComplexity";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft Services\\AdmPwd";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6111";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6111' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6111')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "4";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6111' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of CustomRegistry as $CustomRegistry406ref
+{
+ResourceID = "[CustomRegistry]V-6112";
+ Minimum = "15";
+ Maximum = "64";
+ ValueName = "PasswordLength";
+ ValueType = "Dword";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::6098::5::CustomRegistry";
+ RuleNumber = "V-6112";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6112' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6112')) || 
+'";
+ ModuleName = "xCustomRegistry";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft Services\\AdmPwd";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6112' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of CustomRegistry as $CustomRegistry40ref
+{
+ResourceID = "[CustomRegistry]V-6113";
+ Minimum = "1";
+ Maximum = "30";
+ ValueName = "PasswordAgeDays";
+ ValueType = "Dword";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::6098::5::CustomRegistry";
+ RuleNumber = "V-6113";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6113' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6113')) || 
+'";
+ ModuleName = "xCustomRegistry";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft Services\\AdmPwd";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6113' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry358ref
+{
+ResourceID = "[DSCRegistry]V-6127";
+ ValueName = "EnableFontProviders";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\Windows\\System";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6127";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6127' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6127')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;  
+
+
+  if create_mof ( v_str , 'V-6127' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry359ref
+{
+ResourceID = "[DSCRegistry]V-6128";
+ ValueName = "NC_ShowSharedAccessUI";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Network Connections";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6128";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6128' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6128')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;  
+
+  if create_mof ( v_str , 'V-6128' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry361ref
+{
+ResourceID = "[DSCRegistry]V-6129";
+ ValueName = "EnableCdp";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\Windows\\System";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6129";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6129' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6129')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6129' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry362ref
+{
+ResourceID = "[DSCRegistry]V-6130-1";
+ ValueName = "DevicePKInitBehavior";
+ Key = "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\kerberos\\parameters";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6130-1";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6130' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6130')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+}; 
+
+instance of DSCRegistry as $DSCRegistry363ref
+{
+ResourceID = "[DSCRegistry]V-6130-2";
+ ValueName = "DevicePKInitEnabled";
+ Key = "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\kerberos\\parameters";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6130-2";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6130' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6130')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6130' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry364ref
+{
+ResourceID = "[DSCRegistry]V-6131";
+ ValueName = "BlockUserFromShowingAccountDetailsOnSignin";
+ Key = "HKLM:\\Software\\Policies\\Microsoft\\Windows\\System";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6131";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6131' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6131')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6131' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry382ref
+{
+ResourceID = "[DSCRegistry]V-6145";
+ ValueName = "MitigationOptions_FontBocking";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\MitigationOptions";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6145";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6145' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6145')) || 
+'";
+ ValueType = "String";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1000000000000";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6145' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry365ref
+{
+ResourceID = "[DSCRegistry]V-6132";
+ ValueName = "DCSettingIndex";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\f15576e8-98b7-4186-b944-eafa664402d9";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6132";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6132' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6132')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6132' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry366ref
+{
+ResourceID = "[DSCRegistry]V-6133";
+ ValueName = "AllowSharedLocalAppData";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\AppModel\\StateManager";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6133";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6133' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6133')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6133' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry367ref
+{
+ResourceID = "[DSCRegistry]V-6134";
+ ValueName = "AllowCamera";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Camera";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6134";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6134' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6134')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6134' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry368ref
+{
+ResourceID = "[DSCRegistry]V-6135";
+ ValueName = "DisableWindowsConsumerFeatures";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6135";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6135' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6135')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6135' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry369ref
+{
+ResourceID = "[DSCRegistry]V-6136";
+ ValueName = "RequirePinForPairing";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Connect";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6136";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6136' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6136')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6136' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry370ref
+{
+ResourceID = "[DSCRegistry]V-6137";
+ ValueName = "AllowTelemetry";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6137";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6137' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6137')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6137' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+	select 'instance of DSCRegistry as $DSCRegistry371ref
+{
+ResourceID = "[DSCRegistry]V-6138";
+ ValueName = "DoNotShowFeedbackNotifications";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6138";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6138' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6138')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1" ;
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6138' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+	select 'instance of DSCRegistry as $DSCRegistry372ref
+{
+ResourceID = "[DSCRegistry]V-6139";
+ ValueName = "AllowBuildPreview";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\PreviewBuilds";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6139";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6139' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6139')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0" ;
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6139' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry401ref
+
+{
+ResourceID = "[DSCRegistry]V-6125";
+ ValueName = "NoGenTicket";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\Software Protection Platform";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::109::3::DSCRegistry";
+ RuleNumber = "V-6125";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6125' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6125')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6125' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of DSCRegistry as $DSCRegistry373ref
+{
+ResourceID = "[DSCRegistry]V-6140";
+ ValueName = "AllowSuggestedAppsInWindowsInkWorkspace";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsInkWorkspace";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6140";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6140' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6140')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0" ;
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+
+  if create_mof ( v_str , 'V-6140' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+	select 'instance of DSCRegistry as $DSCRegistry374ref
+{
+ResourceID = "[DSCRegistry]V-6141";
+ ValueName = "AllowWindowsInkWorkspace";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\WindowsInkWorkspace";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6141";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6141' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6141')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0" ;
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6141' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+
+	select 'instance of DSCRegistry as $DSCRegistry375ref
+{
+ResourceID = "[DSCRegistry]V-6142-1";
+ ValueName = "DeferQualityUpdates";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6142-1";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6142' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6142')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};
+
+instance of DSCRegistry as $DSCRegistry376ref
+{
+ResourceID = "[DSCRegistry]V-6142-2";
+ ValueName = "DeferQualityUpdatesPeriodInDays";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\MitigationOptions:";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::175::3::DSCRegistry";
+ RuleNumber = "V-6142-2";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6142' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6142')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+  if create_mof ( v_str , 'V-6142' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+	select 'instance of DSCRegistry as $DSCRegistry348ref
+{
+ResourceID = "[DSCRegistry]V-6147";
+ ValueName = "AllowInsecureGuestAuth";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\LanmanWorkstation";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6147";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6147' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6147')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "0";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6147' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+	select 'instance of DSCRegistry as $DSCRegistry349ref
+{
+ResourceID = "[DSCRegistry]V-6148";
+ ValueName = "EnhancedAntiSpoofing";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Biometrics\\FacialFeatures";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6148";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6148' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6148')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6148' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+   select 'instance of DSCRegistry as $DSCRegistry350ref
+{
+ResourceID = "[DSCRegistry]V-6149";
+ ValueName = "EnableConfigFlighting";
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\PreviewBuilds";
+ Ensure = "Present";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2258::7::DSCRegistry";
+ RuleNumber = "V-6149";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6149' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-6149')) || 
+'";
+ ValueType = "Dword";
+ ModuleName = "xDSCRegistry";
+ ValueData = "1";
+ ModuleVersion = "1.0";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-6149' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+
+  select 'instance of AccountSecurity as $AccountSecurity403ref
+{
+ResourceID = "[AccountSecurity]V-1114";
+ Manual = "False";
+ RuleStatus = "Default";
+ SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::2954::9::AccountSecurity";
+ RuleNumber = "V-1114";
+ Severity = "'||
+ (select CRITICALITY_ID from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-1114' )) ||
+'";
+ RuleId = "'|| 
+ (select id from cpe_rule_header where id IN 
+                   (select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c 
+                    where  a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and 
+                    c.id = b.base_rule_id and c.name= 'V-1114')) || 
+'";
+ Desired = "Visitor";
+ ModuleName = "xAccountSecurity";
+ AccountPolicy = "RenameGuest";
+ ModuleVersion = "1.1";
+
+};' into v_str from dual ; 
+
+  if create_mof ( v_str , 'V-1114' ) = 'OK' then v_success := v_success + 1; end if; 
+  v_total := v_total + 1;
+---
+
+select 'instance of SystemCheck as $SystemCheck12ref
+{
+ResourceID = "[SystemCheck]V-6114";
+Manual = "False";
+RuleNumber = "V-6114";
+Severity = "'||
+(select CRITICALITY_ID from cpe_rule_header where id IN
+(select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c
+where a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and
+c.id = b.base_rule_id and c.name= 'V-6114' )) ||
+'";
+RuleId = "'||
+(select id from cpe_rule_header where id IN
+(select max(c.id) from cpe_profile a, cpe_profile_member b , cpe_rule_header c
+where a.created_by = 'Profile by Cloud Raxak' and b.profile_id = a.id and
+c.id = b.base_rule_id and c.name= 'V-6114')) ||
+'";
+RuleStatus = "Default";
+SourceInfo = "C:\\Users\\Administrator\\All-rules-testing-profiles.ps1::3835::9::SystemCheck";
+Category = "EMET";
+Desired = "5.52";
+ModuleName = "xSystemCheck";
+ModuleVersion = "1.0";
+
+};' into v_str from dual ;
+
+if create_mof ( v_str , 'V-6114' ) = 'OK' then v_success := v_success + 1; end if;
+v_total := v_total + 1;
+---
 
   result := result || ' Total attempted : ' || v_total || ' , Total success : ' || v_success;
   return result;

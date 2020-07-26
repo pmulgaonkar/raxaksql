@@ -48,9 +48,9 @@ INSERT INTO CPE_USER_PROFILE (PERMITTED_USER_ID, GRANTED_BY_USER_ID, CREATED_BY 
                            '[debian-based Linux] DISA - Mission Critical Classified (Subset)', '[debian-based Linux] DISA - Mission Critical Classified (Full)',
                            '[debian-based Linux] PCI-DSS Compliance (Full)','[debian-based Linux] CIS Profile - Ubuntu 18.04 (Subset)',
                            '[rpm-based Linux] DISA - Mission Critical Classified (Full)','[rpm-based Linux] DISA - Mission Critical Classified (Subset)','[rpm-based Linux] PCI-DSS Compliance (Full)',
-                           '[rpm-based Linux] CIS Profile (Subset)','[debian-based Linux] CIS Profile (Subset)',
+                           '[rpm-based Linux] CIS Profile (Subset)','[rpm-based Linux] CIS Profile (Full)','[debian-based Linux] CIS Profile (Subset)',
                            'Microsoft Windows Server 2008 R2 Master Profile','Microsoft Windows Server 2012 R2 Master Profile',
-                           '[debian-based Linux] Master Profile','[rpm-based Linux] Master Profile');
+                           '[debian-based Linux] Master Profile','[rpm-based Linux] Master Profile','CIS Microsoft Windows Server 2016');
 -- Updating custom user Org ID - ID of custom Org
 UPDATE CPE_USER SET USER_ORG_ID = ( SELECT ID FROM CPE_ORGANIZATION WHERE NAME = '&3') WHERE LOGIN_ID = '&1';
 
@@ -76,4 +76,7 @@ values
 (  XMLTYPE('<Info><MyIP> &5 </MyIP></Info>'),
   (select id from cpe_user where parent_id is null)
 ) ;
+
+INSERT INTO CPE_APP_CLUSTER (APPLIANCE_NAME, GUID, IP, SOURCE, CREATED_BY, IS_ACTIVE)
+VALUES('&6', '&7', '&5', 'local','&1','Y');
 commit;

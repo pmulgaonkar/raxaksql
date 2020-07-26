@@ -415,7 +415,7 @@ begin
             where resource_mgmt_id IN ( select id from cpe_resource_mgmt
                                         where resource_id = (select resource_id from cpe_resource_mgmt where id = c_id)
                                       )
-            and overall_status IN  ('RUNNING','QUEUED','READY') ;
+            and overall_status IN  ('RUNNING','READY') ;
           exception
             when others then v_qid := 0 ;
         end;
