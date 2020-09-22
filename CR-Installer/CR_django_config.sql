@@ -11,6 +11,20 @@ Begin
     end if;
 End;
 /
+DECLARE
+    iplist VARCHAR2(1000) := '&3';
+BEGIN
+    if iplist is not null then
+        FOR ip IN
+            (SELECT trim(regexp_substr(iplist, '[^,]+', 1, LEVEL)) address FROM dual
+            CONNECT BY LEVEL <= regexp_count(iplist, ',')+1)
+            LOOP     
+                insert into DJANGO_SITE (domain,name) values (ip.address, 'Domain based IP');
+            END LOOP;
+    end if;
+END;
+/
+
 PROMPT Now enable social acount login via Django
 delete from SOCIALACCOUNT_SOCIALTOKEN;
 delete from SOCIALACCOUNT_SOCIALAPP_SITES;
