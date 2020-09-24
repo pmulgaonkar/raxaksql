@@ -11,6 +11,7 @@ Begin
     end if;
 End;
 /
+set serveroutput on
 DECLARE
     iplist VARCHAR2(1000) := '&3';
 BEGIN
@@ -18,7 +19,8 @@ BEGIN
         FOR ip IN
             (SELECT trim(regexp_substr(iplist, '[^,]+', 1, LEVEL)) address FROM dual
             CONNECT BY LEVEL <= regexp_count(iplist, ',')+1)
-            LOOP     
+            LOOP
+                dbms_output.put_line(ip.address);
                 insert into DJANGO_SITE (domain,name) values (ip.address, 'Domain based IP');
             END LOOP;
     end if;
