@@ -14,6 +14,7 @@ End;
 set serveroutput on
 DECLARE
     iplist VARCHAR2(1000) := '&3';
+    id number(16);
 BEGIN
     if iplist is not null then
         FOR ip IN
@@ -21,7 +22,8 @@ BEGIN
             CONNECT BY LEVEL <= regexp_count(iplist, ',')+1)
             LOOP
                 dbms_output.put_line(ip.address);
-                insert into DJANGO_SITE (domain,name) values (ip.address, 'Domain based IP');
+                SELECT "DJANGO_SITE_SQ".nextval INTO id FROM dual;
+                insert into DJANGO_SITE (id,domain,name) values (id,ip.address, 'Domain based IP');
             END LOOP;
     end if;
 END;
