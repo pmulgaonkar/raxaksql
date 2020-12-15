@@ -80,3 +80,6 @@ values
 INSERT INTO CPE_APP_CLUSTER (APPLIANCE_NAME, GUID, IP, SOURCE, CREATED_BY, IS_ACTIVE)
 VALUES('&6', '&7', '&5', 'local','&1','Y');
 commit;
+
+INSERT INTO CPE_LOGIN_BANNER (message_type,message,create_date) VALUES ('Appliance Message','This is a Licensed Appliance',(SELECT SYSDATE FROM dual));
+INSERT INTO CPE_SYSTEM_TOGGLES (toggle,is_active,create_date) VALUES ('IP_WHITELIST','N',(SELECT SYSDATE FROM dual));

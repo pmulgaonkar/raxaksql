@@ -38,6 +38,10 @@ drop table CPE_USAGE_LOG			cascade constraints purge;
 drop table Appliance_Details			cascade constraints purge;
 drop table LDAP_SERVER_CONFIG			cascade constraints purge;
 
+drop table CPE_LOGIN_BANNER			cascade constraints purge;
+drop table CPE_IP_WHITELIST			cascade constraints purge;
+drop table CPE_SYSTEM_TOGGLES	    cascade constraints purge;
+drop table CPE_RESOURCE_ACTIVE		cascade constraints purge;
 drop sequence CPE_SYSTEM_SEQ;
 
 BEGIN
@@ -913,7 +917,7 @@ CREATE TABLE CPE_USAGE_LOG
     UPDATED_BY          VARCHAR2 (64) ,
     UPDATE_DATE         TIMESTAMP  ,
     USER_TYPE_ID NUMBER (16),
-    SEVERITY NUMBER (16)
+    SEVERITY varchar2 (22)
   ) ;
 
 CREATE TABLE LDAP_SERVER_CONFIG
@@ -929,7 +933,48 @@ CREATE TABLE LDAP_SERVER_CONFIG
       UPDATE_DATE TIMESTAMP
    );
 
+CREATE TABLE CPE_LOGIN_BANNER (
+    id NUMBER(16),
+    message_type VARCHAR(64) unique,
+    message VARCHAR(140),
+    create_date TIMESTAMP,
+    update_date TIMESTAMP
+);
 
+CREATE TABLE CPE_IP_WHITELIST (
+    id NUMBER (16) NOT NULL,
+    ip_address VARCHAR(16) UNIQUE,
+    create_date TIMESTAMP,
+    comments VARCHAR(64),
+    updated_by NUMBER (16),
+    created_by NUMBER (16),
+    update_date TIMESTAMP
+);
+
+CREATE TABLE CPE_SYSTEM_TOGGLES (
+    id NUMBER (16) NOT NULL,
+    toggle VARCHAR(64) NOT NULL,
+    is_active VARCHAR(1),
+    create_date TIMESTAMP,
+    updated_by NUMBER (16),
+    created_by NUMBER (16),
+    update_date TIMESTAMP,
+    CONSTRAINT check_status CHECK (is_active IN ('Y' ,'N'))
+);
+
+CREATE TABLE CPE_RESOURCE_ACTIVE (
+    id NUMBER (16) NOT NULL,
+    resource_id NUMBER (16) NOT NULL,
+    owner_id NUMBER (16) NOT NULL,
+    activation_date TIMESTAMP,
+    deactivation_date TIMESTAMP,
+    updated_by NUMBER (16),
+    created_by NUMBER (16),
+    create_date TIMESTAMP,
+    update_date TIMESTAMP,
+    CONSTRAINT CPE_RESOURCE_ACTIVE_FK_1 FOREIGN KEY (resource_id) REFERENCES CPE_RESOURCE (id),
+    CONSTRAINT CPE_RESOURCE_ACTIVE_FK_2 FOREIGN KEY (owner_id) REFERENCES CPE_USER (id)
+);
 
 PROMPT Add some table constraints
 PROMPT let us start with primary keys
@@ -1407,7 +1452,38 @@ end;
 /
 ALTER TRIGGER "CPE_USAGE_LOG_TRIG0" ENABLE;
 /
+
 PROMPT now the regular stuff....insert update ....
+create or replace TRIGGER CPE_LOGIN_BANNER_TRIG1 before INSERT ON CPE_LOGIN_BANNER for each row
+begin
+    select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
+end;
+/
+ALTER TRIGGER "CPE_LOGIN_BANNER_TRIG1" ENABLE;
+/
+create or replace TRIGGER CPE_IP_WHITELIST_TRIG1 before INSERT ON CPE_IP_WHITELIST for each row
+begin
+    select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
+end;
+/
+ALTER TRIGGER "CPE_IP_WHITELIST_TRIG1" ENABLE;
+/
+create or replace TRIGGER CPE_SYSTEM_TOGGLES_TRIG1 before INSERT ON CPE_SYSTEM_TOGGLES for each row
+begin
+    select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
+end;
+/
+ALTER TRIGGER "CPE_SYSTEM_TOGGLES_TRIG1" ENABLE;
+/
+create or replace TRIGGER CPE_RESOURCE_ACTIVE_TRIG1 before INSERT ON CPE_RESOURCE_ACTIVE for each row
+begin
+    select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
+end;
+/
+ALTER TRIGGER "CPE_RESOURCE_ACTIVE_TRIG1" ENABLE;
+/
+
+
 create or replace TRIGGER Appliance_Details_TRIG1 before INSERT ON Appliance_Details for each row
 begin
       select CPE_SYSTEM_SEQ.nextval into :new.ID from dual;
@@ -2079,6 +2155,7 @@ end;
 /
 ALTER TRIGGER "CPE_USER_PREFERENCE_TRIG1" ENABLE;
 /
+
 create or replace TRIGGER "CPE_USER_PROFILE_TRIG1" before insert on CPE_USER_PROFILE for each row
 DECLARE
 v_id number(16); v_login varchar2(1024); v_id2 number(16);

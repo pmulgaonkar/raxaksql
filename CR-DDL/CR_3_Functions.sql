@@ -2103,5 +2103,50 @@ return result;
 end INVOKE_REMEDIATE_BY_RULE;
 /
 
+CREATE OR REPLACE FORCE VIEW "RAXAK3"."CPE_RESOURCE_COMPLIANCE" ("ID", "RESOURCE_ID", "RESOURCE_NAME", "IP_ADDR", "RESOURCE_STATUS", "HEALTH", 
+        "PROFILE_NAME","COMPLIANCE_MODE", "COMPLIANCE_SCHEDULED_BY", "COMPLIANCE_STATUS", "COMPLIANCE_INFO", "COMPLIANCE_START_TIME", "COMPLIANCE_END_TIME",
+        "SUCCESS_COUNT", "FAILED_COUNT", "MANUAL_COUNT", "SKIPPED_COUNT", "TOTAL_COUNT", "OWNER_ID", "OWNER_LOGIN", "ORGNAME", "RESOURCE_TYPE", "RESOURCE_VERSION", "ACCESS_STATUS", "STATUS_DATE") AS 
+select  r.id, r.id resource_id, r.name  resource_name, ri."IP_ADDR", decode(r.is_active,'Y','Active','In-active') Resource_Status,
+    (case nvl(l.overall_health,-1) when -1 then
+        ( case l.overall_status when 'FAILED' then 'Last Run Unsuccessful'
+                                when 'COMPLETE' then 'Last Run Unsuccessful'
+                                when 'ABORTED' then 'Last Run Unsuccessful'
+                                when 'SKIPPED' then 'Last Run Unsuccessful'
+                                else 'Profile Run In-Progress'
+          end
+        )
+    else cast(lpad(round(l.overall_health),3,0) as varchar(7))  end) health, 
+    p.name Profile_name, decode(m.run_remediate,'N','Scan','Remediate') compliance_mode, m.created_by compliance_scheduled_by, l.overall_status compliance_status, l.overall_info compliance_info,
+    l.actual_start_time compliance_start_time, l.actual_end_time compliance_end_time,
+    rs."SUCCESS_COUNT",rs."FAILED_COUNT",rs."MANUAL_COUNT",rs."SKIPPED_COUNT",rs."TOTAL_COUNT",
+    u.id owner_id, u.login_id owner_login, o.name orgname,
+    t.level3 resource_type, v.resource_version resource_version, r.Status acces_status, r.status_date    
+from cpe_resource r, cpe_resource_log l, cpe_profile p, cpe_resource_mgmt m, cpe_user u, cpe_organization o, cpe_resource_type t,
+     cpe_resource_version v, cpe_user s,
+     XMLTABLE('/ResourceInfo/Info' PASSING r.resource_info
+      COLUMNS
+          os_name PATH 'os_name',
+          os_version PATH 'os_version',
+          os_architecture PATH 'os_architecture',
+          username PATH 'username',
+          ip_addr PATH 'ip_addr') ri,
+     XMLTABLE ('/ResourceLog/Info' PASSING l.log_xml
+      COLUMNS
+          success_count NUMBER PATH 'success_rules_count',
+          failed_count NUMBER PATH 'failure_rules_count',
+          manual_count NUMBER PATH 'manual_rules_count',
+          skipped_count NUMBER PATH 'skipped_rules_count',
+          total_count NUMBER PATH 'total_rules') rs
+WHERE
+     m.resource_id = r.id
+and l.resource_mgmt_id = m.id
+and l.id in (select id from cpe_resource_log
+            where resource_mgmt_id IN
+            (  (select ID from cpe_resource_mgmt where resource_id = r.id
+            and profile_id NOT IN
+             (SELECT ID FROM cpe_profile WHERE NAME ='Rule-by-rule Force Remediation -- Initiated by User')))
+            )
+and p.id = m.profile_id and u.id = r.owner_id and o.id = u.user_org_id and t.id = r.resource_type_id and v.id = r.resource_version_id and s.id = r.updated_by
+/
 PROMPT all done with functionas, procedures, view.
 PROMPT Good bye. 
