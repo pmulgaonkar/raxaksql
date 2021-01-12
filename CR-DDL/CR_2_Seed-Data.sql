@@ -450,5 +450,6 @@ INSERT INTO CPE_VIEW_LEVEL (Name, View_Type, Is_Active, CREATED_BY) VALUES ('by 
 INSERT INTO CPE_VIEW_LEVEL (Name, View_Type, Is_Active, CREATED_BY) VALUES ('in Users Organization', 'Org', 'Y', 'Seed_Data');
 INSERT INTO CPE_VIEW_LEVEL (Name, View_Type, Is_Active, CREATED_BY) VALUES ('in Users Organization and Child Organization', 'All_Org', 'Y', 'Seed_Data');
 
+INSERT INTO CPE_APP_CONFIG (name,is_config,is_active,config_data) VALUES ('email_notify','N','N','{"sender_email": "", "email_passwd": "", "smtp_server": "", "smtp_port": "", "receiver_email": "", "reply_email": "", "status_date":"", "last_status_date":"", "last_status_msg":""}');
 PROMPT all done with Seed Data
 PROMPT Good bye. 
